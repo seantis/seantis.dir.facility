@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<import-steps>
+<import-step id="seantis.dir.facility.installbehavior"
+           version="20110926-01"
+           handler="seantis.dir.facility.setuphandlers.installBehavior"
+           title="Register item behavior">
+Registers the seantis.dir.facility behavior for the seantis.dir.item
+</import-step>
+</import-steps>
