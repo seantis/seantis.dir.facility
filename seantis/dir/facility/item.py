@@ -2,6 +2,7 @@ from five import grok
 
 from zope.schema import TextLine
 from zope.interface import alsoProvides
+from plone.namedfile.field import NamedImage
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.app.dexterity.behaviors.metadata import MetadataBase
 from plone.app.dexterity.behaviors.metadata import DCFieldProperty
@@ -9,11 +10,16 @@ from collective.dexteritytextindexer import IDynamicTextIndexExtender
 from plone.directives import form
 
 from seantis.dir.base.item import IDirectoryItem
-
 from seantis.dir.facility import _
   
 class IFacilityDirectoryItem(form.Schema):
     """Extends the seantis.dir.IDirectoryItem."""
+
+    image = NamedImage(
+            title=_(u'Image'),
+            required=False,
+            default=None
+        )
 
     opening_hours = TextLine(
             title=_(u'Opening Hours'),
