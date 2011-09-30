@@ -1,9 +1,12 @@
+from five import grok
 from zope.interface import alsoProvides
 from plone.namedfile.field import NamedImage
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.app.dexterity.behaviors.metadata import MetadataBase
 from plone.app.dexterity.behaviors.metadata import DCFieldProperty
 from plone.directives import form
+
+from seantis.dir.base import directory
 
 from seantis.dir.facility import _
 
@@ -20,3 +23,8 @@ alsoProvides(IFacilityDirectory, IFormFieldProvider)
 
 class FacilityDirectory(MetadataBase):
     image = DCFieldProperty(IFacilityDirectory['image'])
+
+class View(directory.View):
+    grok.context(directory.IDirectory)
+    grok.require('zope2.View')
+    template = grok.PageTemplateFile('templates/directory.pt')

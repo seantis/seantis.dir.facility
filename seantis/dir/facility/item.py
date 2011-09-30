@@ -30,6 +30,7 @@ class IFacilityDirectoryItem(form.Schema):
 alsoProvides(IFacilityDirectoryItem, IFormFieldProvider)
 
 class FacilityDirectoryItem(MetadataBase):
+    image = DCFieldProperty(IFacilityDirectoryItem['image'])
     opening_hours = DCFieldProperty(IFacilityDirectoryItem['opening_hours'])
 
 
