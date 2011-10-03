@@ -4,7 +4,7 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       lang="en"
       metal:use-macro="context/main_template/macros/master"
-      i18n:domain="seantis.dir.base">
+      i18n:domain="seantis.dir.facility">
 <body>
 
 <metal:main fill-slot="main">
@@ -22,7 +22,8 @@
             <div id="directoryResultList">
               <div class="directoryResult" tal:repeat="item view/batch">
               <tal:block define="image nocall:item/image" condition="nocall:image">
-                  <h2 tal:content="item/title" />
+                  <a tal:attributes="href item/absolute_url"><h2 tal:content="item/title" /></a>
+                  <p tal:content="item/description"/>
                   <img tal:attributes="src string:${item/absolute_url}/@@download/image/${image/filename}" height="64" width="128"/>
               </tal:block>
               </div>

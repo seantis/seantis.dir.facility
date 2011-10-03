@@ -8,8 +8,9 @@ from plone.app.dexterity.behaviors.metadata import MetadataBase
 from plone.app.dexterity.behaviors.metadata import DCFieldProperty
 from collective.dexteritytextindexer import IDynamicTextIndexExtender
 from plone.directives import form
+from Products.CMFCore.utils import getToolByName
 
-from seantis.dir.base.item import IDirectoryItem
+from seantis.dir.base import item
 from seantis.dir.facility import _
   
 class IFacilityDirectoryItem(form.Schema):
@@ -29,13 +30,14 @@ class IFacilityDirectoryItem(form.Schema):
 
 alsoProvides(IFacilityDirectoryItem, IFormFieldProvider)
 
+
 class FacilityDirectoryItem(MetadataBase):
     image = DCFieldProperty(IFacilityDirectoryItem['image'])
     opening_hours = DCFieldProperty(IFacilityDirectoryItem['opening_hours'])
 
 
 class DirectoryItemSearchableTextExtender(grok.Adapter):
-    grok.context(IDirectoryItem)
+    grok.context(item.IDirectoryItem)
     grok.name('IFacilityDirectoryItem')
     grok.provides(IDynamicTextIndexExtender)
 
@@ -52,3 +54,20 @@ class DirectoryItemSearchableTextExtender(grok.Adapter):
                     ))
 
         return result
+
+class View(item.View):
+    grok.context(item.IDirectoryItem)
+
+    template = grok.PageTemplateFile('templates/item.pt')
+
+    def resources(self):
+        context = self.context
+        catalog = getToolByName(context, 'portal_catalog')
+        path = '/'.join(context.getPhysicalPath())
+
+        results = catalog(
+            path={'query': path, 'depth': 1},
+            portal_type='seantis.reservation.resource'
+        )
+
+        return [r.getObject() for r in results]
