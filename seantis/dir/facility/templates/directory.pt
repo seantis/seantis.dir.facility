@@ -7,6 +7,52 @@
       i18n:domain="seantis.dir.facility">
 <body>
 
+<metal:slot fill-slot="style_slot">
+  <style media="all" type="text/css">
+    .directoryResult {
+      border: solid #ddd 1px;
+      padding: 20px;
+      color: #3e5786;
+      margin-bottom: 20px;
+    }
+
+    .directoryResult:hover {
+      background-color: #ddd;
+    }
+
+    .directoryResult h2 {
+      padding-top: 0px;
+      margin-top: -10px;
+      margin-bottom: 10px;
+    }
+
+    .directoryImage {
+      padding: 0;
+      height: 64px;
+      width: 128px;
+
+      margin: 0;
+      margin-right: 25px;
+      float: left;
+    }
+
+    .directoryDescription {
+      float: left;
+      width: 50%;      
+    }
+
+    #directorySearchForm {
+      padding: 20px;
+      border: solid #ddd 1px;
+    }
+
+    .directorySearchFormButtons {
+      margin-top: 10px;
+    }
+
+  </style>
+</metal:slot>
+
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main">
         <div tal:replace="structure provider:plone.abovecontenttitle" />
@@ -20,13 +66,18 @@
         </tal:block>
         <div id="directoryInfo">
             <div id="directoryResultList">
-              <div class="directoryResult" tal:repeat="item view/batch">
-              <tal:block define="image nocall:item/image" condition="nocall:image">
-                  <a tal:attributes="href item/absolute_url"><h2 tal:content="item/title" /></a>
-                  <p tal:content="item/description"/>
-                  <img tal:attributes="src string:${item/absolute_url}/@@download/image/${image/filename}" height="64" width="128"/>
-              </tal:block>
-              </div>
+              <a tal:attributes="href item/absolute_url" tal:repeat="item view/batch">
+                <div class="directoryResult">
+                  <h2 tal:content="item/title" />
+                  <div class="directoryImage">
+                  <tal:block define="image nocall:item/image" condition="nocall:image">
+                    <img tal:attributes="src string:${item/absolute_url}/@@download/image/${image/filename}" height="64" width="128"/>
+                  </tal:block>
+                  </div>
+                  <p class="directoryDescription" tal:content="item/description"/>
+                  <div style="clear: both;"></div>
+                </div>
+              </a>
             </div>
         </div>
 

@@ -7,6 +7,75 @@
       i18n:domain="seantis.dir.facility">
 <body>
 
+<metal:slot fill-slot="style_slot">
+  <style media="all" type="text/css">
+
+    .directoryImage {
+      padding: 0;
+      height: 64px;
+      width: 128px;
+
+      margin: 0;
+      margin-right: 25px;
+      float: left;
+      margin-top: 10px;
+    }
+
+    .directoryDescription {
+      float: left;
+      width: 50%;    
+      margin-top: 10px;
+    }
+
+    .directoryChildren {
+      padding-top: 20px;
+    }
+
+    #directorySearchForm {
+      display: none;
+    }
+
+    .resourceIcon {
+      height: 32px;
+      width: 32px;
+      background-image: url(
+      data:application/text;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABOpJREFUeNq8V1toXUUU3TNzHjfV/IgG2wQRUq2PQIrapmlKA/WF5kdarH5I//VD8dM/Hx/+CYIK/osvmjTxQWNpxRaTtCG5txcbsMHUVopgFexXmuQ8xrXnce+5MSU3JbdD5uSsOTOz9tl77T3nCiIKlj/ZPhqJ5SHSOd2WJiSt6Pj7+LXfXggA26JAD9GTHxPlGT81fy1p2l2koujUm0PMzQaUSMVE6QrR7IcgV601QOMlH3+DDCe4A/PK0Raixb+J2rusAa1sbABzMSfYAjMY4JVHXnXxaXH82QvTXxA9sstS8+VIPErvv7uNEu0miMJksWrxJuAQ/a1jfwJ0WgOi5DrF6Ta6eM1p0C3Sun6/KTi3NvR2WE5uki8Z1K/wJMLkEiTw18R3FOMJ9xL6tclvqQ3jbbjn/7eCS26/GBzMlZmMcyGoAUxWGFFhQFFoLVYYK8UB3VmyWGKTO6DdduC8CSykXR9HSLTEjjVw8iXNtHEVk12e+AFGRHRl8qRRbASBflTuIlU+DwNyEEikcSfls+ex2fpYAGfURa/LE7S0ktL9A88bLuasG6At4AR8YP+z9PvkKere95QJWAmeiCtVeumVncZ6NnLk8yodPLKTsmx9zB756rMqPTj4DN1YrnvAc7oQaJLsAWFFIcHMxgjMCdCVhIfYnZkVtcQDc98k5vWSC6D2zy1nzYAEwEwUVgcl5MmW0KYNwkdRpIwmctYILAxDi7MmMHsgAA6k9Y7RheNs8AAP8qQrZ0/Sp3OdpOYumDxSsKoE+X4zcgGL8SYwPwIeaxILBDzEC1ya+pEWlzPavvdpw9XggRTy9iF4FLGPfp2jlw/12JjDqJHROToEnDk8DHy4Scwe+HJkjh4aOECLKy6ThOWshyBzIXCFgTfh+AsXMyGLp9kGsbaEwmnAV/ukmAUZXC1cjLhzzKLAns6Mw1ASvEicuRvFkvcDCLi+5NYDzJXpBhHmNQ3MT51BzLbS6PGLmOxiig0Y57eABTCLcv7szwhBRg/vGXQizBtFqFwIevbuJ3F5ng4/t6OW98PjwEM7anm+EWw0cHyeevr30SIqIeWWp0GEmdOAdHVAqVUxVPX7DWO3n9eAcB9cWVEDCQKjXB1QJm8RQ2mMbTrmoaobHxSwdPuZcyaveyApZkHq3YHJF6ansOG9NHZmAWWAKyRiit3GTi9QfhPMMT7204LZh2OuYMVRYG3qgMRnT0C/TJ+jpSSn3t391MDpDyN/Nj+2p5++HrtELw52U65dHTgNfKC7ludFzGE7CvzBwW586VoXV0HWu7vPrOfnFeCeXX2UpPWwrHkYsbuMFniVtu6yeS3s/VoYazRwapRt8YqWxhh/PKfAuSsAUtzkMCJ/FvAgYhGyBlx1DHA2MJZrYO48n9elyr+AMp+ZeU0HynyG+RckWuMw8hooz8wgZltp+NxVOIFLNM73IKTh6atw6f+xIIsr5TKqm00l1kB1tmI14PFMBcpP6Yk++zHqObl1dLx3QnPLtG2VSlkXW3Ud7OfzeghTT5cr5n+6CicFDuZkbuOB3FUlWfh4LLZsHezn+/VK18+WIg4Kazyn8cA974zr292Y03tAq8V/J+56e3wgwatp2vzfAUXMaRoil+Ol6xM8wo/b0e9Dv3uVl1rZOGv/Qf/Dh6bN/Eht/Q+zom+W0G/8J8AAfjBqWrxVN/kAAAAASUVORK5CYIIxMzUy
+      );
+      /*temporary icon image (cc) by fatcow.com just for the demo */
+      float: left;
+    }
+
+    .resourceItem {
+      padding: 10px;
+    }
+
+    .resourceTitle {
+      margin-left: 10px;
+      margin-top: 5px;
+      float:left;
+      font-size: 16px;
+    }
+
+    .resourceOccupation {
+      margin-left: 20px;
+      margin-top: 5px;
+      float:left;
+      font-size: 16px;
+    }
+
+    .resourceItem:hover {
+      background-color: #eee;
+    }
+
+    .resourceDescription {
+      float:left;
+      margin-top: 5px;
+      margin-left: 25px;
+    }
+
+  </style>
+</metal:slot>
+
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main">
         <div tal:replace="structure provider:plone.abovecontenttitle" />
@@ -14,15 +83,30 @@
         <div tal:replace="structure provider:plone.belowcontenttitle" />
         <div tal:replace="structure provider:plone.abovecontentbody" />
 
-        <h3 tal:content="context/description" />
+        <div class="directoryImage">
+        <tal:block define="image nocall:context/image" condition="nocall:image">
+          <img tal:attributes="src string:${context/absolute_url}/@@download/image/${image/filename}" height="64" width="128"/>
+        </tal:block>
+        </div>
+        <p tal:content="context/description" class="directoryDescription" />
 
-        <ul tal:condition="view/resources">
-          <li tal:repeat="resource view/resources">
-            <a tal:attributes="href resource/absolute_url"><span tal:content="resource/title" /></a>
-            <span tal:content="resource/scheduler/occupation_rate" />
-          </li>
-        </ul>
+        <div style="clear: both;"></div>
+        <div class="directoryChildren">
+          <h2>Ressourcen</h2>
 
+            <a tal:attributes="href resource/absolute_url" tal:condition="view/resources" tal:repeat="resource view/resources">
+            <div class="resourceItem" >
+              <div class="resourceIcon"></div>
+              <div class="resourceTitle" tal:content="resource/title"></div>
+              <div class="resourceOccupation">
+                <span tal:content="python: int(resource.scheduler.occupation_rate())"></span>
+                % occupied
+              </div>
+              <div class="resourceDescription" tal:content="resource/description"></div>
+              <div style="clear:both;"></div>
+            </div>
+            </a>
+        </div>
         <div tal:replace="structure provider:plone.belowcontentbody" />
     </tal:main-macro>
 </metal:main>
