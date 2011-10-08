@@ -4,13 +4,12 @@ from zope.schema import TextLine
 from zope.interface import alsoProvides
 from plone.namedfile.field import NamedImage
 from plone.autoform.interfaces import IFormFieldProvider
-from plone.app.dexterity.behaviors.metadata import MetadataBase
-from plone.app.dexterity.behaviors.metadata import DCFieldProperty
 from collective.dexteritytextindexer import IDynamicTextIndexExtender
 from plone.directives import form
 from Products.CMFCore.utils import getToolByName
 
 from seantis.dir.base import item
+from seantis.dir.base import core
 from seantis.dir.facility import _
   
 class IFacilityDirectoryItem(form.Schema):
@@ -18,23 +17,19 @@ class IFacilityDirectoryItem(form.Schema):
 
     image = NamedImage(
             title=_(u'Image'),
-            required=False,
-            default=None
+            required=False
         )
 
     opening_hours = TextLine(
             title=_(u'Opening Hours'),
-            required=False,
-            default=u''
+            required=False
         )
 
 alsoProvides(IFacilityDirectoryItem, IFormFieldProvider)
 
-
-class FacilityDirectoryItem(MetadataBase):
-    image = DCFieldProperty(IFacilityDirectoryItem['image'])
-    opening_hours = DCFieldProperty(IFacilityDirectoryItem['opening_hours'])
-
+@core.ExtendedDirectory
+class FacilityDirectoryItem(core.DirectoryMetadataBase):
+    interface = IFacilityDirectoryItem
 
 class DirectoryItemSearchableTextExtender(grok.Adapter):
     grok.context(item.IDirectoryItem)

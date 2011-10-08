@@ -93,7 +93,6 @@
         <div style="clear: both;"></div>
         <div class="directoryChildren">
           <h2>Ressourcen</h2>
-
             <a tal:attributes="href resource/absolute_url" tal:condition="view/resources" tal:repeat="resource view/resources">
             <div class="resourceItem" >
               <div class="resourceIcon"></div>
