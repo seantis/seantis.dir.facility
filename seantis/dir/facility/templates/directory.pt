@@ -62,40 +62,52 @@
       opacity: 0.6;*/
     }
 
+    .groupSelection {
+      -webkit-box-shadow: 0px 0px 4px 4px #6DADF2;
+      -moz-box-shadow: 0px 0px 4px 4px #6DADF2;
+      box-shadow: 0px 0px 4px 4px #6DADF2; 
+    }
+
   </style>
 </metal:slot>
 
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main">
         <div tal:replace="structure provider:plone.abovecontenttitle" />
+        
         <a tal:attributes="href python: context.absolute_url() + '?reset=true'"><h1 class="documentFirstHeading" tal:content="context/title" /></a>
+        
         <div tal:replace="structure provider:plone.belowcontenttitle" />
 
         <div tal:replace="structure provider:plone.abovecontentbody" />
 
         <tal:block>
-          <div tal:replace="structure provider:seantis.dir.base.directory.viewletmanager"/>
+            <div tal:replace="structure provider:seantis.dir.base.directory.viewletmanager"/>
         </tal:block>
+
         <div id="directoryInfo" style="float: left; width: 60%;">
             <div id="directoryResultList">
-              <a tal:attributes="href item/absolute_url" tal:repeat="item view/batch">
-                <div class="directoryResult">
-                  <h2 tal:content="item/title" />
-                  <div class="directoryImage">
-                  <tal:block define="image nocall:item/image" condition="nocall:image">
-                    <img tal:attributes="src string:${item/absolute_url}/@@download/image/${image/filename}" height="64" width="128"/>
-                  </tal:block>
-                  </div>
-                  <p class="directoryDescription" tal:content="item/description"/>
-                  <div style="clear: both;"></div>
-                </div>
-              </a>
+                <a tal:attributes="href item/absolute_url" tal:repeat="item view/batch">
+                    <div class="directoryResult" tal:attributes="id item/id">
+                        <h2 tal:content="item/title" />
+                        <div class="directoryImage">
+                            <tal:block define="image nocall:item/image" condition="nocall:image">
+                                <img tal:attributes="src string:${item/absolute_url}/@@download/image/${image/filename}" height="64" width="128"/>
+                            </tal:block>
+                        </div>
+                    
+                        <p class="directoryDescription" tal:content="item/description"/>
+                    
+                        <div style="clear: both;"></div>
+                    </div>
+                </a>
             </div>
         </div>
+
         <div style="float: left; width: 37%; margin-left: 3%; margin-top:10px;">
-          <div id="seantis-overview-calendar">
-          </div>
+            <div tal:attributes="id view/overview_id"></div>
         </div>
+
         <div style="clear: both;"></div>
 
         <div tal:replace="structure provider:plone.belowcontentbody" />

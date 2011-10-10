@@ -39,42 +39,39 @@ class View(directory.View):
     overview_id = "seantis-overview-calendar"
 
     def uuids(self):
-        resources = []
+        resources = {}
         for item in self.items:
-            resources.extend(item.resources())
-        
-        return [IUUID(res) for res in resources]
+            for resource in item.resources():
+                uuid = IUUID(resource)
+                resources[uuid] = item.id
+            
+        return resources
 
     def javascript(self):
         template = """
         <script type="text/javascript">
             if (!this.seantis) this.seantis = {};
-            if (!this.seantis.calendars) this.seantis.overview = [];
+            if (!this.seantis.overview) this.seantis.overview = {};
 
             this.seantis.overview.id = '#%s';
             this.seantis.overview.options = %s;
-
-            (function($) {
-                $(document).ready(function() {
-                    console.log('what');
-                    $(seantis.overview.id).fullCalendar(seantis.overview.options);
-                });
-            })( jQuery );
-
         </script>"""
 
         return template % (self.overview_id, self.calendar_options())
 
     def calendar_options(self):
+        uuids = self.uuids()
+
         options = {}
         options['events'] = {
             'url': self.overview_url,
             'type': 'POST',
             'data': {
-                'uuid': self.uuids()
+                'uuid': uuids.keys()
             },
             'className': 'seantis-overview-event'
         }
+        options['resourcemap'] = uuids
 
         return json.dumps(options)
 
@@ -115,11 +112,16 @@ class Overview(grok.View, resource.CalendarRequest):
             event_start = start + timedelta(days=day)
             event_end = start + timedelta(days=day+1, microseconds=-1)
 
+            resources = []
+
             totalcount, totaloccupation = 0, 0.0
             for sc in schedulers:
                 count, occupation = sc.occupation_rate(event_start, event_end)
                 totalcount += count
                 totaloccupation += occupation
+
+                if count > 0:
+                    resources.append(sc.resource)
 
             if not totalcount:
                 continue
@@ -127,15 +129,15 @@ class Overview(grok.View, resource.CalendarRequest):
             average = int(totaloccupation / totalcount)
             color = utils.event_color(average)
 
-            title = u'%i / %i%%' % (totalcount, average)
+            title = u'%i%%' % average
 
             events.append(dict(
-                allDay=True,
                 start=event_start.isoformat(),
                 end=event_end.isoformat(),
                 title=title,
                 backgroundColor=color,
                 borderColor=color,
+                resources=resources
             ))
 
         return events
