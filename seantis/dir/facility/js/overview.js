@@ -72,6 +72,7 @@ if (!this.seantis.overview) this.seantis.overview = {};
         
         
         var options = {
+            firstDay: 1,
             timeFormat: 'HH:mm{ - HH:mm}',
             axisFormat: 'HH:mm{ - HH:mm}',
             columnFormat: 'dddd d.M',
