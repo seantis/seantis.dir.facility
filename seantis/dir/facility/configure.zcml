@@ -33,7 +33,7 @@
         title="Facility Directory Item"
         description="Provides the additional fields for seantis.dir.base.item"
         provides=".item.IFacilityDirectoryItem"
-        factory=".item.FacilityDirectoryItem"
+        factory=".item.FacilityDirectoryItemFactory"
         for="seantis.dir.base.item.IDirectoryItem"
         />
 

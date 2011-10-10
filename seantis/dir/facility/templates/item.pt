@@ -91,9 +91,9 @@
         <p tal:content="context/description" class="directoryDescription" />
 
         <div style="clear: both;"></div>
-        <div class="directoryChildren">
+        <div class="directoryChildren" tal:condition="resources" tal:define="resources context/resources">
           <h2>Ressourcen</h2>
-            <a tal:attributes="href resource/absolute_url" tal:condition="view/resources" tal:repeat="resource view/resources">
+            <a tal:attributes="href resource/absolute_url" tal:repeat="resource resources">
             <div class="resourceItem" >
               <div class="resourceIcon"></div>
               <div class="resourceTitle" tal:content="resource/title"></div>

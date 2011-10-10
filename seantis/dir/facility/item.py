@@ -28,8 +28,21 @@ class IFacilityDirectoryItem(form.Schema):
 alsoProvides(IFacilityDirectoryItem, IFormFieldProvider)
 
 @core.ExtendedDirectory
-class FacilityDirectoryItem(core.DirectoryMetadataBase):
+class FacilityDirectoryItemFactory(core.DirectoryMetadataBase): # enterprisey!
     interface = IFacilityDirectoryItem
+
+class FacilityDirectoryItem(item.DirectoryItem):
+
+    def resources(self):
+        catalog = getToolByName(self, 'portal_catalog')
+        path = '/'.join(self.getPhysicalPath())
+
+        results = catalog(
+            path={'query': path, 'depth': 1},
+            portal_type='seantis.reservation.resource'
+        )
+
+        return [r.getObject() for r in results]
 
 class DirectoryItemSearchableTextExtender(grok.Adapter):
     grok.context(item.IDirectoryItem)
@@ -52,17 +65,4 @@ class DirectoryItemSearchableTextExtender(grok.Adapter):
 
 class View(item.View):
     grok.context(item.IDirectoryItem)
-
     template = grok.PageTemplateFile('templates/item.pt')
-
-    def resources(self):
-        context = self.context
-        catalog = getToolByName(context, 'portal_catalog')
-        path = '/'.join(context.getPhysicalPath())
-
-        results = catalog(
-            path={'query': path, 'depth': 1},
-            portal_type='seantis.reservation.resource'
-        )
-
-        return [r.getObject() for r in results]
