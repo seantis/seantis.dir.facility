@@ -36,6 +36,23 @@ if (!this.seantis.overview) this.seantis.overview = {};
             return item_ids;
         };
 
+        seantis.overview.events = function(id) {
+            var resourcemap = seantis.overview.options.resourcemap;
+
+            if (!id || !resourcemap) {
+                return
+            }
+        }
+
+        seantis.overview.render = function(event, element) {
+            var resources = event.resources;
+            for (var i=0; i<resources.length; i++) {
+                var ids = seantis.overview.items(resources);
+                for (var j=0; j<ids.length; j++)
+                    element.addClass(ids[i]);   
+            }
+        }
+
         seantis.overview.mouseover = function(event) {
             var ids = seantis.overview.items(event.resources);
             for (var i=0; i<ids.length; i++) {
@@ -44,6 +61,16 @@ if (!this.seantis.overview) this.seantis.overview = {};
             $(this).toggleClass('groupSelection');
         };
 
+        seantis.overview.resultmouseover = function() {
+            var id = $(this).attr('id');
+            $('#'+id, seantis.overview.element).toggleClass('groupSelection');
+            $('.'+id, seantis.overview.element).toggleClass('groupSelection');
+        };
+
+        $('.directoryResult').mouseenter(seantis.overview.resultmouseover);
+        $('.directoryResult').mouseleave(seantis.overview.resultmouseover);
+        
+        
         var options = {
             timeFormat: 'HH:mm{ - HH:mm}',
             axisFormat: 'HH:mm{ - HH:mm}',

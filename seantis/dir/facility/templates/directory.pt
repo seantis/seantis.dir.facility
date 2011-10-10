@@ -63,9 +63,9 @@
     }
 
     .groupSelection {
-      -webkit-box-shadow: 0px 0px 4px 4px #6DADF2;
-      -moz-box-shadow: 0px 0px 4px 4px #6DADF2;
-      box-shadow: 0px 0px 4px 4px #6DADF2; 
+      -webkit-box-shadow: 0px 0px 3px 3px #6DADF2;
+      -moz-box-shadow: 0px 0px 3px 3px #6DADF2;
+      box-shadow: 0px 0px 3px 3px #6DADF2; 
     }
 
   </style>
@@ -85,7 +85,7 @@
             <div tal:replace="structure provider:seantis.dir.base.directory.viewletmanager"/>
         </tal:block>
 
-        <div id="directoryInfo" style="float: left; width: 60%;">
+        <div id="directoryInfo" style="float: left; width: 62%;">
             <div id="directoryResultList">
                 <a tal:attributes="href item/absolute_url" tal:repeat="item view/batch">
                     <div class="directoryResult" tal:attributes="id item/id">
@@ -104,7 +104,7 @@
             </div>
         </div>
 
-        <div style="float: left; width: 37%; margin-left: 3%; margin-top:10px;">
+        <div style="float: left; width: 35%; margin-left: 3%; margin-top:10px;">
             <div tal:attributes="id view/overview_id"></div>
         </div>
 

@@ -137,7 +137,7 @@ class Overview(grok.View, resource.CalendarRequest):
                 title=title,
                 backgroundColor=color,
                 borderColor=color,
-                resources=resources
+                resources=resources,
             ))
 
         return events

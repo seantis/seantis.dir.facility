@@ -99,7 +99,7 @@
               <div class="resourceTitle" tal:content="resource/title"></div>
               <div class="resourceOccupation">
                 <span tal:content="python: int(resource.scheduler.occupation_rate()[1])"></span>
-                % occupied
+                % free
               </div>
               <div class="resourceDescription" tal:content="resource/description"></div>
               <div style="clear:both;"></div>
