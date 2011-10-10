@@ -105,6 +105,7 @@
               <div style="clear:both;"></div>
             </div>
             </a>
+            <a tal:attributes="href python: view.compare_link" tal:condition="python: len(resources) > 1"><div class="resourceTitle">Compare</div></a>
         </div>
         <div tal:replace="structure provider:plone.belowcontentbody" />
     </tal:main-macro>

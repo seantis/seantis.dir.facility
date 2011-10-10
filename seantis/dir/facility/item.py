@@ -66,3 +66,18 @@ class DirectoryItemSearchableTextExtender(grok.Adapter):
 class View(item.View):
     grok.context(item.IDirectoryItem)
     template = grok.PageTemplateFile('templates/item.pt')
+
+    @property
+    def compare_link(self):
+        resources = self.context.resources()
+
+        if len(resources) < 2:
+            return ''
+
+        link = resources[0:1][0].absolute_url_path() + '?'
+        compare_to = [r.uuid for r in resources[1:]]
+
+        for uuid in compare_to:
+            link += 'compare_to=' + str(uuid) + '&'
+        
+        return link.rstrip('&')
