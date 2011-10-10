@@ -27,7 +27,8 @@ setup(name='seantis.dir.facility',
           'setuptools',
           'Plone',
           'plone.app.dexterity',
-          'seantis.dir.base'
+          'seantis.dir.base',
+          'seantis.reservation'
           # -*- Extra requirements: -*-
       ],
       entry_points="""

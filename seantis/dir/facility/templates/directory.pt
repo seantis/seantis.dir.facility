@@ -7,13 +7,22 @@
       i18n:domain="seantis.dir.facility">
 <body>
 
+<metal:block metal:fill-slot="javascript_head_slot">
+    <tal:block tal:replace="structure view/javascript" />
+</metal:block>
+
 <metal:slot fill-slot="style_slot">
   <style media="all" type="text/css">
     .directoryResult {
       border: solid #ddd 1px;
       padding: 20px;
       color: #3e5786;
-      margin-bottom: 20px;
+      margin-top: 5px;
+      margin-bottom: -20px;
+    }
+
+    .directoryResult:first-child {
+      margin-top: 72px;
     }
 
     .directoryResult:hover {
@@ -50,6 +59,13 @@
       margin-top: 10px;
     }
 
+    .seantis-overview-event {
+      height: 60px;
+      margin-top: -18px;
+      /*filter: alpha(opacity=60);
+      opacity: 0.6;*/
+    }
+
   </style>
 </metal:slot>
 
@@ -64,7 +80,7 @@
         <tal:block condition="python: not view.filtered">
           <div tal:replace="structure provider:seantis.dir.base.directory.viewletmanager"/>
         </tal:block>
-        <div id="directoryInfo">
+        <div id="directoryInfo" style="float: left; width: 60%;">
             <div id="directoryResultList">
               <a tal:attributes="href item/absolute_url" tal:repeat="item view/batch">
                 <div class="directoryResult">
@@ -80,6 +96,11 @@
               </a>
             </div>
         </div>
+        <div style="float: left; width: 35%; margin-left: 5%; margin-top:20px;">
+          <div id="seantis-overview-calendar">
+          </div>
+        </div>
+        <div style="clear: both;"></div>
 
         <div tal:replace="structure provider:plone.belowcontentbody" />
 
