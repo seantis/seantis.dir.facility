@@ -3,73 +3,45 @@ if (!this.seantis.overview) this.seantis.overview = {};
 
 (function($) {
     $(document).ready(function() {
-        if (! seantis.overview.id)
+        if (_.isUndefined(seantis.overview.id))
             return;
 
         seantis.overview.element = $(seantis.overview.id);
 
-        seantis.overview.items = function(resources) {
-            var resourcemap = seantis.overview.options.resourcemap;
-
-            if (!resources.length || !resourcemap) {
+        seantis.overview.items = function(uuids) {
+            var uuidmap = seantis.overview.options.uuidmap;
+            if (_.isEmpty(uuids) || _.isEmpty(uuidmap))
                 return [];
-            }
- 
-            var item_ids = [];
-            var duplicate = function(id) {
-                for (var i=0; i<item_ids.length; i++) {
-                    if (item_ids[i] === id) {
-                        return true;
-                    }
-                }
-                return false;
-            };
 
-            for (var i=0; i<resources.length; i++) {
-                var resource = resources[i];
-                var item_id = resourcemap[resource];
-                if (item_id && !duplicate(item_id)) {
-                    item_ids.push(resourcemap[resource]);       
-                }
-            }
-
-            return item_ids;
+            return _.unique(_.map(uuids, function(uuid) {
+               return uuidmap[uuid]; 
+            }));
         };
 
-        seantis.overview.events = function(id) {
-            var resourcemap = seantis.overview.options.resourcemap;
-
-            if (!id || !resourcemap) {
-                return
-            }
-        }
-
         seantis.overview.render = function(event, element) {
-            var resources = event.resources;
-            for (var i=0; i<resources.length; i++) {
-                var ids = seantis.overview.items(resources);
-                for (var j=0; j<ids.length; j++)
-                    element.addClass(ids[i]);   
-            }
-        }
+            // rendering will be a tad faster if the classes are setup later
+            _.defer( function() {
+                _.each(event.uuids, function(uuid) {
+                    element.addClass(
+                        seantis.overview.items(event.uuids).join(' ')
+                    )
+                });
+            });
+        };
 
         seantis.overview.mouseover = function(event) {
-            var ids = seantis.overview.items(event.resources);
-            for (var i=0; i<ids.length; i++) {
-                $('#' + ids[i]).toggleClass('groupSelection');
-            }
+            var ids = '#' + seantis.overview.items(event.uuids).join(', #');
+            $(ids).toggleClass('groupSelection');
             $(this).toggleClass('groupSelection');
         };
 
         seantis.overview.resultmouseover = function() {
             var id = $(this).attr('id');
-            $('#'+id, seantis.overview.element).toggleClass('groupSelection');
             $('.'+id, seantis.overview.element).toggleClass('groupSelection');
         };
 
         $('.directoryResult').mouseenter(seantis.overview.resultmouseover);
         $('.directoryResult').mouseleave(seantis.overview.resultmouseover);
-        
         
         var options = {
             firstDay: 1,

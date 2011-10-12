@@ -38,14 +38,14 @@ class View(directory.View):
 
     overview_id = "seantis-overview-calendar"
 
-    def uuids(self):
-        resources = {}
+    def uuidmap(self):
+        uuids = {}
         for item in self.items:
             for resource in item.resources():
                 uuid = IUUID(resource)
-                resources[uuid] = item.id
+                uuids[uuid] = item.id
             
-        return resources
+        return uuids
 
     def javascript(self):
         template = """
@@ -60,18 +60,19 @@ class View(directory.View):
         return template % (self.overview_id, self.calendar_options())
 
     def calendar_options(self):
-        uuids = self.uuids()
+
+        uuidmap = self.uuidmap()
 
         options = {}
         options['events'] = {
             'url': self.overview_url,
             'type': 'POST',
             'data': {
-                'uuid': uuids.keys()
+                'uuid': uuidmap.keys()
             },
             'className': 'seantis-overview-event'
         }
-        options['resourcemap'] = uuids
+        options['uuidmap'] = uuidmap
 
         return json.dumps(options)
 
@@ -112,7 +113,7 @@ class Overview(grok.View, resource.CalendarRequest):
             event_start = start + timedelta(days=day)
             event_end = start + timedelta(days=day+1, microseconds=-1)
 
-            resources = []
+            uuids = []
 
             totalcount, totaloccupation = 0, 0.0
             for sc in schedulers:
@@ -121,7 +122,7 @@ class Overview(grok.View, resource.CalendarRequest):
                 totaloccupation += occupation
 
                 if count > 0:
-                    resources.append(sc.resource)
+                    uuids.append(sc.resource)
 
             if not totalcount:
                 continue
@@ -137,7 +138,7 @@ class Overview(grok.View, resource.CalendarRequest):
                 title=title,
                 backgroundColor=color,
                 borderColor=color,
-                resources=resources,
+                uuids=uuids,
             ))
 
         return events
