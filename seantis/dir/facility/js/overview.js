@@ -47,7 +47,7 @@ if (!this.seantis.overview) this.seantis.overview = {};
             firstDay: 1,
             timeFormat: 'HH:mm{ - HH:mm}',
             axisFormat: 'HH:mm{ - HH:mm}',
-            columnFormat: 'dddd d.M',
+            columnFormat: 'ddd d.M',
             eventAfterRender: seantis.overview.render,
             eventMouseover: seantis.overview.mouseover,
             eventMouseout: seantis.overview.mouseover

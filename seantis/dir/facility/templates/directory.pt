@@ -56,10 +56,8 @@
     }
 
     .seantis-overview-event {
-      height: 60px;
+      height: 40px;
       margin-top: -18px;
-      /*filter: alpha(opacity=60);
-      opacity: 0.6;*/
     }
 
     .groupSelection {
