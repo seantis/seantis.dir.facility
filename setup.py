@@ -29,7 +29,8 @@ setup(name='seantis.dir.facility',
           'plone.app.dexterity',
           'seantis.dir.base',
           'seantis.reservation',
-          'collective.js.underscore'
+          'collective.js.underscore',
+          'collective.js.fullcalendar'
           # -*- Extra requirements: -*-
       ],
       entry_points="""
