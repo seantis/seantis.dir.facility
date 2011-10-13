@@ -39,6 +39,10 @@ class View(directory.View):
     overview_id = "seantis-overview-calendar"
 
     def uuidmap(self):
+        """ Returns the uuids of the current items as well as the item.id that
+        belongs to each uuid. 
+
+        """
         uuids = {}
         for item in self.items:
             for resource in item.resources():
@@ -61,6 +65,7 @@ class View(directory.View):
 
     def calendar_options(self):
 
+        # Put the uuidmap in the json so it can be used by overview.js
         uuidmap = self.uuidmap()
 
         options = {}
@@ -87,6 +92,8 @@ class Overview(grok.View, resource.CalendarRequest):
     grok.name('overview')
 
     def uuids(self):
+        # The uuids are transmitted by the fullcalendar call, which seems to
+        # mangle the the uuid options as follows:
         uuids = self.request.get('uuid[]', [])
 
         if not hasattr(uuids, '__iter__'):
@@ -98,6 +105,8 @@ class Overview(grok.View, resource.CalendarRequest):
         return resource.CalendarRequest.render(self)
 
     def events(self):
+        """ Returns the events for the overview. """
+
         start, end = self.range
         if not all((start, end)):
             return []
@@ -107,38 +116,37 @@ class Overview(grok.View, resource.CalendarRequest):
             return []
 
         events = []
-        days = (end - start).days
 
-        for day in xrange(0, days):
+        # iterate through all days and aggregate the availability for each day
+        for day in xrange(0, (end - start).days):
+
+            # create an event which spans over an entire day
             event_start = start + timedelta(days=day)
             event_end = start + timedelta(days=day+1, microseconds=-1)
 
             uuids = []
-
-            totalcount, totaloccupation = 0, 0.0
+            totalcount, totalavailability = 0, 0.0
             for sc in schedulers:
-                count, occupation = sc.occupation_rate(event_start, event_end)
+                count, availability = sc.availability(event_start, event_end)
                 totalcount += count
-                totaloccupation += occupation
+                totalavailability += availability
 
+                # add every resource that belongs the the current event
                 if count > 0:
                     uuids.append(sc.resource)
 
             if not totalcount:
                 continue
 
-            average = int(totaloccupation / totalcount)
-            color = utils.event_color(average)
-
+            average = int(totalavailability / totalcount)
             title = u'%i%%' % average
 
             events.append(dict(
                 start=event_start.isoformat(),
                 end=event_end.isoformat(),
                 title=title,
-                backgroundColor=color,
-                borderColor=color,
                 uuids=uuids,
+                className=utils.event_class(average)
             ))
 
         return events

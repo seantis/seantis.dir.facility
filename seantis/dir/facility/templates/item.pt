@@ -28,8 +28,8 @@
             <div class="resourceItem" >
               <div class="resourceIcon"></div>
               <div class="resourceTitle" tal:content="resource/title"></div>
-              <div class="resourceOccupation">
-                <span tal:content="python: int(resource.scheduler.occupation_rate()[1])"></span>
+              <div class="resourceAvailability">
+                <span tal:content="python: int(resource.scheduler.availability()[1])"></span>
                 % free
               </div>
               <div class="resourceDescription" tal:content="resource/description"></div>
