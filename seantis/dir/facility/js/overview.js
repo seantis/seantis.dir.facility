@@ -29,19 +29,34 @@ if (!this.seantis.overview) this.seantis.overview = {};
             });
         };
 
+        var highlight_group = function(elements, highlight) {
+            elements.toggleClass('groupSelection', highlight);
+        }
+
         seantis.overview.mouseover = function(event) {
             var ids = '#' + seantis.overview.items(event.uuids).join(', #');
-            $(ids).toggleClass('groupSelection');
-            $(this).toggleClass('groupSelection');
+            highlight_group($(ids), true);
+            highlight_group($(this), true);
+        };
+
+        seantis.overview.mouseout = function(event) {
+            var ids = '#' + seantis.overview.items(event.uuids).join(', #');
+            highlight_group($(ids), false);
+            highlight_group($(this), false);
         };
 
         seantis.overview.resultmouseover = function() {
-            var id = $(this).attr('id');
-            $('.'+id, seantis.overview.element).toggleClass('groupSelection');
+            var element = $('.' + $(this).attr('id'));
+            highlight_group(element, true);
         };
 
+        seantis.overview.resultmouseout = function() {
+            var element = $('.' + $(this).attr('id'));
+            highlight_group(element, false);
+        }
+
         $('.directoryResult').mouseenter(seantis.overview.resultmouseover);
-        $('.directoryResult').mouseleave(seantis.overview.resultmouseover);
+        $('.directoryResult').mouseleave(seantis.overview.resultmouseout);
         
         var options = {
             firstDay: 1,
@@ -50,7 +65,7 @@ if (!this.seantis.overview) this.seantis.overview = {};
             columnFormat: 'ddd d.M',
             eventAfterRender: seantis.overview.render,
             eventMouseover: seantis.overview.mouseover,
-            eventMouseout: seantis.overview.mouseover
+            eventMouseout: seantis.overview.mouseout
         };
 
         $.extend(options, seantis.overview.options);
