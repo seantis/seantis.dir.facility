@@ -133,7 +133,7 @@ class Overview(grok.View, resource.CalendarRequest):
 
                 # add every resource that belongs the the current event
                 if count > 0:
-                    uuids.append(sc.uuid)
+                    uuids.append(str(sc.uuid))
 
             if not totalcount:
                 continue
