@@ -139,7 +139,7 @@ class Overview(grok.View, resource.CalendarRequest):
                 continue
 
             average = int(totalavailability / totalcount)
-            title = u'%i%%' % average
+            title = u''
 
             events.append(dict(
                 start=event_start.isoformat(),

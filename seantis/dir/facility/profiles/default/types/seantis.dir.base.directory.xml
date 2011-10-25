@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<object name="seantis.dir.base.item" meta_type="Dexterity FTI"
+   i18n:domain="seantis.dir.base" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+
+<property name="allowed_content_types">
+     <element value="seantis.dir.base.item" />  
+     <element value="seantis.reservation.timeframe" />
+</property>
+</object>
