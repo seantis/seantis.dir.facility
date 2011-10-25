@@ -111,7 +111,10 @@ class Overview(grok.View, resource.CalendarRequest):
         if not all((start, end)):
             return []
 
-        schedulers = [db.Scheduler(uid) for uid in self.uuids()]
+        brains = [utils.get_resource_by_uuid(self.context, uid) for uid in self.uuids()]
+        resources = [b.getObject() for b in brains]
+        schedulers = [r.scheduler() for r in resources]
+
         if not schedulers:
             return []
 

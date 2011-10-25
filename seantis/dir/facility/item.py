@@ -75,7 +75,7 @@ class View(item.View):
             return ''
 
         link = resources[0:1][0].absolute_url_path() + '?'
-        compare_to = [r.uuid for r in resources[1:]]
+        compare_to = [r.uuid() for r in resources[1:]]
 
         for uuid in compare_to:
             link += 'compare_to=' + str(uuid) + '&'
