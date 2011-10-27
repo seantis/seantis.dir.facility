@@ -14,7 +14,6 @@ from seantis.dir.base import core
 from seantis.dir.facility import _
 
 from seantis.reservation import utils
-from seantis.reservation import db
 from seantis.reservation import resource
 
 class IFacilityDirectory(form.Schema):
@@ -129,6 +128,7 @@ class Overview(grok.View, resource.CalendarRequest):
 
             uuids = []
             totalcount, totalavailability = 0, 0.0
+
             for sc in schedulers:
                 count, availability = sc.availability(event_start, event_end)
                 totalcount += count
@@ -143,7 +143,6 @@ class Overview(grok.View, resource.CalendarRequest):
 
             average = int(totalavailability / totalcount)
             title = u''
-
             events.append(dict(
                 start=event_start.isoformat(),
                 end=event_end.isoformat(),
