@@ -81,3 +81,10 @@ class View(item.View):
             link += 'compare_to=' + str(uuid) + '&'
         
         return link.rstrip('&')
+
+    def availability(self, resource):
+        count, availability = resource.scheduler().availability()
+        if count:
+            return int(availability // count)
+        else:
+            return 0
