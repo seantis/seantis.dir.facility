@@ -10,7 +10,10 @@ from Products.CMFCore.utils import getToolByName
 
 from seantis.dir.base import item
 from seantis.dir.base import core
+
 from seantis.dir.facility import _
+
+from seantis.reservation import utils
   
 class IFacilityDirectoryItem(form.Schema):
     """Extends the seantis.dir.IDirectoryItem."""
@@ -70,18 +73,8 @@ class View(item.View):
     @property
     def compare_link(self):
         resources = self.context.resources()
-
-        if len(resources) < 2:
-            return ''
-
-        link = resources[0:1][0].absolute_url_path() + '?'
-        compare_to = [r.uuid() for r in resources[1:]]
-
-        for uuid in compare_to:
-            link += 'compare_to=' + str(uuid) + '&'
+        return utils.compare_link(resources)
         
-        return link.rstrip('&')
-
     def availability(self, resource):
         count, availability = resource.scheduler().availability()
         if count:

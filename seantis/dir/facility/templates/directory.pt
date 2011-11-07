@@ -7,10 +7,6 @@
       i18n:domain="seantis.dir.facility">
 <body>
 
-<metal:block metal:fill-slot="javascript_head_slot">
-    <tal:block tal:replace="structure view/javascript" />
-</metal:block>
-
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main">
         <div tal:replace="structure provider:plone.abovecontenttitle" />
@@ -45,7 +41,7 @@
         </div>
 
         <div style="float: left; width: 35%; margin-left: 3%; margin-top:10px;">
-            <div tal:attributes="id view/overview_id"></div>
+            <div tal:replace="structure provider:seantis.reservation.overviewletmanager"/>
         </div>
 
         <div style="clear: both;"></div>
