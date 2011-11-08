@@ -76,8 +76,5 @@ class View(item.View):
         return utils.compare_link(resources)
         
     def availability(self, resource):
-        count, availability = resource.scheduler().availability()
-        if count:
-            return int(availability // count)
-        else:
-            return 0
+        return int(resource.scheduler().availability())
+        
