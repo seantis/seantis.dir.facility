@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-09-26 09:36+0000\n"
+"POT-Creation-Date: 2011-11-18 11:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,11 +14,24 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ./directory.py:14
-msgid "Image"
-msgstr ""
+#: ./templates/item.pt:54
+msgid "% free"
+msgstr "% frei"
 
-#: ./item.py:19
+#: ./templates/item.pt:65
+msgid "Compare Resources"
+msgstr "Ressourcen vergleichen"
+
+#: ./directory.py:19
+#: ./item.py:22
+msgid "Image"
+msgstr "Bild"
+
+#: ./item.py:27
 msgid "Opening Hours"
-msgstr ""
+msgstr "Öffnungszeiten"
+
+#: ./templates/item.pt:42
+msgid "Ressources"
+msgstr "Ressourcen"
 

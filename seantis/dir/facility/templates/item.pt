@@ -1,44 +1,75 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
-      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      lang="en"
       metal:use-macro="context/main_template/macros/master"
-      i18n:domain="seantis.dir.facility">
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="seantis.dir.facility"
+      lang="en">
 <body>
 
 <metal:main fill-slot="main">
-    <tal:main-macro metal:define-macro="main">
+    <tal:main-macro metal:define-macro="main" tal:define="
+        resetlink python: context.absolute_url() + '?reset=true';
+    ">
+
         <div tal:replace="structure provider:plone.abovecontenttitle" />
-        <a tal:attributes="href python: context.absolute_url() + '?reset=true'"><h1 class="documentFirstHeading" tal:content="context/title" /></a>
+        
+        <a tal:attributes="href resetlink">
+            <h1 class="documentFirstHeading" tal:content="context/title" />
+        </a>
+
         <div tal:replace="structure provider:plone.belowcontenttitle" />
         <div tal:replace="structure provider:plone.abovecontentbody" />
 
         <div class="directoryImage">
-        <tal:block define="image nocall:context/image" condition="nocall:image">
-          <img tal:attributes="src string:${context/absolute_url}/@@download/image/${image/filename}" height="64" width="128"/>
-        </tal:block>
+            <tal:block condition="nocall:image" define="
+                image nocall: context/image;
+                imageurl string: ${context/absolute_url}/@@download/image/${image/filename} 
+            ">
+                <img tal:attributes="src imageurl" height="64" width="128"/>
+            </tal:block>
         </div>
+
         <p tal:content="context/description" class="directoryDescription" />
 
         <div style="clear: both;"></div>
-        <div class="directoryChildren" tal:condition="resources" tal:define="resources context/resources">
-          <h2>Ressourcen</h2>
+
+        <div class="directoryChildren" tal:condition="resources" tal:define="
+            resources context/resources;
+            compare python: len(resources) > 1 and view.compare_link or None;
+            ">
+            
+            <h2 i18n:translate="">Ressources</h2>
+            
             <a tal:attributes="href resource/absolute_url" tal:repeat="resource resources">
-            <div class="resourceItem" >
-              <div class="resourceIcon"></div>
-              <div class="resourceTitle" tal:content="resource/title"></div>
-              <div class="resourceAvailability">
-                <span tal:content="python: view.availability(resource)"></span>
-                % free
-              </div>
-              <div class="resourceDescription" tal:content="resource/description"></div>
-              <div style="clear:both;"></div>
-            </div>
+                <div class="resourceItem" tal:define="
+                    title resource/title;
+                    description resource/description;
+                    availability python: view.availability(resource);
+                ">
+                    <div class="resourceIcon"></div>
+                    <div class="resourceTitle" tal:content="title"></div>
+                    <div class="resourceAvailability">
+                        <span tal:content="availability"></span>
+                        <span i18n:translate="">% free</span>
+                    </div>
+                    <div class="resourceDescription" tal:content="description"></div>
+
+                    <div style="clear:both;"></div>
+
+                </div>
             </a>
-            <a tal:attributes="href python: view.compare_link" tal:condition="python: len(resources) > 1"><div class="resourceTitle">Compare</div></a>
+
+            <div class="directoryChildrenCompare">
+                <a tal:attributes="href compare" tal:condition="compare">
+                    <div class="resourceTitle" i18n:translate="">Compare Resources</div>
+                </a>
+            </div>
+
         </div>
+
         <div tal:replace="structure provider:plone.belowcontentbody" />
+    
     </tal:main-macro>
 </metal:main>
 
