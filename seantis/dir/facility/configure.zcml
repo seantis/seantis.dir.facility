@@ -45,7 +45,6 @@
         for="seantis.dir.base.directory.IDirectory"
         />
 
-    <browser:resourceDirectory name="seantis.dir.facility.js" directory="js"/>
     <browser:resourceDirectory name="seantis.dir.facility.css" directory="css"/>
 
 </configure>
