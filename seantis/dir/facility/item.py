@@ -74,6 +74,11 @@ class View(item.View):
     def compare_link(self):
         resources = self.context.resources()
         return utils.compare_link(resources)
+
+    @property
+    def monthly_report_link(self):
+        resources = self.context.resources()
+        return utils.monthly_report_link(resources)
         
     def availability(self, resource):
         return int(resource.scheduler().availability())

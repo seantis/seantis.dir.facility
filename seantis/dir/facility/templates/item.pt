@@ -37,6 +37,7 @@
         <div class="directoryChildren" tal:condition="resources" tal:define="
             resources context/resources;
             compare python: len(resources) > 1 and view.compare_link or None;
+            monthly_report python: len(resources) > 1 and view.monthly_report_link or None;
             ">
             
             <h2 i18n:translate="">Ressources</h2>
@@ -60,10 +61,21 @@
                 </div>
             </a>
 
-            <div class="directoryChildrenCompare">
-                <a tal:attributes="href compare" tal:condition="compare">
-                    <div class="resourceTitle" i18n:translate="">Compare Resources</div>
-                </a>
+            <h2 i18n:translate="">Utils</h2>
+
+            <div class="directoryChildrenUtils">
+                <ul>
+                    <li>
+                        <a tal:attributes="href compare" tal:condition="compare">
+                            <tal:block i18n:translate="">Compare Resources</tal:block>
+                        </a>
+                    </li>
+                    <li>
+                        <a tal:attributes="href monthly_report" tal:condition="monthly_report">
+                            <tal:block i18n:translate="">Monthly Report</tal:block>
+                        </a>
+                    </li>
+                </ul>
             </div>
 
         </div>
