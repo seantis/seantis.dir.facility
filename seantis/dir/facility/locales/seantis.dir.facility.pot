@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-11-18 11:16+0000\n"
+"POT-Creation-Date: 2012-03-30 15:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,24 +17,40 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: seantis.dir.facility\n"
 
-#: ./templates/item.pt:54
+#: ./templates/item.pt:66
 msgid "% free"
 msgstr ""
 
-#: ./templates/item.pt:65
+#: ./templates/directory.pt:63
+#: ./templates/item.pt:81
 msgid "Compare Resources"
 msgstr ""
 
-#: ./directory.py:19
+#: ./directory.py:21
 #: ./item.py:22
 msgid "Image"
 msgstr ""
 
+#: ./templates/directory.pt:68
+#: ./templates/item.pt:86
+msgid "Monthly Report"
+msgstr ""
+
 #: ./item.py:27
+#: ./templates/directory.pt:41
 msgid "Opening Hours"
 msgstr ""
 
-#: ./templates/item.pt:42
+#: ./templates/item.pt:39
+msgid "Opening Hours:"
+msgstr ""
+
+#: ./templates/item.pt:54
 msgid "Ressources"
+msgstr ""
+
+#: ./templates/directory.pt:57
+#: ./templates/item.pt:75
+msgid "Utils"
 msgstr ""
 

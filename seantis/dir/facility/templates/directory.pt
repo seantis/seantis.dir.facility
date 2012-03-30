@@ -38,7 +38,7 @@
                                 <p tal:content="item/description"/>
                             </div>
                             <div class="opening-hours">
-                                <span i18n:translate="">Opening Hours:</span> <span tal:content="item/opening_hours"></span>
+                                <span i18n:translate="">Opening Hours</span>: <span tal:content="item/opening_hours"></span>
                             </div>
                         </div>
                         <div style="clear: both;"></div>
