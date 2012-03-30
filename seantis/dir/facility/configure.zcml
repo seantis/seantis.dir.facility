@@ -41,7 +41,7 @@
         title="Facility Directory"
         description="Provides the additional fields for seantis.dir.base.directory"
         provides=".directory.IFacilityDirectory"
-        factory=".directory.FacilityDirectory"
+        factory=".directory.FacilityDirectoryFactory"
         for="seantis.dir.base.directory.IDirectory"
         />
 

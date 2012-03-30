@@ -12,14 +12,15 @@
         <div tal:replace="structure provider:plone.abovecontenttitle" />
         
         <a tal:attributes="href python: context.absolute_url() + '?reset=true'"><h1 class="documentFirstHeading" tal:content="context/title" /></a>
-        
-        <div tal:replace="structure provider:plone.belowcontenttitle" />
 
-        <div tal:replace="structure provider:plone.abovecontentbody" />
 
         <tal:block>
             <div tal:replace="structure provider:seantis.dir.base.directory.viewletmanager"/>
         </tal:block>
+        
+        <div tal:replace="structure provider:plone.belowcontenttitle" />
+
+        <div tal:replace="structure provider:plone.abovecontentbody" />
 
         <div id="directoryInfo" style="float: left; width: 62%;">
             <div id="directoryResultList">
@@ -32,8 +33,14 @@
                             </tal:block>
                         </div>
                     
-                        <p class="directoryDescription" tal:content="item/description"/>
-                    
+                        <div class="directoryDescription">
+                            <div>
+                                <p tal:content="item/description"/>
+                            </div>
+                            <div class="opening-hours">
+                                <span i18n:translate="">Opening Hours:</span> <span tal:content="item/opening_hours"></span>
+                            </div>
+                        </div>
                         <div style="clear: both;"></div>
                     </div>
                 </a>

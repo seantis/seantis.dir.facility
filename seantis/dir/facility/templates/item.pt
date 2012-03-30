@@ -21,16 +21,27 @@
         <div tal:replace="structure provider:plone.belowcontenttitle" />
         <div tal:replace="structure provider:plone.abovecontentbody" />
 
-        <div class="directoryImage">
-            <tal:block condition="nocall:image" define="
-                image nocall: context/image;
-                imageurl string: ${context/absolute_url}/@@download/image/${image/filename} 
-            ">
-                <img tal:attributes="src imageurl" height="64" width="128"/>
-            </tal:block>
-        </div>
+        <div class="directoryResult">
+            <div class="directoryImage">
+                <tal:block condition="nocall:image" define="
+                    image nocall: context/image;
+                    imageurl string: ${context/absolute_url}/@@download/image/${image/filename} 
+                ">
+                    <img tal:attributes="src imageurl" height="64" width="128"/>
+                </tal:block>
+            </div>
 
-        <p tal:content="context/description" class="directoryDescription" />
+            <div class="directoryDescription">
+                <div>
+                    <p tal:content="context/description"/>
+                </div>
+                <div class="opening-hours">
+                    <span i18n:translate="">Opening Hours:</span> <span tal:content="context/opening_hours"></span>
+                </div>
+            </div>
+
+            <div style="clear: both;"></div>
+        </div>
 
         <div style="clear: both;"></div>
 

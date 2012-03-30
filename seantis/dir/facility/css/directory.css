@@ -4,6 +4,7 @@
     color: #3e5786;
     margin-top: 5px;
     margin-bottom: 20px;
+    border-radius: 2px;
 }
 
 .directoryResult:hover {
@@ -14,6 +15,10 @@
     padding-top: 0px;
     margin-top: -10px;
     margin-bottom: 10px;
+}
+
+#directoryResultList {
+    margin-top: 17px;   
 }
 
 .directoryImage {
@@ -32,12 +37,23 @@
 }
 
 #directorySearchForm {
-    padding: 20px;
-    border: solid #ddd 1px;
+    padding: 0 20px;
+    border: solid #ccc 1px;
+    background-color: #eee;
+    border-radius: 2px;
 }
 
+.directorySearchFormSelection {
+    float: left;   
+}
 .directorySearchFormButtons {
-    margin-top: 10px;
+    position: relative;
+    top: 20px;
+}
+
+#directorySearchForm fieldset {
+    border: none;
+    padding: 0;   
 }
 
 .seantis-overview-event {
@@ -71,6 +87,10 @@
     float:left;
     margin-top: 5px;
     margin-left: 25px;
+}
+
+.opening-hours {
+    color: #333;   
 }
 
 .groupSelection {

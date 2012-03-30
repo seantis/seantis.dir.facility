@@ -23,8 +23,11 @@ class IFacilityDirectory(form.Schema):
 alsoProvides(IFacilityDirectory, IFormFieldProvider)
 
 @core.ExtendedDirectory
-class FacilityDirectory(core.DirectoryMetadataBase):
+class FacilityDirectoryFactory(core.DirectoryMetadataBase):
     interface = IFacilityDirectory
+
+class FacilityDirectory(directory.Directory):
+    pass
 
 class View(directory.View):
     implements(IOverview)
