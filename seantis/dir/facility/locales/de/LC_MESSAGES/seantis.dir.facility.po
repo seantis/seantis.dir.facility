@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-03-30 15:25+0000\n"
+"POT-Creation-Date: 2012-04-02 14:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,40 +14,66 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ./templates/item.pt:66
+#: ./templates/item.pt:100
 msgid "% free"
 msgstr "% frei"
 
+#: ./templates/item.pt:47
+msgid "Category"
+msgstr "Kategorie"
+
 #: ./templates/directory.pt:63
-#: ./templates/item.pt:81
+#: ./templates/item.pt:115
 msgid "Compare Resources"
 msgstr "Ressourcen vergleichen"
 
+#: ./templates/item.pt:60
+msgid "Contact"
+msgstr "Kontakt"
+
 #: ./directory.py:21
-#: ./item.py:22
+#: ./item.py:23
 msgid "Image"
 msgstr "Bild"
 
+#: ./item.py:40
+#: ./templates/item.pt:64
+msgid "Infrastructure"
+msgstr "Ausstattung"
+
+#: ./item.py:34
+msgid "Location / Contact"
+msgstr "Standort / Kontakt"
+
 #: ./templates/directory.pt:68
-#: ./templates/item.pt:86
+#: ./templates/item.pt:120
 msgid "Monthly Report"
 msgstr "Monatsreport"
 
-#: ./item.py:27
+#: ./item.py:52
+#: ./templates/item.pt:72
+msgid "Notes"
+msgstr "Bemerkungen"
+
+#: ./item.py:28
 #: ./templates/directory.pt:41
 msgid "Opening Hours"
 msgstr "Öffnungszeiten"
 
 #: ./templates/item.pt:39
 msgid "Opening Hours:"
-msgstr "Öffnungszeiten"
+msgstr "Öffnungszeiten:"
 
-#: ./templates/item.pt:54
+#: ./templates/item.pt:88
 msgid "Ressources"
 msgstr "Ressourcen"
 
+#: ./item.py:46
+#: ./templates/item.pt:68
+msgid "Terms of Use"
+msgstr "Nutzungsbedingungen"
+
 #: ./templates/directory.pt:57
-#: ./templates/item.pt:75
+#: ./templates/item.pt:109
 msgid "Utils"
 msgstr "Verwaltung"
-
