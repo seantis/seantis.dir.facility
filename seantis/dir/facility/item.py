@@ -1,11 +1,12 @@
 from five import grok
 
-from zope.schema import TextLine
+from zope.schema import TextLine, Text
 from zope.interface import alsoProvides
 from plone.namedfile.field import NamedImage
 from plone.autoform.interfaces import IFormFieldProvider
 from collective.dexteritytextindexer import IDynamicTextIndexExtender
 from plone.directives import form
+from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 from Products.CMFCore.utils import getToolByName
 
 from seantis.dir.base import item
@@ -27,6 +28,26 @@ class IFacilityDirectoryItem(form.Schema):
             title=_(u'Opening Hours'),
             required=False
         )
+
+    form.widget(contact=WysiwygFieldWidget)
+    contact = Text(
+            title=_(u'Location / Contact'),
+            required=False
+        )
+
+    form.widget(infrastructure=WysiwygFieldWidget)
+    infrastructure = Text(
+            title=_(u'Infrastructure'),
+            required=False
+        )
+
+    form.widget(terms_of_use=WysiwygFieldWidget)
+    terms_of_use = Text(
+            title=_(u'Terms of Use'),
+            required = False
+        )
+
+
 
 alsoProvides(IFacilityDirectoryItem, IFormFieldProvider)
 

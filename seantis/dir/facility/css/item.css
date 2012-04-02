@@ -26,6 +26,7 @@
 }
 
 .opening-hours {
+    margin-top: -10px;
     color: #333;   
 }
 
@@ -89,4 +90,33 @@
     float:left;
     margin-top: 5px;
     margin-left: 25px;
+}
+
+.directoryDescription div:first-child {
+    font-size: 1.4em;
+}
+
+.directoryInfo {
+    padding-top: 10px;
+    color: #333;
+}
+
+.directoryInfo b {
+    color: #3e5786;
+}
+
+.directoryInfo h2 {
+    font-size: 1.3em;
+    font-weight: normal;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #aaa;
+    border-width: 0 0 1px 0;
+}
+
+.directoryInfo div {
+    float: left;
+    margin-right: 40px; 
+    padding: 15px 15px 15 0;
+    min-width: 35%;
 }
