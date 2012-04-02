@@ -42,7 +42,20 @@
 
             <div style="clear: both;"></div>
 
-            <div class="directoryInfo" tal:condition="python: context.contact or context.infrastructure or context.terms_of_use">
+            <div class="directoryInfo">
+                <div class="categoriy">
+                    <h2 i18n:translate="">Category</h2>
+                    <dl>
+                        <tal:block repeat="category context/categories">
+                            <dt tal:content="python: category[1]"></dt>
+                            <dd>
+                                <div tal:repeat="value python: category[2]" tal:content="value">
+
+                                </div>
+                            </dd>
+                        </tal:block>
+                    </dl>
+                </div>
                 <div class="contact" tal:condition="context/contact">
                     <h2 i18n:translate="">Contact</h2>
                     <tal:block replace="structure context/contact"></tal:block>
@@ -54,6 +67,10 @@
                 <div class="terms-of-use" tal:condition="context/terms_of_use">
                     <h2 i18n:translate="">Terms of Use</h2>
                     <tal:block replace="structure context/terms_of_use"></tal:block>
+                </div>
+                <div class="notes" tal:condition="context/notes">
+                    <h2 i18n:translate="">Notes</h2>
+                    <tal:block replace="structure context/notes"></tal:block>
                 </div>
             </div>
 

@@ -47,6 +47,11 @@ class IFacilityDirectoryItem(form.Schema):
             required = False
         )
 
+    form.widget(notes=WysiwygFieldWidget)
+    notes = Text(
+            title=_(u'Notes'),
+            required = False
+        )
 
 
 alsoProvides(IFacilityDirectoryItem, IFormFieldProvider)
@@ -103,4 +108,3 @@ class View(item.View):
         
     def availability(self, resource):
         return int(resource.scheduler().availability())
-        

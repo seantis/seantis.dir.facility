@@ -108,15 +108,21 @@
 .directoryInfo h2 {
     font-size: 1.3em;
     font-weight: normal;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 10px 0;
     border: 1px solid #aaa;
     border-width: 0 0 1px 0;
 }
 
-.directoryInfo div {
+.directoryInfo > div {
     float: left;
-    margin-right: 40px; 
+    padding-right: 40px;
     padding: 15px 15px 15 0;
-    min-width: 35%;
+}
+
+.directoryInfo > div li {
+    margin-left: -9px;
+}
+
+.directoryInfo > div > h2, .directoryInfo > div > p {
+    max-width: 450px;   
 }
