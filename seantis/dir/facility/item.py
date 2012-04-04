@@ -104,7 +104,7 @@ class View(item.View):
     @property
     def monthly_report_link(self):
         resources = self.context.resources()
-        return utils.monthly_report_link(resources)
+        return utils.monthly_report_link(self.context, resources)
         
     def availability(self, resource):
         return int(resource.scheduler().availability())
