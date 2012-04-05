@@ -93,7 +93,7 @@
                         title resource/title;
                         description resource/description;
                         availability python: view.availability(resource);
-                    ">
+                    " tal:attributes="id resource/uuid">
                         <div class="resourceIcon"></div>
                         <div class="resourceTitle" tal:content="title"></div>
                         <div class="resourceAvailability">
