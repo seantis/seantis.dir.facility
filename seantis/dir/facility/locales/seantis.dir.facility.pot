@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-04-02 14:42+0000\n"
+"POT-Creation-Date: 2012-04-05 13:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,67 +17,52 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: seantis.dir.facility\n"
 
-#: ./templates/item.pt:100
+#: ./templates/item.pt:101
 msgid "% free"
 msgstr ""
 
-#: ./templates/item.pt:47
+#: ./templates/item.pt:48
 msgid "Category"
 msgstr ""
 
-#: ./templates/directory.pt:63
-#: ./templates/item.pt:115
-msgid "Compare Resources"
-msgstr ""
-
-#: ./templates/item.pt:60
+#: ./templates/item.pt:61
 msgid "Contact"
 msgstr ""
 
 #: ./directory.py:21
-#: ./item.py:23
+#: ./item.py:24
 msgid "Image"
 msgstr ""
 
-#: ./item.py:40
-#: ./templates/item.pt:64
+#: ./item.py:41
+#: ./templates/item.pt:65
 msgid "Infrastructure"
 msgstr ""
 
-#: ./item.py:34
+#: ./item.py:35
 msgid "Location / Contact"
 msgstr ""
 
-#: ./templates/directory.pt:68
-#: ./templates/item.pt:120
-msgid "Monthly Report"
-msgstr ""
-
-#: ./item.py:52
-#: ./templates/item.pt:72
+#: ./item.py:53
+#: ./templates/item.pt:73
 msgid "Notes"
 msgstr ""
 
-#: ./item.py:28
+#: ./item.py:29
 #: ./templates/directory.pt:41
 msgid "Opening Hours"
 msgstr ""
 
-#: ./templates/item.pt:39
+#: ./templates/item.pt:40
 msgid "Opening Hours:"
 msgstr ""
 
-#: ./templates/item.pt:88
+#: ./templates/item.pt:89
 msgid "Ressources"
 msgstr ""
 
-#: ./item.py:46
-#: ./templates/item.pt:68
+#: ./item.py:47
+#: ./templates/item.pt:69
 msgid "Terms of Use"
-msgstr ""
-
-#: ./templates/directory.pt:57
-#: ./templates/item.pt:109
-msgid "Utils"
 msgstr ""
 
