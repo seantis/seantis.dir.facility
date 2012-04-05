@@ -105,3 +105,7 @@
 .directoryInfo > div > h2, .directoryInfo > div > p {
     max-width: 450px;   
 }
+
+.directoryChildren {
+    margin-top: 20px;
+}
