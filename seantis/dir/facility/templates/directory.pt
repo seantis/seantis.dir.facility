@@ -53,25 +53,6 @@
 
         <div style="clear: both;"></div>
 
-        <tal:block condition="context/resources" define="compare view/compare_link; monthly_report view/monthly_report_link;">
-            <h2 i18n:translate="">Utils</h2>
-
-            <div class="directoryChildrenUtils">
-                <ul>
-                    <li tal:condition="compare">
-                        <a tal:attributes="href compare">
-                            <tal:block i18n:translate="">Compare Resources</tal:block>
-                        </a>
-                    </li>
-                    <li tal:condition="monthly_report">
-                        <a tal:attributes="href monthly_report">
-                            <tal:block i18n:translate="">Monthly Report</tal:block>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </tal:block>
-
         <div tal:replace="structure provider:plone.belowcontentbody" />
 
         <tal:block define="batch view/batch">

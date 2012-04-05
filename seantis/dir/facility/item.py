@@ -1,7 +1,7 @@
 from five import grok
 
 from zope.schema import TextLine, Text
-from zope.interface import alsoProvides
+from zope.interface import alsoProvides, implements
 from plone.namedfile.field import NamedImage
 from plone.autoform.interfaces import IFormFieldProvider
 from collective.dexteritytextindexer import IDynamicTextIndexExtender
@@ -14,6 +14,7 @@ from seantis.dir.base import core
 
 from seantis.dir.facility import _
 
+from seantis.reservation.overview import IOverview
 from seantis.reservation import utils
   
 class IFacilityDirectoryItem(form.Schema):
@@ -93,6 +94,7 @@ class DirectoryItemSearchableTextExtender(grok.Adapter):
         return result
 
 class View(item.View):
+    implements(IOverview)
     grok.context(item.IDirectoryItem)
     template = grok.PageTemplateFile('templates/item.pt')
 
@@ -108,3 +110,7 @@ class View(item.View):
         
     def availability(self, resource):
         return int(resource.scheduler().availability())
+
+    @property
+    def items(self):
+        return [self.context]

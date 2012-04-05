@@ -11,7 +11,7 @@ from seantis.dir.base import core
 
 from seantis.dir.facility import _
 
-from seantis.reservation.overview import IOverview
+from seantis.reservation.interfaces import IOverview
 from seantis.reservation import utils
 
 class IFacilityDirectory(form.Schema):

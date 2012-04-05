@@ -30,27 +30,6 @@
     color: #333;   
 }
 
-.directoryChildren {
-    padding-top: 20px;
-}
-
-.directoryChildren h2 {
-   margin-top: 20px;    
-}
-
-.directoryChildren h2:first-child {
-    margin-top: 0;
-}
-
-.directoryChildrenUtils {
-    padding-top: 5px;
-    padding-bottom: 20px;
-}
-
-.directoryChildrenUtils ul li a {
-    font-size: 16px;
-}
-
 #directorySearchForm {
     display: none;
 }
