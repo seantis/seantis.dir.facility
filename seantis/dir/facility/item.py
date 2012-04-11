@@ -11,6 +11,8 @@ from Products.CMFCore.utils import getToolByName
 
 from seantis.dir.base import item
 from seantis.dir.base import core
+from seantis.dir.base.interfaces import IFieldMapExtender
+from seantis.dir.base.fieldmap import FieldMap
 
 from seantis.dir.facility import _
 
@@ -88,10 +90,31 @@ class DirectoryItemSearchableTextExtender(grok.Adapter):
         get = lambda ctx, attr: hasattr(ctx, attr) and unicode(getattr(ctx, attr)) or u''
 
         result = ' '.join((
-                         get(context, 'opening_hours')
+                         get(context, 'opening_hours'),
+                         get(context, 'contact'),
+                         get(context, 'infrastructure'),
+                         get(context, 'terms_of_use'),
+                         get(context, 'notes')
                     ))
 
         return result
+
+class ExtendedDirectoryItemFieldMap(grok.Adapter):
+    """Adapter extending the import/export fieldmap of seantis.dir.facilty.item."""
+    grok.context(FieldMap)
+    grok.provides(IFieldMapExtender)
+
+    def __init__(self, context):
+        self.context = context
+
+    def extend_import(self):
+        itemmap = self.context
+        itemmap.interface = IFacilityDirectoryItem
+
+        extended = ['opening_hours', 'contact', 'infrastructure',
+                    'terms_of_use', 'notes']
+        
+        itemmap.add_fields(extended, len(itemmap))
 
 class View(item.View):
     implements(IOverview)
