@@ -92,3 +92,15 @@
 .opening-hours {
     color: #333;   
 }
+
+.facilityInfo {
+    float: left; 
+    width: 62%;
+}
+
+.facilityOverview {
+    float: right; 
+    width: 35%; 
+    margin-left: 3%; 
+    margin-top:10px;
+}

@@ -9,20 +9,18 @@
 
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main">
+    
         <div tal:replace="structure provider:plone.abovecontenttitle" />
-        
         <a tal:attributes="href python: context.absolute_url() + '?reset=true'"><h1 class="documentFirstHeading" tal:content="context/title" /></a>
-
-
-        <tal:block>
-            <div tal:replace="structure provider:seantis.dir.base.directory.viewletmanager"/>
-        </tal:block>
-        
         <div tal:replace="structure provider:plone.belowcontenttitle" />
 
         <div tal:replace="structure provider:plone.abovecontentbody" />
 
-        <div id="directoryInfo" style="float: left; width: 62%;">
+        <tal:block>
+            <div tal:replace="structure provider:seantis.dir.base.directory.viewletmanager"/>
+        </tal:block>
+
+        <div id="directoryInfo" class="facilityInfo">
             <div id="directoryResultList">
                 <a tal:attributes="href item/absolute_url" tal:repeat="item view/batch">
                     <div class="directoryResult" tal:attributes="id item/id">
@@ -47,7 +45,7 @@
             </div>
         </div>
 
-        <div style="float: left; width: 35%; margin-left: 3%; margin-top:10px;">
+        <div class="facilityOverview">
             <div tal:replace="structure provider:seantis.reservation.overviewletmanager"/>
         </div>
 
