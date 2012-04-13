@@ -21,7 +21,7 @@
         <div tal:replace="structure provider:plone.belowcontenttitle" />
         <div tal:replace="structure provider:plone.abovecontentbody" />
 
-        <div class="directoryItem" style="float: left; width: 62%;">
+        <div class="directoryItem facilityInfo">
             <div class="directoryResult">
                 <div class="directoryImage">
                     <tal:block condition="nocall:image" define="
@@ -109,7 +109,7 @@
             </div>
         </div>
 
-        <div style="float: left; width: 35%; margin-left: 3%; margin-top:10px;">
+        <div class="facilityOverview">
             <div tal:replace="structure provider:seantis.reservation.overviewletmanager"/>
         </div>
 
