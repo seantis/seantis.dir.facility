@@ -104,3 +104,38 @@
     margin-left: 3%; 
     margin-top:10px;
 }
+
+/* the following code will not work in overview.css on IE 7, 8 */
+
+#seantis-overview-calendar .event-unavailable, 
+#seantis-overview-calendar .event-unavailable .fc-event-skin, 
+#seantis-overview-calendar .event-unavailable .fc-event-head {
+    background-color: #ae1e00 !important;
+    border: none;
+    opacity: 0.6;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+    filter: alpha(opacity=60);
+    zoom: 1;
+}
+
+#seantis-overview-calendar .event-available, 
+#seantis-overview-calendar .event-available .fc-event-skin, 
+#seantis-overview-calendar .event-available .fc-event-head {
+    background-color: #0e6700 !important;
+    border: none;
+    opacity: 0.6;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+    filter: alpha(opacity=60);
+    zoom: 1;
+}
+
+#seantis-overview-calendar .event-partly-available, 
+#seantis-overview-calendar .event-partly-available .fc-event-skin, 
+#seantis-overview-calendar .event-partly-available .fc-event-head {
+    background-color: #dd7c07 !important;
+    border: none;
+    opacity: 0.6;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+    filter: alpha(opacity=60);
+    zoom: 1;
+}
