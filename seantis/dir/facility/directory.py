@@ -30,6 +30,7 @@ class FacilityDirectoryFactory(core.DirectoryMetadataBase):
 
 class FacilityDirectory(directory.Directory):
     
+    @utils.memoize
     def resources(self):
         catalog = getToolByName(self, 'portal_catalog')
         path = '/'.join(self.getPhysicalPath())
