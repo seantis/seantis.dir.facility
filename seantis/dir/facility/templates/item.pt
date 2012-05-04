@@ -92,14 +92,9 @@
                     <div class="resourceItem" tal:define="
                         title resource/title;
                         description resource/description;
-                        availability python: view.availability(resource);
                     " tal:attributes="id resource/string_uuid">
                         <div class="resourceIcon"></div>
                         <div class="resourceTitle" tal:content="title"></div>
-                        <div class="resourceAvailability">
-                            <span tal:content="availability"></span>
-                            <span i18n:translate="">% free</span>
-                        </div>
                         <div class="resourceDescription" tal:content="description"></div>
 
                         <div style="clear:both;"></div>
