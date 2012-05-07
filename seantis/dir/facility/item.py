@@ -57,6 +57,13 @@ class IFacilityDirectoryItem(form.Schema):
             required = False
         )
 
+    form.fieldset(
+        'facility_fields',
+        label=_(u'Facility Information'),
+        fields=['image', 'opening_hours', 'contact', 'infrastructure', 'terms_of_use', 'notes']
+
+    )
+
 class IFacilityFields(IFacilityDirectoryItem):
     """Behavior interface providing the IFacilityDirectoryItem fields to
     any dexterity type."""
