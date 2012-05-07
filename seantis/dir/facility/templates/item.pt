@@ -19,66 +19,10 @@
         </a>
 
         <div tal:replace="structure provider:plone.belowcontenttitle" />
-        <div tal:replace="structure provider:plone.abovecontentbody" />
 
         <div class="directoryItem facilityInfo">
-            <div class="directoryResult">
-                <div class="directoryImage">
-                    <tal:block condition="nocall:image" define="
-                        image nocall: context/image;
-                        imageurl string: ${context/absolute_url}/@@download/image/${image/filename} 
-                    ">
-                        <img tal:attributes="src imageurl" height="64" width="128"/>
-                    </tal:block>
-                </div>
 
-                <div class="directoryDescription">
-                    <div>
-                        <p tal:content="context/description"/>
-                    </div>
-                    <div class="opening-hours">
-                        <span i18n:translate="">Opening Hours:</span> <span tal:content="context/opening_hours"></span>
-                    </div>
-                </div>
-
-                <div style="clear: both;"></div>
-
-                <div class="directoryInfo">
-                    <div class="categoriy">
-                        <h2 i18n:translate="">Category</h2>
-                        <dl>
-                            <tal:block repeat="category context/categories">
-                                <dt tal:content="python: category[1]"></dt>
-                                <dd>
-                                    <div tal:repeat="value python: category[2]" tal:content="value">
-
-                                    </div>
-                                </dd>
-                            </tal:block>
-                        </dl>
-                    </div>
-                    <div class="contact" tal:condition="context/contact">
-                        <h2 i18n:translate="">Contact</h2>
-                        <tal:block replace="structure context/contact"></tal:block>
-                    </div>
-                    <div class="infrastructure" tal:condition="context/infrastructure">
-                        <h2 i18n:translate="">Infrastructure</h2>
-                        <tal:block replace="structure context/infrastructure"></tal:block>
-                    </div>
-                    <div class="terms-of-use" tal:condition="context/terms_of_use">
-                        <h2 i18n:translate="">Terms of Use</h2>
-                        <tal:block replace="structure context/terms_of_use"></tal:block>
-                    </div>
-                    <div class="notes" tal:condition="context/notes">
-                        <h2 i18n:translate="">Notes</h2>
-                        <tal:block replace="structure context/notes"></tal:block>
-                    </div>
-                </div>
-
-                <div style="clear: both;"></div>
-            </div>
-
-            <div style="clear: both;"></div>
+            <div tal:replace="structure provider:plone.abovecontentbody" />
 
             <div class="directoryChildren" tal:condition="resources" tal:define="
                 resources context/resources;

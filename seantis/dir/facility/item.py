@@ -1,13 +1,14 @@
 from five import grok
 
 from zope.schema import TextLine, Text
-from zope.interface import alsoProvides, implements
+from zope.interface import alsoProvides, implements, Interface
 from plone.namedfile.field import NamedImage
 from plone.autoform.interfaces import IFormFieldProvider
 from collective.dexteritytextindexer import IDynamicTextIndexExtender
 from plone.directives import form
 from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 from Products.CMFCore.utils import getToolByName
+from plone.app.layout.viewlets.interfaces import IAboveContentBody
 
 from seantis.dir.base import item
 from seantis.dir.base import core
@@ -56,8 +57,12 @@ class IFacilityDirectoryItem(form.Schema):
             required = False
         )
 
+class IFacilityFields(IFacilityDirectoryItem):
+    """Behavior interface providing the IFacilityDirectoryItem fields to
+    any dexterity type."""
 
 alsoProvides(IFacilityDirectoryItem, IFormFieldProvider)
+alsoProvides(IFacilityFields, IFormFieldProvider)
 
 @core.ExtendedDirectory
 class FacilityDirectoryItemFactory(core.DirectoryMetadataBase): # enterprisey!
@@ -135,3 +140,44 @@ class View(item.View):
     @property
     def items(self):
         return [self.context]
+
+class DetailView(grok.Viewlet):
+    grok.context(Interface)
+    grok.name('seantis.dir.facility.detailview')
+    grok.require('zope2.View')
+    grok.viewletmanager(IAboveContentBody)
+
+    _template = grok.PageTemplateFile('templates/itemdetail.pt')
+
+    @property
+    def show_viewlet(self):
+        attributes = [
+            'image',
+            'opening_hours',
+            'description',
+            'contact',
+            'infrastructure',
+            'terms_of_use',
+            'notes'
+        ]
+        
+        for a in attributes:
+            if not hasattr(self.context, a):
+                return False
+
+        for a in attributes:
+            if getattr(self.context, a):
+                return True
+
+        return False
+
+    @property
+    def show_keywords(self):
+        return self.context.portal_type == 'seantis.dir.base.item'
+
+    def render(self):
+        if not self.show_viewlet:
+            return u''
+
+        return self._template.render(self)
+        

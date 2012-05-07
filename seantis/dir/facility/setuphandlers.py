@@ -21,3 +21,6 @@ def installBehavior(context):
 
     fti = get_fti(context, 'seantis.dir.base.directory')
     add_behavior(fti, 'seantis.dir.facility.directory.IFacilityDirectory')
+
+    fti = get_fti(context, 'seantis.reservation.resource')
+    add_behavior(fti, 'seantis.dir.facility.item.IFacilityFields')
