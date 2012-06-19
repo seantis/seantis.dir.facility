@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-05-07 12:41+0000\n"
+"POT-Creation-Date: 2012-06-19 12:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,10 @@ msgstr ""
 
 #: ./templates/itemdetail.pt:27
 msgid "Category"
+msgstr ""
+
+#: ./templates/item.pt:34
+msgid "Click on a resource to get to the reservation view."
 msgstr ""
 
 #: ./templates/itemdetail.pt:40

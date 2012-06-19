@@ -31,7 +31,8 @@
                 ">
                 
                 <h2 i18n:translate="">Ressources</h2>
-                
+                <p i18n:translate="">Click on a resource to get to the reservation view.</p>
+
                 <a tal:attributes="href resource/absolute_url" tal:repeat="resource resources">
                     <div class="resourceItem" tal:define="
                         title resource/title;
