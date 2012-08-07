@@ -1,26 +1,25 @@
 from five import grok
 
 from zope.schema import TextLine, Text
-from zope.interface import alsoProvides, implements, Interface
+from zope.interface import implements, Interface
+
+from collective.dexteritytextindexer import searchable
+from Products.CMFCore.utils import getToolByName
 from plone.namedfile.field import NamedImage
-from plone.autoform.interfaces import IFormFieldProvider
-from collective.dexteritytextindexer import IDynamicTextIndexExtender
 from plone.directives import form
 from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
-from Products.CMFCore.utils import getToolByName
 from plone.app.layout.viewlets.interfaces import IAboveContentBody
 
 from seantis.dir.base import item
-from seantis.dir.base import core
 from seantis.dir.base.interfaces import IFieldMapExtender
-from seantis.dir.base.fieldmap import FieldMap
 
 from seantis.dir.facility import _
+from seantis.dir.facility.directory import IFacilityDirectory
 
 from seantis.reservation.overview import IOverview
 from seantis.reservation import utils
   
-class IFacilityDirectoryItem(form.Schema):
+class IFacilityDirectoryItem(item.IDirectoryItem):
     """Extends the seantis.dir.IDirectoryItem."""
 
     image = NamedImage(
@@ -28,29 +27,34 @@ class IFacilityDirectoryItem(form.Schema):
             required=False
         )
 
+    searchable('opening_hours')
     opening_hours = TextLine(
             title=_(u'Opening Hours'),
             required=False
         )
 
+    searchable('contact')
     form.widget(contact=WysiwygFieldWidget)
     contact = Text(
             title=_(u'Location / Contact'),
             required=False
         )
 
+    searchable('infrastructure')
     form.widget(infrastructure=WysiwygFieldWidget)
     infrastructure = Text(
             title=_(u'Infrastructure'),
             required=False
         )
 
+    searchable('terms_of_use')
     form.widget(terms_of_use=WysiwygFieldWidget)
     terms_of_use = Text(
             title=_(u'Terms of Use'),
             required = False
         )
 
+    searchable('notes')
     form.widget(notes=WysiwygFieldWidget)
     notes = Text(
             title=_(u'Notes'),
@@ -63,17 +67,6 @@ class IFacilityDirectoryItem(form.Schema):
         fields=['image', 'opening_hours', 'contact', 'infrastructure', 'terms_of_use', 'notes']
 
     )
-
-class IFacilityFields(IFacilityDirectoryItem):
-    """Behavior interface providing the IFacilityDirectoryItem fields to
-    any dexterity type."""
-
-alsoProvides(IFacilityDirectoryItem, IFormFieldProvider)
-alsoProvides(IFacilityFields, IFormFieldProvider)
-
-@core.ExtendedDirectory
-class FacilityDirectoryItemFactory(core.DirectoryMetadataBase): # enterprisey!
-    interface = IFacilityDirectoryItem
 
 class FacilityDirectoryItem(item.DirectoryItem):
 
@@ -89,39 +82,16 @@ class FacilityDirectoryItem(item.DirectoryItem):
 
         return [r.getObject() for r in results]
 
-class DirectoryItemSearchableTextExtender(grok.Adapter):
-    grok.context(item.IDirectoryItem)
-    grok.name('IFacilityDirectoryItem')
-    grok.provides(IDynamicTextIndexExtender)
-
-    def __init__(self, context):
-        self.context = context
-
-    def __call__(self):
-        """Extend the searchable text with a custom string"""
-        context = self.context
-        get = lambda ctx, attr: hasattr(ctx, attr) and unicode(getattr(ctx, attr)) or u''
-
-        result = ' '.join((
-                         get(context, 'opening_hours'),
-                         get(context, 'contact'),
-                         get(context, 'infrastructure'),
-                         get(context, 'terms_of_use'),
-                         get(context, 'notes')
-                    ))
-
-        return result
-
 class ExtendedDirectoryItemFieldMap(grok.Adapter):
     """Adapter extending the import/export fieldmap of seantis.dir.facilty.item."""
-    grok.context(FieldMap)
+    grok.context(IFacilityDirectory)
     grok.provides(IFieldMapExtender)
 
     def __init__(self, context):
         self.context = context
 
-    def extend_import(self):
-        itemmap = self.context
+    def extend_import(self, itemmap):
+        itemmap.typename = 'seantis.dir.facility.item'
         itemmap.interface = IFacilityDirectoryItem
 
         extended = ['opening_hours', 'contact', 'infrastructure',
@@ -131,7 +101,7 @@ class ExtendedDirectoryItemFieldMap(grok.Adapter):
 
 class View(item.View):
     implements(IOverview)
-    grok.context(item.IDirectoryItem)
+    grok.context(IFacilityDirectoryItem)
     template = grok.PageTemplateFile('templates/item.pt')
 
     @property
@@ -180,7 +150,7 @@ class DetailView(grok.Viewlet):
 
     @property
     def show_keywords(self):
-        return self.context.portal_type == 'seantis.dir.base.item'
+        return self.context.portal_type == 'seantis.dir.facility.item'
 
     def render(self):
         if not self.show_viewlet:

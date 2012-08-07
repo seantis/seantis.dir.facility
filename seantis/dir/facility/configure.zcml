@@ -28,28 +28,6 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         for="Products.CMFPlone.interfaces.IPloneSiteRoot" 
         />
-        
-    <plone:behavior
-        title="Facility Directory Item"
-        description="Provides the additional fields for seantis.dir.base.item"
-        provides=".item.IFacilityDirectoryItem"
-        factory=".item.FacilityDirectoryItemFactory"
-        for="seantis.dir.base.item.IDirectoryItem"
-        />
-
-    <plone:behavior
-        title="Facility Directory"
-        description="Provides the additional fields for seantis.dir.base.directory"
-        provides=".directory.IFacilityDirectory"
-        factory=".directory.FacilityDirectoryFactory"
-        for="seantis.dir.base.directory.IDirectory"
-        />
-
-    <plone:behavior
-        title="Facility Fields"
-        description="Provides the fields of Facility Directory Item to any Dexterity type"
-        provides=".item.IFacilityFields"
-        />
 
     <browser:resourceDirectory name="seantis.dir.facility.css" directory="css"/>
 
