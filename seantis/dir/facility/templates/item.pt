@@ -7,6 +7,10 @@
       lang="en">
 <body>
 
+<metal:block fill-slot="head_slot">
+    <metal:use use-macro="context/@@seantis-dir-macros/macros/openlayers"></metal:use>
+</metal:block>
+
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main" tal:define="
         resetlink python: context.absolute_url() + '?reset=true';

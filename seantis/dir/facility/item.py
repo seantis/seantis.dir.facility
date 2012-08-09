@@ -10,13 +10,13 @@ from plone.directives import form
 from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 from plone.app.layout.viewlets.interfaces import IAboveContentBody
 
-from seantis.dir.base import item
+from seantis.dir.base import item, core
 from seantis.dir.base.interfaces import IFieldMapExtender
 
 from seantis.dir.facility import _
 from seantis.dir.facility.directory import IFacilityDirectory
 
-from seantis.reservation.overview import IOverview
+from seantis.reservation.overview import IOverview, OverviewletManager
 from seantis.reservation import utils
   
 class IFacilityDirectoryItem(item.IDirectoryItem):
@@ -99,7 +99,7 @@ class ExtendedDirectoryItemFieldMap(grok.Adapter):
         
         itemmap.add_fields(extended, len(itemmap))
 
-class View(item.View):
+class View(core.View):
     implements(IOverview)
     grok.context(IFacilityDirectoryItem)
     template = grok.PageTemplateFile('templates/item.pt')
@@ -117,6 +117,10 @@ class View(item.View):
     @property
     def items(self):
         return [self.context]
+
+    @property
+    def is_itemview(self):
+        return True
 
 class DetailView(grok.Viewlet):
     grok.context(Interface)
@@ -157,4 +161,13 @@ class DetailView(grok.Viewlet):
             return u''
 
         return self._template.render(self)
-        
+
+class Mapviewlet(grok.Viewlet):
+    grok.context(Interface)
+    grok.name('seantis.dir.facility.mapviewlet')
+    grok.require('zope2.View')
+    grok.viewletmanager(OverviewletManager)
+
+    grok.order(2)
+
+    template = grok.PageTemplateFile('templates/map.pt')

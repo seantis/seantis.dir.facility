@@ -1,0 +1,3 @@
+<div xmlns:metal="http://xml.zope.org/namespaces/metal">
+    <metal:use use-macro="context/@@seantis-dir-macros/macros/map"></metal:use>
+</div>

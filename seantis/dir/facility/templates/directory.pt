@@ -7,6 +7,10 @@
       i18n:domain="seantis.dir.facility">
 <body>
 
+<metal:block fill-slot="head_slot">
+    <metal:use use-macro="context/@@seantis-dir-macros/macros/openlayers"></metal:use>
+</metal:block>
+
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main">
     
@@ -22,6 +26,7 @@
 
         <div id="directoryInfo" class="facilityInfo">
             <div id="directoryResultList">
+
                 <a tal:attributes="href item/absolute_url" tal:repeat="item view/batch">
                     <div class="directoryResult" tal:attributes="id item/id">
                         <h2 tal:content="item/title" />
@@ -40,6 +45,8 @@
                             </div>
                         </div>
                         <div style="clear: both;"></div>
+
+                        <metal:use use-macro="context/@@seantis-dir-macros/macros/map-marker"></metal:use>
                     </div>
                 </a>
             </div>
