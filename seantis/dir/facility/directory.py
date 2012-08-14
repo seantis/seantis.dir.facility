@@ -1,6 +1,7 @@
 from five import grok
 from zope.interface import implements
 
+from Products.CMFPlone.PloneBatch import Batch
 from Products.CMFCore.utils import getToolByName
 from plone.namedfile.field import NamedImage
 
@@ -49,3 +50,8 @@ class View(directory.View):
     def monthly_report_link(self):
         resources = self.context.resources()
         return utils.monthly_report_link(self.context, resources)
+
+    @property
+    def batch(self):
+        start = int(self.request.get('b_start') or 0)
+        return Batch(self.items, 5, start, orphan=1)
