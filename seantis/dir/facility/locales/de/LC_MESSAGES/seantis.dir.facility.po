@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-08-17 11:50+0000\n"
+"POT-Creation-Date: 2012-08-17 14:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -74,4 +74,8 @@ msgstr "Ressourcen"
 #: ./templates/itemdetail.pt:48
 msgid "Terms of Use"
 msgstr "Nutzungsbedingungen"
+
+#: ./templates/directory.pt:51
+msgid "more..."
+msgstr "mehr..."
 

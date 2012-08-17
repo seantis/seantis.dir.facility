@@ -47,6 +47,8 @@
                         <div style="clear: both;"></div>
 
                         <metal:use use-macro="context/@@seantis-dir-macros/macros/map-marker"></metal:use>
+
+                        <a tal:attributes="href item/absolute_url" i18n:translate="">more...</a>
                     </div>
                 </a>
             </div>
