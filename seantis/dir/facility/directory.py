@@ -6,13 +6,14 @@ from Products.CMFCore.utils import getToolByName
 from plone.namedfile.field import NamedImage
 
 from seantis.dir.base import directory
+from seantis.dir.base.interfaces import IDirectory
 
 from seantis.dir.facility import _
 
 from seantis.reservation.interfaces import IOverview
 from seantis.reservation import utils
 
-class IFacilityDirectory(directory.IDirectory):
+class IFacilityDirectory(IDirectory):
     """Extends the seantis.dir.base.directory.IDirectory"""
 
     image = NamedImage(

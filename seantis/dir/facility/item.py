@@ -11,7 +11,7 @@ from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 from plone.app.layout.viewlets.interfaces import IAboveContentBody
 
 from seantis.dir.base import item, core
-from seantis.dir.base.interfaces import IFieldMapExtender
+from seantis.dir.base.interfaces import IFieldMapExtender, IDirectoryItem
 
 from seantis.dir.facility import _
 from seantis.dir.facility.directory import IFacilityDirectory
@@ -19,7 +19,7 @@ from seantis.dir.facility.directory import IFacilityDirectory
 from seantis.reservation.overview import IOverview, OverviewletManager
 from seantis.reservation import utils
   
-class IFacilityDirectoryItem(item.IDirectoryItem):
+class IFacilityDirectoryItem(IDirectoryItem):
     """Extends the seantis.dir.IDirectoryItem."""
 
     image = NamedImage(
