@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-06-19 12:40+0000\n"
+"POT-Creation-Date: 2012-08-17 11:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "Category"
 msgstr ""
 
-#: ./templates/item.pt:34
+#: ./templates/item.pt:38
 msgid "Click on a resource to get to the reservation view."
 msgstr ""
 
@@ -29,31 +29,39 @@ msgstr ""
 msgid "Contact"
 msgstr ""
 
-#: ./item.py:62
+#: ./profiles/default/types/seantis.dir.facility.directory.xml
+msgid "Facility Directory"
+msgstr ""
+
+#: ./profiles/default/types/seantis.dir.facility.item.xml
+msgid "Facility Directory Item"
+msgstr ""
+
+#: ./item.py:66
 msgid "Facility Information"
 msgstr ""
 
-#: ./directory.py:21
-#: ./item.py:27
+#: ./directory.py:20
+#: ./item.py:26
 msgid "Image"
 msgstr ""
 
-#: ./item.py:44
+#: ./item.py:46
 #: ./templates/itemdetail.pt:44
 msgid "Infrastructure"
 msgstr ""
 
-#: ./item.py:38
+#: ./item.py:39
 msgid "Location / Contact"
 msgstr ""
 
-#: ./item.py:56
+#: ./item.py:60
 #: ./templates/itemdetail.pt:52
 msgid "Notes"
 msgstr ""
 
 #: ./item.py:32
-#: ./templates/directory.pt:39
+#: ./templates/directory.pt:44
 msgid "Opening Hours"
 msgstr ""
 
@@ -61,11 +69,11 @@ msgstr ""
 msgid "Opening Hours:"
 msgstr ""
 
-#: ./templates/item.pt:33
+#: ./templates/item.pt:37
 msgid "Ressources"
 msgstr ""
 
-#: ./item.py:50
+#: ./item.py:53
 #: ./templates/itemdetail.pt:48
 msgid "Terms of Use"
 msgstr ""
