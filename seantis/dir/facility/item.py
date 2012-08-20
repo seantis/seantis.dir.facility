@@ -1,17 +1,22 @@
 from five import grok
 
 from zope.schema import TextLine, Text
-from zope.interface import implements, Interface
+from zope.interface import implements, Interface, alsoProvides
 
 from collective.dexteritytextindexer import searchable
 from Products.CMFCore.utils import getToolByName
 from plone.namedfile.field import NamedImage
 from plone.directives import form
+from plone.autoform.interfaces import IFormFieldProvider
 from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 from plone.app.layout.viewlets.interfaces import IAboveContentBody
 
 from seantis.dir.base import item, core
-from seantis.dir.base.interfaces import IFieldMapExtender, IDirectoryItem
+from seantis.dir.base.interfaces import (
+    IFieldMapExtender, 
+    IDirectoryItem, 
+    IDirectoryItemBase
+)
 
 from seantis.dir.facility import _
 from seantis.dir.facility.directory import IFacilityDirectory
@@ -65,7 +70,6 @@ class IFacilityDirectoryItem(IDirectoryItem):
         'facility_fields',
         label=_(u'Facility Information'),
         fields=['image', 'opening_hours', 'contact', 'infrastructure', 'terms_of_use', 'notes']
-
     )
 
 class FacilityDirectoryItem(item.DirectoryItem):
@@ -171,3 +175,28 @@ class Mapviewlet(grok.Viewlet):
     grok.order(2)
 
     template = grok.PageTemplateFile('templates/map.pt')
+
+# Provide the facility fields in a behavior which will then be activated for
+# for seantis.reservation.resource. This allows resources to contain the
+# fields of the facility. These fields will be filled with the values of the
+# facility on creation. After that the values are independent.
+
+class IFacilityFields(IFacilityDirectoryItem):
+    """Provides the fields of Facility Directory Item to any Dexterity type"""
+
+    form.omitted(*IDirectoryItemBase.names())
+
+def default_value(data):
+    """ Gets the default value of the context (facility) if the attribute
+    is found.
+
+    """
+    if hasattr(data.context, data.field.__name__): 
+        return getattr(data.context, data.field.__name__)
+
+# Setup the decorators
+defaults = [None] * len(IFacilityDirectoryItem.names())
+for ix, field in enumerate(IFacilityDirectoryItem.names()):
+    defaults[ix] = form.default_value(field=IFacilityFields[field])(default_value)
+
+alsoProvides(IFacilityFields, IFormFieldProvider)

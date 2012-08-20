@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+    <import-steps>
+        <import-step id="seantis.dir.facility.install_behavior"
+           version="20120820-01"
+           handler="seantis.dir.facility.setuphandlers.install_behavior"
+           title="Register reservation item behavior">
+        Registers the seantis.dir.facility behavior for seantis.reservation
+    </import-step>
+</import-steps>
