@@ -116,7 +116,7 @@ class View(core.View):
     @property
     def monthly_report_link(self):
         resources = self.context.resources()
-        return utils.monthly_report_link(self.context, resources)
+        return utils.monthly_report_link(self.context, self.request, resources)
 
     @property
     def items(self):
@@ -183,7 +183,6 @@ class Mapviewlet(grok.Viewlet):
 
 class IFacilityFields(IFacilityDirectoryItem):
     """Provides the fields of Facility Directory Item to any Dexterity type"""
-
     form.omitted(*IDirectoryItemBase.names())
 
 def default_value(data):

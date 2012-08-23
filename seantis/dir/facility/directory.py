@@ -50,7 +50,7 @@ class View(directory.View):
     @property
     def monthly_report_link(self):
         resources = self.context.resources()
-        return utils.monthly_report_link(self.context, resources)
+        return utils.monthly_report_link(self.context, self.request, resources)
 
     @property
     def batch(self):
