@@ -93,14 +93,13 @@
 
 .facilityInfo {
     float: left; 
-    width: 62%;
+    width: 50%;
 }
 
 .facilityOverview {
     float: right; 
-    width: 35%; 
-    margin-left: 3%; 
-    margin-top:10px;
+    width: 45%; 
+    margin-top:16px;
 }
 
 /* the following code will not work in overview.css on IE 7, 8 */

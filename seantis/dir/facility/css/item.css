@@ -115,11 +115,12 @@
 .facilityInfo {
     float: left; 
     width: 62%;
+    margin-top: 8px;
 }
 
 .facilityOverview {
     float: right; 
     width: 35%; 
     margin-left: 3%; 
-    margin-top:10px;
+    margin-top: 13px;
 }
