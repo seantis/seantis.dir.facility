@@ -1,5 +1,5 @@
 .directoryResult {
-    border: solid #ddd 1px;
+    border: solid #abc7d3 1px;
     padding: 20px;
     color: #3e5786;
     margin-top: 5px;
@@ -7,14 +7,23 @@
     border-radius: 2px;
 }
 
+.directoryResult a:hover * {
+    color: #3e5786 !important;   
+}
+
 .directoryResult:hover {
-    background-color: #ddd;
+    background-color: #efefef;
 }
 
 .directoryResult h2 {
     padding-top: 0px;
     margin-top: -10px;
     margin-bottom: 10px;
+}
+
+div#landingPageText {
+    float: none;
+    width: 100%;
 }
 
 #directoryResultList {
@@ -34,24 +43,6 @@
 .directoryDescription {
     float: left;
     width: 50%;      
-}
-
-#directorySearchForm {
-    padding: 7px 20px;
-    min-height: 6em;
-}
-
-.directorySearchFormSelection {
-    float: left;   
-}
-.directorySearchFormButtons {
-    position: relative;
-    top: 20px;
-}
-
-#directorySearchForm fieldset {
-    border: none;
-    padding: 0;   
 }
 
 .seantis-overview-event {

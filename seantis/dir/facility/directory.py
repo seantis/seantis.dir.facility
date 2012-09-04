@@ -4,9 +4,11 @@ from zope.interface import implements
 from Products.CMFPlone.PloneBatch import Batch
 from Products.CMFCore.utils import getToolByName
 from plone.namedfile.field import NamedImage
+from plone.app.layout.viewlets.interfaces import IBelowContentTitle
 
 from seantis.dir.base import directory
 from seantis.dir.base.interfaces import IDirectory
+from seantis.dir.base.directory import DirectoryViewletManager
 
 from seantis.dir.facility import _
 
@@ -35,6 +37,13 @@ class FacilityDirectory(directory.Directory):
 
         return [r.getObject() for r in results]
 
+class ExtendedDirectoryViewlet(grok.Viewlet):
+    grok.context(IDirectory)
+    grok.name('seantis.dir.facility.directory.detail')
+    grok.require('zope2.View')
+    grok.viewletmanager(IBelowContentTitle)
+
+    template = grok.PageTemplateFile('templates/directorydetail.pt')
 
 class View(directory.View):
     implements(IOverview)
