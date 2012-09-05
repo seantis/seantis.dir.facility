@@ -11,12 +11,16 @@
 }
 
 .directoryResult {
-    border: solid #ddd 1px;
+    border: solid #0085be 1px;
+    border-width: 1px 1px 1px 10px;
     padding: 0 20px 10px 20px;
     color: #3e5786;
     margin-top: 5px;
     margin-bottom: 10px;
-    border-radius: 2px;
+}
+
+.directoryChildren a:hover * {
+    color: #4c7f9d !important;   
 }
 
 .directoryDescription {
@@ -31,8 +35,8 @@
     color: #333;   
 }
 
-#directorySearchForm {
-    display: none;
+#directorySearch {
+    display: none;   
 }
 
 .resourceIcon {
@@ -44,14 +48,14 @@
 
 .resourceItem {
     margin: 10px 0;
-    padding: 10px 0 10px 20px;
-    border: 1px solid #ccc;
-    border-radius: 2px;
+    padding: 8px 0 8px 8px;
+    border: 1px solid #ddd;
+    border-width: 1px 1px 1px 10px;
 }
 
 .resourceTitle {
     margin-left: 10px;
-    margin-top: 5px;
+    margin-top: 6px;
     float:left;
     font-size: 16px;
 }
@@ -64,7 +68,8 @@
 }
 
 .resourceItem:hover {
-    background-color: #eee;
+    border-color: #0087be;
+    box-shadow: 3px 3px 2px #efefef;
 }
 
 .resourceDescription {
@@ -114,13 +119,54 @@
 
 .facilityInfo {
     float: left; 
-    width: 62%;
+    margin-right: 13px;
     margin-top: 8px;
 }
 
 .facilityOverview {
     float: right; 
-    width: 35%; 
-    margin-left: 3%; 
+    width: 350px; 
     margin-top: 13px;
+}
+
+@media screen and (max-width: 740px) {
+    .facilityInfo {
+        width: 100% !important;   
+    }   
+    
+    .facilityOverview {
+        float: left; 
+        margin-top: 0;
+        width: 100% !important;
+    }
+}
+
+@media screen and (min-width: 740px) {
+    .facilityInfo {
+        width: 49% !important;   
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .facilityInfo {
+        width: 60% !important;   
+    }  
+}
+
+@media screen and (min-width: 1200px) {
+    .facilityInfo {
+        width: 67% !important;   
+    }   
+}
+
+@media screen and (min-width: 1400px) {
+    .facilityInfo {
+        width: 70% !important;   
+    }   
+}
+
+@media screen and (min-width: 1600px) {
+    .facilityInfo {
+        width: 73% !important;   
+    }   
 }

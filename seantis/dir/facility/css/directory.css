@@ -1,24 +1,34 @@
 .directoryResult {
-    border: solid #abc7d3 1px;
-    padding: 20px;
+    border: solid #dddddd 1px;
+    border-width: 1px 1px 1px 10px;
+    padding: 15px 10px;
     color: #3e5786;
     margin-top: 5px;
-    margin-bottom: 20px;
-    border-radius: 2px;
+    margin-bottom: 18px;
+}
+
+.directoryResult:hover {
+    border-color: #0085be;
+    box-shadow: 3px 3px 2px #efefef;
 }
 
 .directoryResult a:hover * {
     color: #3e5786 !important;   
 }
 
-.directoryResult:hover {
-    background-color: #efefef;
+.directoryResult a:hover .directoryDescription *,
+.directoryResult .directoryDescription {
+    color: #222 !important;   
 }
 
 .directoryResult h2 {
     padding-top: 0px;
     margin-top: -10px;
     margin-bottom: 10px;
+}
+
+.directoryMarker {
+    right: 5px;
 }
 
 div#landingPageText {
@@ -84,46 +94,53 @@ div#landingPageText {
 
 .facilityInfo {
     float: left; 
-    width: 50%;
+    margin-right: 20px;
 }
 
 .facilityOverview {
     float: right; 
-    width: 47%; 
+    width: 350px; 
     margin-top:16px;
 }
 
-/* the following code will not work in overview.css on IE 7, 8 */
-
-#seantis-overview-calendar .event-unavailable, 
-#seantis-overview-calendar .event-unavailable .fc-event-skin, 
-#seantis-overview-calendar .event-unavailable .fc-event-head {
-    background-color: #ae1e00 !important;
-    border: none;
-    opacity: 0.6;
-    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
-    filter: alpha(opacity=60);
-    zoom: 1;
+@media screen and (max-width: 740px) {
+    .facilityInfo {
+        width: 100% !important;   
+    }   
+    
+    .facilityOverview {
+        float: left; 
+        margin-top: 0;  
+        width: 100% !important;
+    }
 }
 
-#seantis-overview-calendar .event-available, 
-#seantis-overview-calendar .event-available .fc-event-skin, 
-#seantis-overview-calendar .event-available .fc-event-head {
-    background-color: #0e6700 !important;
-    border: none;
-    opacity: 0.6;
-    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
-    filter: alpha(opacity=60);
-    zoom: 1;
+@media screen and (min-width: 740px) {
+    .facilityInfo {
+        width: 50% !important;   
+    }
 }
 
-#seantis-overview-calendar .event-partly-available, 
-#seantis-overview-calendar .event-partly-available .fc-event-skin, 
-#seantis-overview-calendar .event-partly-available .fc-event-head {
-    background-color: #dd7c07 !important;
-    border: none;
-    opacity: 0.6;
-    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
-    filter: alpha(opacity=60);
-    zoom: 1;
+@media screen and (min-width: 1000px) {
+    .facilityInfo {
+        width: 60% !important;   
+    }  
+}
+
+@media screen and (min-width: 1200px) {
+    .facilityInfo {
+        width: 67% !important;   
+    }   
+}
+
+@media screen and (min-width: 1400px) {
+    .facilityInfo {
+        width: 70% !important;   
+    }   
+}
+
+@media screen and (min-width: 1600px) {
+    .facilityInfo {
+        width: 73% !important;   
+    }   
 }
