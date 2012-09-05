@@ -31,7 +31,7 @@
 }
 
 .opening-hours {
-    margin-top: -10px;
+    margin-top: -15px;
     color: #333;   
 }
 
@@ -119,54 +119,13 @@
 
 .facilityInfo {
     float: left; 
-    margin-right: 13px;
+    margin: 0;
     margin-top: 8px;
+    width: 60%;
 }
 
 .facilityOverview {
     float: right; 
-    width: 350px; 
+    width: 38%; 
     margin-top: 13px;
-}
-
-@media screen and (max-width: 740px) {
-    .facilityInfo {
-        width: 100% !important;   
-    }   
-    
-    .facilityOverview {
-        float: left; 
-        margin-top: 0;
-        width: 100% !important;
-    }
-}
-
-@media screen and (min-width: 740px) {
-    .facilityInfo {
-        width: 49% !important;   
-    }
-}
-
-@media screen and (min-width: 1000px) {
-    .facilityInfo {
-        width: 60% !important;   
-    }  
-}
-
-@media screen and (min-width: 1200px) {
-    .facilityInfo {
-        width: 67% !important;   
-    }   
-}
-
-@media screen and (min-width: 1400px) {
-    .facilityInfo {
-        width: 70% !important;   
-    }   
-}
-
-@media screen and (min-width: 1600px) {
-    .facilityInfo {
-        width: 73% !important;   
-    }   
 }
