@@ -43,7 +43,7 @@
 
                         <metal:use use-macro="context/@@seantis-dir-macros/macros/map-marker"></metal:use>
 
-                        <a tal:attributes="href item/absolute_url" i18n:translate="">more...</a>
+                        <span i18n:translate="">more...</span>
                     </div>
                 </a>
             </div>
