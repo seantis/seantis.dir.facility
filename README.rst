@@ -8,3 +8,21 @@ Build Status
 
 .. image:: https://secure.travis-ci.org/seantis/seantis.dir.facility.png
    :target: https://travis-ci.org/seantis/seantis.dir.facility
+
+Links
+=====
+
+- Main github project repository: https://github.com/seantis/seantis.dir.facility
+- Issue tracker: https://github.com/seantis/seantis.dir.facility/issues
+- Package on pypi: http://pypi.python.org/pypi/seantis.dir.facility
+- Continuous integration: https://travis-ci.org/seantis/seantis.dir.facility
+
+License
+=======
+
+seantis.dir.base is released under GPL v2
+
+Maintainer
+==========
+
+seantis.dir.facility is maintained by Seantis GmbH (www.seantis.ch)
