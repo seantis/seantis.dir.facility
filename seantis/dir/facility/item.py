@@ -13,8 +13,8 @@ from plone.app.layout.viewlets.interfaces import IAboveContentBody
 
 from seantis.dir.base import item, core
 from seantis.dir.base.interfaces import (
-    IFieldMapExtender, 
-    IDirectoryItem, 
+    IFieldMapExtender,
+    IDirectoryItem,
     IDirectoryItemBase
 )
 
@@ -23,54 +23,57 @@ from seantis.dir.facility.directory import IFacilityDirectory
 
 from seantis.reservation.overview import IOverview, OverviewletManager
 from seantis.reservation import utils
-  
+
+
 class IFacilityDirectoryItem(IDirectoryItem):
     """Extends the seantis.dir.IDirectoryItem."""
 
     image = NamedImage(
-            title=_(u'Image'),
-            required=False
-        )
+        title=_(u'Image'),
+        required=False
+    )
 
     searchable('opening_hours')
     opening_hours = TextLine(
-            title=_(u'Opening Hours'),
-            required=False
-        )
+        title=_(u'Opening Hours'),
+        required=False
+    )
 
     searchable('contact')
     form.widget(contact=WysiwygFieldWidget)
     contact = Text(
-            title=_(u'Location / Contact'),
-            required=False
-        )
+        title=_(u'Location / Contact'),
+        required=False
+    )
 
     searchable('infrastructure')
     form.widget(infrastructure=WysiwygFieldWidget)
     infrastructure = Text(
-            title=_(u'Infrastructure'),
-            required=False
-        )
+        title=_(u'Infrastructure'),
+        required=False
+    )
 
     searchable('terms_of_use')
     form.widget(terms_of_use=WysiwygFieldWidget)
     terms_of_use = Text(
-            title=_(u'Terms of Use'),
-            required = False
-        )
+        title=_(u'Terms of Use'),
+        required=False
+    )
 
     searchable('notes')
     form.widget(notes=WysiwygFieldWidget)
     notes = Text(
-            title=_(u'Notes'),
-            required = False
-        )
+        title=_(u'Notes'),
+        required=False
+    )
 
     form.fieldset(
         'facility_fields',
         label=_(u'Facility Information'),
-        fields=['image', 'opening_hours', 'contact', 'infrastructure', 'terms_of_use', 'notes']
+        fields=['image', 'opening_hours', 'contact', 'infrastructure',
+                'terms_of_use', 'notes']
     )
+
 
 class FacilityDirectoryItem(item.DirectoryItem):
 
@@ -86,8 +89,12 @@ class FacilityDirectoryItem(item.DirectoryItem):
 
         return [r.getObject() for r in results]
 
+
 class ExtendedDirectoryItemFieldMap(grok.Adapter):
-    """Adapter extending the import/export fieldmap of seantis.dir.facilty.item."""
+    """Adapter extending the import/export fieldmap of
+    seantis.dir.facilty.item.
+
+    """
     grok.context(IFacilityDirectory)
     grok.provides(IFieldMapExtender)
 
@@ -100,8 +107,9 @@ class ExtendedDirectoryItemFieldMap(grok.Adapter):
 
         extended = ['opening_hours', 'contact', 'infrastructure',
                     'terms_of_use', 'notes']
-        
+
         itemmap.add_fields(extended, len(itemmap))
+
 
 class View(core.View):
     implements(IOverview)
@@ -126,6 +134,7 @@ class View(core.View):
     def is_itemview(self):
         return True
 
+
 class DetailView(grok.Viewlet):
     grok.context(Interface)
     grok.name('seantis.dir.facility.detailview')
@@ -145,7 +154,7 @@ class DetailView(grok.Viewlet):
             'terms_of_use',
             'notes'
         ]
-        
+
         for a in attributes:
             if not hasattr(self.context, a):
                 return False
@@ -166,6 +175,7 @@ class DetailView(grok.Viewlet):
 
         return self._template.render(self)
 
+
 class Mapviewlet(grok.Viewlet):
     grok.context(Interface)
     grok.name('seantis.dir.facility.mapviewlet')
@@ -181,21 +191,25 @@ class Mapviewlet(grok.Viewlet):
 # fields of the facility. These fields will be filled with the values of the
 # facility on creation. After that the values are independent.
 
+
 class IFacilityFields(IFacilityDirectoryItem):
     """Provides the fields of Facility Directory Item to any Dexterity type"""
     form.omitted(*IDirectoryItemBase.names())
+
 
 def default_value(data):
     """ Gets the default value of the context (facility) if the attribute
     is found.
 
     """
-    if hasattr(data.context, data.field.__name__): 
+    if hasattr(data.context, data.field.__name__):
         return getattr(data.context, data.field.__name__)
 
 # Setup the decorators
 defaults = [None] * len(IFacilityDirectoryItem.names())
 for ix, field in enumerate(IFacilityDirectoryItem.names()):
-    defaults[ix] = form.default_value(field=IFacilityFields[field])(default_value)
+    defaults[ix] = form.default_value(
+        field=IFacilityFields[field]
+    )(default_value)
 
 alsoProvides(IFacilityFields, IFormFieldProvider)

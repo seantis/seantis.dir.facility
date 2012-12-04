@@ -1,6 +1,7 @@
 from Products.PloneTestCase.ptc import PloneTestCase
 from seantis.dir.facility.tests.layer import Layer
 
+
 class IntegrationTestCase(PloneTestCase):
     layer = Layer
 

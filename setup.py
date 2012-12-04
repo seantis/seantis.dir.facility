@@ -3,17 +3,19 @@ import os
 
 version = '1.0'
 
+README = open("README.rst").read()
+CHANGES = open(os.path.join("docs", "HISTORY.txt")).read()
+
 setup(name='seantis.dir.facility',
       version=version,
       description="Facility directory for seantis.reservation",
-      long_description=open("README.rst").read() + "\n" +
-                       open(os.path.join("docs", "HISTORY.txt")).read(),
+      long_description=README + '\n\n' + CHANGES,
       # Get more strings from
       # http://pypi.python.org/pypi?:action=list_classifiers
       classifiers=[
-        "Framework :: Plone",
-        "Programming Language :: Python",
-        ],
+          "Framework :: Plone",
+          "Programming Language :: Python",
+      ],
       keywords='',
       author='Seantis GmbH',
       author_email='info@seantis.ch',

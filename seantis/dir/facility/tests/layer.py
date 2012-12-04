@@ -7,6 +7,7 @@ from plone.app.testing import quickInstallProduct
 from seantis.reservation.testing import SqlLayer
 from seantis.reservation.testing import SQL_FIXTURE
 
+
 class IntegrationTestLayer(SqlLayer):
     default_bases = (SQL_FIXTURE,)
 
@@ -14,8 +15,9 @@ class IntegrationTestLayer(SqlLayer):
         SqlLayer.setUpZope(self, app, configurationContext)
 
         import seantis.dir.facility
-        xmlconfig.file('configure.zcml',
-            seantis.dir.facility, 
+        xmlconfig.file(
+            'configure.zcml',
+            seantis.dir.facility,
             context=configurationContext
         )
         z2.installProduct(app, 'seantis.dir.facility')
@@ -32,6 +34,6 @@ class IntegrationTestLayer(SqlLayer):
 FIXTURE = IntegrationTestLayer()
 
 Layer = IntegrationTesting(
-        bases=(FIXTURE,),
-        name="seantis.dir.facility:Integration"
-    )
+    bases=(FIXTURE,),
+    name="seantis.dir.facility:Integration"
+)

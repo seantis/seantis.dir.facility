@@ -8,23 +8,24 @@ from plone.app.layout.viewlets.interfaces import IBelowContentTitle
 
 from seantis.dir.base import directory
 from seantis.dir.base.interfaces import IDirectory
-from seantis.dir.base.directory import DirectoryViewletManager
 
 from seantis.dir.facility import _
 
 from seantis.reservation.interfaces import IOverview
 from seantis.reservation import utils
 
+
 class IFacilityDirectory(IDirectory):
     """Extends the seantis.dir.base.directory.IDirectory"""
 
     image = NamedImage(
-            title=_(u'Image'),
-            required=False
-        )
+        title=_(u'Image'),
+        required=False
+    )
+
 
 class FacilityDirectory(directory.Directory):
-    
+
     @utils.memoize
     def resources(self):
         catalog = getToolByName(self, 'portal_catalog')
@@ -37,6 +38,7 @@ class FacilityDirectory(directory.Directory):
 
         return [r.getObject() for r in results]
 
+
 class ExtendedDirectoryViewlet(grok.Viewlet):
     grok.context(IDirectory)
     grok.name('seantis.dir.facility.directory.detail')
@@ -44,6 +46,7 @@ class ExtendedDirectoryViewlet(grok.Viewlet):
     grok.viewletmanager(IBelowContentTitle)
 
     template = grok.PageTemplateFile('templates/directorydetail.pt')
+
 
 class View(directory.View):
     implements(IOverview)

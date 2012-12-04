@@ -1,5 +1,6 @@
 from seantis.dir.facility.tests import IntegrationTestCase
 
+
 class TestFacilityDirectoryItem(IntegrationTestCase):
 
     def test_resources(self):
