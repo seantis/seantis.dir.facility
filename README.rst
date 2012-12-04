@@ -20,7 +20,7 @@ Links
 License
 =======
 
-seantis.dir.base is released under GPL v2
+seantis.dir.facility is released under GPL v2
 
 Maintainer
 ==========
