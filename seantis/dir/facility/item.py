@@ -149,6 +149,10 @@ class DetailView(grok.Viewlet):
 
     @property
     def show_viewlet(self):
+        return self.show_details or self.show_my_reservations
+
+    @property
+    def show_details(self):
         attributes = [
             'image',
             'opening_hours',
@@ -167,6 +171,10 @@ class DetailView(grok.Viewlet):
             if getattr(self.context, a):
                 return True
 
+        return False
+
+    @property
+    def show_my_reservations(self):
         return bool(self.my_reservations)
 
     @cached_property

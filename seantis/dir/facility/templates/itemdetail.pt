@@ -1,5 +1,5 @@
 <tal:block xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="seantis.dir.facility">
-    <div class="directoryResult">
+    <div class="directoryResult" tal:condition="viewlet/show_details">
         <div class="directoryImage" tal:condition="nocall:context/image">
                 <tal:block define="
                     image nocall: context/image;
