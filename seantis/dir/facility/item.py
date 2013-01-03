@@ -27,6 +27,7 @@ from seantis.dir.facility.directory import IFacilityDirectory
 from seantis.reservation.overview import IOverview, OverviewletManager
 from seantis.reservation.reserve import MyReservationsViewlet
 from seantis.reservation import utils
+from seantis.reservation.interfaces import IResource
 
 
 class IFacilityDirectoryItem(IDirectoryItem):
@@ -175,10 +176,14 @@ class DetailView(grok.Viewlet):
 
     @property
     def show_my_reservations(self):
-        return bool(self.my_reservations)
+        return all((
+            IResource.providedBy(self.context),
+            bool(self.my_reservations)
+        ))
 
     @cached_property
     def my_reservations(self):
+
         context = aq_inner(self.context)
         viewlet = MyReservationsViewlet(context, self.request, None, None)
 
