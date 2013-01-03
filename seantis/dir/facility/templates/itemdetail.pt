@@ -57,5 +57,9 @@
         <div style="clear: both;"></div>
     </div>
 
+    <div tal:content="structure viewlet/my_reservations">
+        My reservations
+    </div>
+
     <div style="clear: both;"></div>
 </tal:block>
