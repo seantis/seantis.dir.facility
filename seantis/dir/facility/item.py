@@ -19,6 +19,8 @@ from seantis.dir.base.interfaces import (
     IDirectoryItemBase
 )
 
+from seantis.dir.base.utils import cached_property
+
 from seantis.dir.facility import _
 from seantis.dir.facility.directory import IFacilityDirectory
 
@@ -165,11 +167,16 @@ class DetailView(grok.Viewlet):
             if getattr(self.context, a):
                 return True
 
-        return False
+        return bool(self.my_reservations)
 
+    @cached_property
     def my_reservations(self):
         context = aq_inner(self.context)
         viewlet = MyReservationsViewlet(context, self.request, None, None)
+
+        if not viewlet.has_reservations:
+            return ""
+
         viewlet.update()
         return viewlet.render()
 

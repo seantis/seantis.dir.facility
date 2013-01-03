@@ -61,5 +61,7 @@
         My reservations
     </div>
 
+    <b>What?</b>
+
     <div style="clear: both;"></div>
 </tal:block>
