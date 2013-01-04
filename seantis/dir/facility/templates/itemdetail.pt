@@ -1,5 +1,5 @@
 <tal:block xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="seantis.dir.facility">
-    <div class="directoryResult" tal:condition="viewlet/show_details">
+    <div class="directoryResult" tal:condition="viewlet/show_viewlet">
         <div class="directoryImage" tal:condition="context/image">
             <img tal:replace="structure context/@@images/image/thumb" />
         </div>
@@ -49,12 +49,6 @@
         </div>
 
         <div style="clear: both;"></div>
-    </div>
-
-    <div class="my-reservations-container">
-        <tal:block condition="viewlet/show_my_reservations" content="structure viewlet/my_reservations">
-            My reservations
-        </tal:block>
     </div>
 
     <div style="clear: both;"></div>

@@ -3,7 +3,6 @@ from five import grok
 from zope.schema import TextLine, Text
 from zope.interface import implements, Interface, alsoProvides
 
-from Acquisition import aq_inner
 from collective.dexteritytextindexer import searchable
 from Products.CMFCore.utils import getToolByName
 from plone.namedfile.field import NamedImage
@@ -19,15 +18,11 @@ from seantis.dir.base.interfaces import (
     IDirectoryItemBase
 )
 
-from seantis.dir.base.utils import cached_property
-
 from seantis.dir.facility import _
 from seantis.dir.facility.directory import IFacilityDirectory
 
 from seantis.reservation.overview import IOverview, OverviewletManager
-from seantis.reservation.reserve import MyReservationsViewlet
 from seantis.reservation import utils
-from seantis.reservation.interfaces import IResource
 
 
 class IFacilityDirectoryItem(IDirectoryItem):
@@ -150,10 +145,6 @@ class DetailView(grok.Viewlet):
 
     @property
     def show_viewlet(self):
-        return self.show_details or self.show_my_reservations
-
-    @property
-    def show_details(self):
         attributes = [
             'image',
             'opening_hours',
@@ -173,25 +164,6 @@ class DetailView(grok.Viewlet):
                 return True
 
         return False
-
-    @property
-    def show_my_reservations(self):
-        return all((
-            IResource.providedBy(self.context),
-            bool(self.my_reservations)
-        ))
-
-    @cached_property
-    def my_reservations(self):
-
-        context = aq_inner(self.context)
-        viewlet = MyReservationsViewlet(context, self.request, None, None)
-
-        if not viewlet.has_reservations:
-            return ""
-
-        viewlet.update()
-        return viewlet.render()
 
     @property
     def show_keywords(self):
