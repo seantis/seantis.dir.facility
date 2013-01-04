@@ -25,10 +25,8 @@
                 <a tal:attributes="href item/absolute_url" tal:repeat="item view/batch">
                     <div class="directoryResult" tal:attributes="id item/id">
                         <h2 tal:content="item/title" />
-                        <div class="directoryImage">
-                            <tal:block define="image nocall:item/image" condition="nocall:image">
-                                <img tal:attributes="src string:${item/absolute_url}/@@download/image/${image/filename}" height="64" width="128"/>
-                            </tal:block>
+                        <div class="directoryImage" tal:condition="item/image">
+                            <img tal:replace="structure item/@@images/image/thumb" />
                         </div>
                     
                         <div class="directoryDescription">

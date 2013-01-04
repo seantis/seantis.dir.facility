@@ -46,11 +46,7 @@ div#landingPageText {
 
 .directoryImage {
     padding: 0;
-    height: 64px;
-    width: 128px;
-
-    margin: 0;
-    margin-right: 25px;
+    margin: 0 25px 5px 0;
     float: left;
 }
 

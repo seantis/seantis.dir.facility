@@ -195,7 +195,10 @@ class DetailView(grok.Viewlet):
 
     @property
     def show_keywords(self):
-        return self.context.portal_type == 'seantis.dir.facility.item'
+        return all((
+            self.context.portal_type == 'seantis.dir.facility.item',
+            len(self.context.categories())
+        ))
 
     def render(self):
         if not self.show_viewlet:

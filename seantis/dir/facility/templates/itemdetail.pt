@@ -1,13 +1,7 @@
 <tal:block xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="seantis.dir.facility">
     <div class="directoryResult" tal:condition="viewlet/show_details">
-        <div class="directoryImage" tal:condition="nocall:context/image">
-                <tal:block define="
-                    image nocall: context/image;
-                    imageurl string: ${context/absolute_url}/@@download/image/${image/filename} 
-                ">
-            
-                <img tal:attributes="src imageurl" height="64" width="128"/>
-                </tal:block>
+        <div class="directoryImage" tal:condition="context/image">
+            <img tal:replace="structure context/@@images/image/thumb" />
         </div>
 
         <div class="directoryDescription" tal:condition="python: context.description or context.opening_hours">
