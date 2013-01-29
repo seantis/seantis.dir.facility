@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-08-17 14:10+0000\n"
+"POT-Creation-Date: 2013-01-29 09:41+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ./templates/itemdetail.pt:27
+#: ./templates/itemdetail.pt:21
 msgid "Category"
 msgstr "Kategorie"
 
@@ -22,47 +22,47 @@ msgstr "Kategorie"
 msgid "Click on a resource to get to the reservation view."
 msgstr "Klicken Sie auf eine Ressource um zur Reservation zu gelangen."
 
-#: ./templates/itemdetail.pt:40
+#: ./templates/itemdetail.pt:34
 msgid "Contact"
 msgstr "Kontakt"
 
 #: ./profiles/default/types/seantis.dir.facility.directory.xml
 msgid "Facility Directory"
-msgstr "Institutions-Verzeichnis"
+msgstr "Standort-Verzeichnis"
 
 #: ./profiles/default/types/seantis.dir.facility.item.xml
 msgid "Facility Directory Item"
-msgstr "Institutions-Verzeichnis Eintrag"
+msgstr "Standort-Verzeichnis Eintrag"
 
-#: ./item.py:66
+#: ./item.py:72
 msgid "Facility Information"
-msgstr "Institutions-Informationen"
+msgstr "Standort-Informationen"
 
-#: ./directory.py:20
-#: ./item.py:26
+#: ./directory.py:22
+#: ./item.py:32
 msgid "Image"
 msgstr "Bild"
 
-#: ./item.py:46
-#: ./templates/itemdetail.pt:44
+#: ./item.py:52
+#: ./templates/itemdetail.pt:38
 msgid "Infrastructure"
 msgstr "Ausstattung"
 
-#: ./item.py:39
+#: ./item.py:45
 msgid "Location / Contact"
 msgstr "Standort / Kontakt"
 
-#: ./item.py:60
-#: ./templates/itemdetail.pt:52
+#: ./item.py:66
+#: ./templates/itemdetail.pt:46
 msgid "Notes"
 msgstr "Bemerkungen"
 
-#: ./item.py:32
-#: ./templates/directory.pt:44
+#: ./item.py:38
+#: ./templates/directory.pt:37
 msgid "Opening Hours"
 msgstr "Öffnungszeiten"
 
-#: ./templates/itemdetail.pt:18
+#: ./templates/itemdetail.pt:12
 msgid "Opening Hours:"
 msgstr "Öffnungszeiten:"
 
@@ -70,12 +70,12 @@ msgstr "Öffnungszeiten:"
 msgid "Ressources"
 msgstr "Ressourcen"
 
-#: ./item.py:53
-#: ./templates/itemdetail.pt:48
+#: ./item.py:59
+#: ./templates/itemdetail.pt:42
 msgid "Terms of Use"
 msgstr "Nutzungsbedingungen"
 
-#: ./templates/directory.pt:51
+#: ./templates/directory.pt:44
 msgid "more..."
 msgstr "mehr..."
 
