@@ -1,7 +1,6 @@
 from five import grok
 from zope.interface import implements
 
-from Products.CMFPlone.PloneBatch import Batch
 from Products.CMFCore.utils import getToolByName
 from plone.namedfile.field import NamedImage
 from plone.app.layout.viewlets.interfaces import IBelowContentTitle
@@ -26,9 +25,8 @@ class IFacilityDirectory(IDirectory):
 
 class FacilityDirectory(directory.Directory):
 
-    @utils.memoize
     def resources(self):
-        catalog = getToolByName(self, 'portal_catalog')
+        catalog = getToolByName(utils.getSite(), 'portal_catalog')
         path = '/'.join(self.getPhysicalPath())
 
         results = catalog(
@@ -52,7 +50,10 @@ class View(directory.View):
     implements(IOverview)
     grok.context(IFacilityDirectory)
     grok.require('zope2.View')
+
     template = grok.PageTemplateFile('templates/directory.pt')
+
+    itemsperpage = 5
 
     @property
     def compare_link(self):
@@ -63,8 +64,3 @@ class View(directory.View):
     def monthly_report_link(self):
         resources = self.context.resources()
         return utils.monthly_report_link(self.context, self.request, resources)
-
-    @property
-    def batch(self):
-        start = int(self.request.get('b_start') or 0)
-        return Batch(self.items, 5, start, orphan=1)

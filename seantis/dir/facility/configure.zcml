@@ -20,11 +20,18 @@
     <grok:grok package="." />
 
     <!-- Register an extension profile to make the product installable -->
-    <genericsetup:registerProfile
-        name="default"
+    <genericsetup:registerProfile name="default"
         title="seantis.dir.facility"
-        description="Facilities Directory"
+        description="Installs the seantis.dir.facility package together with seantis.reservation"
         directory="profiles/default"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot" 
+        />
+
+    <genericsetup:registerProfile name="izug_basetheme"
+        title="seantis.dir.facility with izug.basetheme"
+        description="Installs the izug.basetheme profiles and seantis.dir.facility together with seantis.reservation"
+        directory="profiles/izug_basetheme"
         provides="Products.GenericSetup.interfaces.EXTENSION"
         for="Products.CMFPlone.interfaces.IPloneSiteRoot" 
         />

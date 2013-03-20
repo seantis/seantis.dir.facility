@@ -21,8 +21,8 @@
 
         <div id="directoryInfo" class="facilityInfo">
             <div id="directoryResultList">
-
-                <a tal:attributes="href item/absolute_url" tal:repeat="item view/batch">
+                <tal:block repeat="brain view/batch">
+                <a tal:define="item brain/getObject" tal:attributes="href item/absolute_url" >
                     <div class="directoryResult" tal:attributes="id item/id">
                         <h2 tal:content="item/title" />
                         <div class="directoryImage" tal:condition="item/image">
@@ -44,6 +44,7 @@
                         <span i18n:translate="">more...</span>
                     </div>
                 </a>
+                </tal:block>
             </div>
         </div>
 

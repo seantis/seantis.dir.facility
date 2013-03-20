@@ -3,5 +3,6 @@
     <dependencies>
         <dependency>profile-plone.app.dexterity:default</dependency>
         <dependency>profile-seantis.dir.base:default</dependency>
+        <dependency>profile-seantis.reservation:default</dependency>
     </dependencies>
 </metadata>

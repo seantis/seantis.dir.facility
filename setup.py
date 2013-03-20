@@ -1,7 +1,12 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.0'
+version = '1.1a'
+
+zug_require = [
+    'izug.basetheme',
+    'ftw.contentmenu'
+]
 
 README = open("README.rst").read()
 CHANGES = open(os.path.join("docs", "HISTORY.txt")).read()
@@ -35,6 +40,7 @@ setup(name='seantis.dir.facility',
           'collective.js.fullcalendar'
           # -*- Extra requirements: -*-
       ],
+      extras_require=dict(zug=zug_require),
       entry_points="""
       # -*- Entry points: -*-
 
