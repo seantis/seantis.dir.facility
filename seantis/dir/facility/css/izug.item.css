@@ -102,3 +102,7 @@
     right: -2px;
     left: auto;     
 }
+
+.resourceDescription {
+    margin-bottom: 10px;   
+}
