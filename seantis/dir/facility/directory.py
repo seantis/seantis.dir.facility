@@ -29,12 +29,10 @@ class FacilityDirectory(directory.Directory):
         catalog = getToolByName(utils.getSite(), 'portal_catalog')
         path = '/'.join(self.getPhysicalPath())
 
-        results = catalog(
+        return catalog(
             path={'query': path, 'depth': 2},
             portal_type='seantis.reservation.resource'
         )
-
-        return [r.getObject() for r in results]
 
 
 class ExtendedDirectoryViewlet(grok.Viewlet):
