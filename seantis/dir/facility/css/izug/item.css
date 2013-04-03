@@ -4,54 +4,32 @@
 
 */
 
-.directoryImage {
-    padding: 0;
-    margin: 10px 10px 10px 0;
-    float: left;
+/* info block */
+.facilityInfo {
+   margin-top: 5px;   
 }
 
-.resourceItem {
-    border: 1px solid #ddd;
-    min-height: 30px;
-    padding: 5px 0 2px 0;
+.facilityInfo .directoryResult:hover {
+   border-color: #ddd !important;
+   background-color: white !important;   
 }
 
-.resourceTitle {
-    float:left;
-    font-size: 16px;
-}
-
-.resourceDescription {
-    float:left;
-    margin-top: 5px;
-    margin-left: 25px;
-}
-
-.directoryDescription div:first-child {
-    font-size: 1.4em;
-}
-
-.directoryInfo {
-    padding-top: 0;
-    color: #333;
-}
-
-.directoryInfo b {
-    color: #3e5786;
+.facilityInfo .directoryDescription {
+   padding: 0 10px 10px 10px;
+   font-size: 11px !important;
 }
 
 .directoryInfo h2 {
-    font-size: 1.3em;
+    font-size: 11px;
     font-weight: normal;
     margin: 10px 0;
-    border: 1px solid #aaa;
-    border-width: 0 0 1px 0;
+    padding: 0 0 5px 0;
+    border-bottom: 1px solid #bbb;
 }
 
 .directoryInfo > div {
     float: left;
-    padding-right: 40px;
-    padding: 15px 15px 15 0;
+    padding: 0 5px 0 0;
 }
 
 .directoryInfo > div li {
@@ -59,35 +37,26 @@
 }
 
 .directoryInfo > div > h2, .directoryInfo > div > p {
-    max-width: 450px;   
+    max-width: 480px;   
 }
 
-.directoryChildren {
-    margin-top: 20px;
+/* infoblock in seantis.reservation */
+.multicalendar .directoryResult {
+    display: none;   
 }
 
-/* facility styles for izug.basetheme */
-
-.directoryDescription {
-    width: 70%;
-    margin-top: 8px;
+.singlecalendar .directoryResult {
+    border: 1px solid #bbb;
+    margin: 10px 0 0 0;
+    padding: 0 10px 0 10px;
 }
 
-.facilityInfo {
-    margin-top: 10px;;
-    width: 500px;   
-}
-
-.facilityInfo .directoryChildren,
-.facilityInfo .directoryChildren h2 {
-    margin-top: 0 !important;
-}
-
-.resourceIcon {
-    /* this is probably not the right way of doing it */
-    background-image: url('../zugsprite.png');   
-    background-position: 0 -326px;
-    width: 15px;
+/* resource entries */
+.resourceItem {
+    border: 1px solid #ddd;
+    min-height: 30px;
+    padding: 5px 0 2px 0;
+    margin: 0 0 10px 0;
 }
 
 #content .resourceItem:hover {
@@ -101,8 +70,4 @@
 
 .directoryItem .resourceTitle {
     text-decoration: underline;   
-}
-
-.resourceDescription {
-    margin-bottom: 10px;   
 }

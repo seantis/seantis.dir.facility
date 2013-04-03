@@ -4,18 +4,44 @@
 
 */
 
-#directoryResultList {
-    border-top: none;
-    margin-top: 3px;   
+/* banner */
+#content #landingPageText #landingPageImage {
+    float: left;
+    margin-left: -5px;
 }
 
+div#landingPageText {
+    float: none;
+    padding: 20px 20px 0 7px !important;
+    width: 70%;
+    margin-bottom: 0 !important;
+}
+
+/* columns */
+.facilityInfo {
+    float: left;
+    width: 510px !important;
+    margin: 0;
+}
+
+.facilityOverview {
+    float: right; 
+    width: 45%;
+    margin-top:10px;
+}
+
+/* facility items list */
+#directoryResultList {
+    border-top: none;
+    margin-top: 5px;
+    width: auto;   
+}
+
+/* facility item entry */
 .directoryResult {
     margin: 5px auto 18px auto;
     padding: 10px 5px 15px 12px !important;
     border: 0.0919em solid #dedede !important;
-
-    position: relative;
-    color: #3e5786;
 }
 
 .directoryResult a:hover * {
@@ -33,6 +59,17 @@
     margin-bottom: 10px;
 }
 
+.directoryResult .directoryImage {
+    float: left;
+    margin: 2px 0 10px 0;   
+    padding: 0
+}
+
+.directoryResult .directoryDescription {
+    float: left;
+    width: 60%;      
+}
+
 #content .directoryMarker {
     position: absolute;
     top: 5px;
@@ -40,66 +77,11 @@
     left: auto;
 }
 
-#content #landingPageText #landingPageImage {
-    float: left;
-    margin-left: -5px;
-}
-
-div#landingPageText {
-    float: none;
-    padding: 20px 20px 0 7px !important;
-    width: 70%;
-    margin-bottom: 0 !important;
-}
-
-#directoryResultList {
-    margin-top: 17px;   
-}
-
-.directoryDescription {
-    float: left;
-    width: 50%;      
-}
-
-.seantis-overview-event {
-    height: 40px;
-    margin-top: -18px;
-}
-
 .resourceTitle {
     margin-left: 10px;
     margin-top: 5px;
     float:left;
     font-size: 16px;
-}
-
-.resourceAvailability {
-    margin-left: 20px;
-    margin-top: 5px;
-    float:left;
-    font-size: 16px;
-}
-
-.resourceDescription {
-    float:left;
-    margin-top: 5px;
-    margin-left: 25px;
-}
-
-.opening-hours {
-    color: #333;   
-}
-
-.facilityInfo {
-    float: left;
-    width: 50%;
-    margin: 0;
-}
-
-.facilityOverview {
-    float: right; 
-    width: 45%;
-    margin-top:10px;
 }
 
 /* group selection styles */
