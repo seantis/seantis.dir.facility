@@ -1,3 +1,36 @@
+/*
+
+    sunburst for seantis.dir.facility
+
+*/
+
+/* resource listing overview*/
+
+.facilityOverview .fc-widget-header.fc-mon,
+.facilityOverview .fc-widget-header.fc-tue,
+.facilityOverview .fc-widget-header.fc-wed,
+.facilityOverview .fc-widget-header.fc-thu,
+.facilityOverview .fc-widget-header.fc-fri {
+    background-color: #efefef;
+    border: none;
+}
+
+.facilityOverview .fc-widget-header.fc-sat,
+.facilityOverview .fc-widget-header.fc-sun {
+    background-color: #ddd !important;   
+    border: none;
+}
+
+
+/* resource listing */
+
+.resourceItem.groupSelection,
+.resource-listing-entry:hover {
+    -webkit-box-shadow: none !important;
+       -moz-box-shadow: none !important;
+            box-shadow: none !important;
+}
+
 .directoryImage {
     padding: 0;
     margin: 20px 25px 0 0;
@@ -61,7 +94,8 @@
     font-size: 16px;
 }
 
-.resourceItem:hover {
+.resourceItem:hover,
+.resourceItem.groupSelection {
     border-color: #0087be;
     box-shadow: 3px 3px 2px #efefef;
 }

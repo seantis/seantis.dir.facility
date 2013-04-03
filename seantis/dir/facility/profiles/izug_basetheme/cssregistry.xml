@@ -2,15 +2,13 @@
 <object name="portal_css" meta_type="Stylesheets Registry">
 
     <stylesheet
-        id="++resource++seantis.dir.facility.css/izug.directory.css"
+        id="++resource++seantis.dir.facility.css/izug/directory.css"
         expression="python:'seantis.dir.facility' in object.portal_type"
-        insert-after="++resource++seantis.dir.facility.css/directory.css" 
         media="all" rel="stylesheet" rendering="link"/>
 
     <stylesheet 
-        id="++resource++seantis.dir.facility.css/izug.item.css" 
+        id="++resource++seantis.dir.facility.css/izug/item.css" 
         expression="python:object.portal_type in ('seantis.dir.facility.item', 'seantis.reservation.resource')"
-        insert-after="++resource++seantis.dir.facility.css/item.css" 
-        media="all" rel="stylesheet" rendering="link"/>     
+        media="all" rel="stylesheet" rendering="link"/>
     
 </object>

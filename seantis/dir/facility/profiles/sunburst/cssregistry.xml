@@ -2,12 +2,12 @@
 <object name="portal_css" meta_type="Stylesheets Registry">
 
     <stylesheet
-        id="++resource++seantis.dir.facility.css/directory.css"
+        id="++resource++seantis.dir.facility.css/sunburst/directory.css"
         expression="python:object.portal_type == 'seantis.dir.facility.directory'"
         media="all" rel="stylesheet" rendering="link"/>
 
     <stylesheet 
-        id="++resource++seantis.dir.facility.css/item.css" 
+        id="++resource++seantis.dir.facility.css/sunburst/item.css" 
         expression="python:object.portal_type in ('seantis.dir.facility.item', 'seantis.reservation.resource')"
         media="all" rel="stylesheet" rendering="link"/>
     

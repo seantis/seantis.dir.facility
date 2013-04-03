@@ -21,20 +21,37 @@
 
     <!-- Register an extension profile to make the product installable -->
     <genericsetup:registerProfile name="default"
-        title="seantis.dir.facility"
-        description="Installs the seantis.dir.facility package together with seantis.reservation"
+        title="Seantis Dir Facility"
+        description="Base Profile for Seantis Dir Facility, No Styles"
         directory="profiles/default"
         provides="Products.GenericSetup.interfaces.EXTENSION"
         for="Products.CMFPlone.interfaces.IPloneSiteRoot" 
         />
 
-    <genericsetup:registerProfile name="izug_basetheme"
-        title="seantis.dir.facility with izug.basetheme"
-        description="Installs the izug.basetheme profiles and seantis.dir.facility together with seantis.reservation"
-        directory="profiles/izug_basetheme"
+    <genericsetup:registerProfile name="sunburst"
+        title="Seantis Dir Facility - for default plone theme"
+        description="Sunburst Profile for Seantis Dir Facility, Usually You Want This"
+        directory="profiles/sunburst"
         provides="Products.GenericSetup.interfaces.EXTENSION"
         for="Products.CMFPlone.interfaces.IPloneSiteRoot" 
         />
+
+    <genericsetup:registerProfile name="izug_basetheme"
+        title="Seantis Dir Facility - for izug.basetheme"
+        description="IZug Basetheme Profile for Seantis Dir Facility"
+        directory="profiles/izug_basetheme"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+    <!-- Upgrades -->
+    <genericsetup:upgradeStep
+        title="Moves to separate profiles for sunburst and izug.basetheme"
+        description=""
+        source="*"
+        destination="1000"
+        handler=".upgrades.upgrade_to_1000"
+        profile="seantis.dir.facility:default">
+    </genericsetup:upgradeStep>
 
     <plone:behavior
         title="Facility Fields"
