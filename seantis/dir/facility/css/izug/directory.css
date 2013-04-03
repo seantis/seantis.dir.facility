@@ -1,62 +1,141 @@
-/* facility styles for izug.basetheme */
+/*
 
-.directoryImage {
-    margin: 0 10px 10px 0;   
-}
+    izug for seantis.dir.facility
 
-.facilityOverview h2 {
-    font-size: 13px;   
-}
+*/
 
-.directoryDescription p {
-    padding-left: 0 !important;   
-}
-
-.resourceItem {
-    border-width: 1px;   
-}
-
-.directoryResult:hover {
-    box-shadow: none !important;
-}
-
-#content #directoryResultList {
+#directoryResultList {
     border-top: none;
     margin-top: 3px;   
 }
 
-#content .directoryResult {
-    border: 0.0919em solid #dedede !important;
-    border-radius: 0;
+.directoryResult {
+    margin: 5px auto 18px auto;
     padding: 10px 5px 15px 12px !important;
+    border: 0.0919em solid #dedede !important;
+
     position: relative;
+    color: #3e5786;
 }
 
-#content .directoryResult:hover {
-    border-color: #bbb;
-    background-color: #efefef;
+.directoryResult a:hover * {
+    color: #3e5786 !important;   
 }
 
-#content #directoryInfo #directoryResultList .directoryResult:hover h2 {
-    color: #AE1E00 !important;
+.directoryResult a:hover .directoryDescription *,
+.directoryResult .directoryDescription {
+    color: #222 !important;   
 }
 
-#content .groupSelection {
+.directoryResult h2 {
+    padding-top: 0px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+#content .directoryMarker {
+    position: absolute;
+    top: 5px;
+    right: 2px;
+    left: auto;
+}
+
+#content #landingPageText #landingPageImage {
+    float: left;
+    margin-left: -5px;
+}
+
+div#landingPageText {
+    float: none;
+    padding: 20px 20px 0 7px !important;
+    width: 70%;
+    margin-bottom: 0 !important;
+}
+
+#directoryResultList {
+    margin-top: 17px;   
+}
+
+.directoryDescription {
+    float: left;
+    width: 50%;      
+}
+
+.seantis-overview-event {
+    height: 40px;
+    margin-top: -18px;
+}
+
+.resourceTitle {
+    margin-left: 10px;
+    margin-top: 5px;
+    float:left;
+    font-size: 16px;
+}
+
+.resourceAvailability {
+    margin-left: 20px;
+    margin-top: 5px;
+    float:left;
+    font-size: 16px;
+}
+
+.resourceDescription {
+    float:left;
+    margin-top: 5px;
+    margin-left: 25px;
+}
+
+.opening-hours {
+    color: #333;   
+}
+
+.facilityInfo {
+    float: left;
+    width: 50%;
+    margin: 0;
+}
+
+.facilityOverview {
+    float: right; 
+    width: 45%;
+    margin-top:10px;
+}
+
+/* group selection styles */
+.groupSelection,
+.directoryResult:hover {
     -webkit-box-shadow: 0 0 0 0 white !important;
     -moz-box-shadow: 0 0 0 0 white !important;
     box-shadow: 0 0 0 0 white !important;
+    border-color: #bbb !important;
     background-color: #efefef !important;
     
-    border-color: #bbb;
+    opacity: 1 !important;
 }
 
-#content #directoryInfo.facilityInfo {
-    width: 50%;   
+td.groupSelection {
+    color: white;   
 }
 
-#content .facilityOverview {
-    width: 45%;
-    margin-top: 10px;
+/* overview calendar styles */
+#seantis-overview-calendar {
+    margin-bottom: 15px;   
+}
+
+#seantis-overview-calendar td {
+    border-color: #ddd!important;
+}
+
+#seantis-overview-calendar th {
+    font-weight: normal;
+    line-height: 16px;   
+}
+
+#seantis-overview-calendar .event-available,
+#seantis-overview-calendar .event-partly-available,
+#seantis-overview-calendar .event-unavailable {
+    opacity: 0.75;   
 }
 
 #directoryResultMap {
@@ -67,26 +146,4 @@
 
 #directoryResultMap #default-cgmap {
     height: 300px;
-}
-
-#content div.directoryMarker {
-    position: absolute;
-    top: 5px;
-    right: 2px;
-    left: auto;     
-}
-
-#content #landingPageIntro {
-    margin: 0 !important;
-}
-
-#content #landingPageText {
-    padding: 15px 20px 3px 7px !important;
-    width: 70%;
-    margin-bottom: 20px !important;
-}
-
-#content #landingPageText #landingPageImage {
-    float: left;
-    margin-left: -5px;
 }
