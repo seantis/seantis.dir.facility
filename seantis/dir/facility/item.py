@@ -15,7 +15,8 @@ from seantis.dir.base import item, core
 from seantis.dir.base.interfaces import (
     IFieldMapExtender,
     IDirectoryItem,
-    IDirectoryItemBase
+    IDirectoryItemBase,
+    IDirectoryPage
 )
 
 from seantis.dir.facility import _
@@ -187,7 +188,14 @@ class Mapviewlet(grok.Viewlet):
 
     grok.order(2)
 
-    template = grok.PageTemplateFile('templates/map.pt')
+    _template = grok.PageTemplateFile('templates/map.pt')
+
+    def render(self):
+        if IDirectoryPage.providedBy(self.view):
+            return self._template.render(self)
+        else:
+            return u''
+
 
 # Provide the facility fields in a behavior which will then be activated for
 # for seantis.reservation.resource. This allows resources to contain the
