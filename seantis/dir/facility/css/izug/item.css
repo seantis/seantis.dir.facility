@@ -59,6 +59,13 @@
     margin: 0 0 10px 0;
 }
 
+.resourceItem .resourceDescription {
+    clear: both;
+    font-size: 11px !important;
+    color: #454545;
+    margin: 25px 5px 10px 10px !important;
+}
+
 #content .resourceItem:hover {
     border-color: #bbb;
     background-color: #efefef;

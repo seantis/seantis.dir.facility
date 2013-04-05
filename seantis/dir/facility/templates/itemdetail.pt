@@ -8,9 +8,6 @@
             <div>
                 <p tal:content="context/description"/>
             </div>
-            <div class="opening-hours" tal:condition="context/opening_hours">
-                <span i18n:translate="">Opening Hours:</span> <span tal:content="context/opening_hours"></span>
-            </div>
         </div>
 
 
@@ -29,6 +26,10 @@
                         </dd>
                     </tal:block>
                 </dl>
+            </div>
+            <div class="opening-hours" tal:condition="context/opening_hours">
+                <h2 i18n:translate="">Opening Hours</h2>
+                <p tal:content="context/opening_hours"></p>
             </div>
             <div class="contact" tal:condition="context/contact">
                 <h2 i18n:translate="">Contact</h2>
