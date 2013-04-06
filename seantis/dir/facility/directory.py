@@ -62,3 +62,12 @@ class View(directory.View):
     def monthly_report_link(self):
         resources = self.context.resources()
         return utils.monthly_report_link(self.context, self.request, resources)
+
+    def resource_map(self):
+        rmap = {}
+        for item in self.items():
+            rmap[item.id] = [r.UID for r in utils.portal_type_in_context(
+                item, 'seantis.reservation.resource'
+            )]
+
+        return rmap

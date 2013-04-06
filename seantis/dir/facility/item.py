@@ -128,12 +128,13 @@ class View(core.View):
         return utils.monthly_report_link(self.context, self.request, resources)
 
     @property
-    def items(self):
-        return [self.context]
-
-    @property
     def is_itemview(self):
         return True
+
+    def resource_map(self):
+        return (r.UID for r in utils.portal_type_in_context(
+            self.context, 'seantis.reservation.resource'
+        ))
 
 
 class DetailView(grok.Viewlet):
