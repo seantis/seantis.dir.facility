@@ -19,6 +19,7 @@ setup(name='seantis.dir.facility',
       # http://pypi.python.org/pypi?:action=list_classifiers
       classifiers=[
           "Framework :: Plone",
+          "Framework :: Plone 4.3",
           "Programming Language :: Python",
       ],
       keywords='',
@@ -32,12 +33,14 @@ setup(name='seantis.dir.facility',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          'Plone',
+          'Plone>=4.3',
+          'plone.namedfile>=2.0.1',
           'plone.app.dexterity',
           'seantis.dir.base',
           'seantis.reservation',
           'collective.js.underscore',
-          'collective.js.fullcalendar'
+          'collective.js.fullcalendar',
+          'plone.namedfile'
           # -*- Extra requirements: -*-
       ],
       extras_require=dict(zug=zug_require),
