@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0dev (unreleased)
--------------------
+1.4
+---
 
-- Initial release
+- Initial release (version aligned to seantis.dir.base)

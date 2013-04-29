@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.1a'
+version = '1.4a'
 
 zug_require = [
     'izug.basetheme',
@@ -36,7 +36,7 @@ setup(name='seantis.dir.facility',
           'Plone>=4.3',
           'plone.namedfile>=2.0.1',
           'plone.app.dexterity',
-          'seantis.dir.base',
+          'seantis.dir.base>=1.3',
           'seantis.reservation',
           'collective.js.underscore',
           'collective.js.fullcalendar',
