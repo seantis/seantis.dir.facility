@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.4a'
+version = '1.4'
 
 zug_require = [
     'izug.basetheme',
@@ -13,13 +13,13 @@ CHANGES = open(os.path.join("docs", "HISTORY.txt")).read()
 
 setup(name='seantis.dir.facility',
       version=version,
-      description="Facility directory for seantis.reservation",
+      description="Facility Directory for Seantis Reservation",
       long_description=README + '\n\n' + CHANGES,
       # Get more strings from
       # http://pypi.python.org/pypi?:action=list_classifiers
       classifiers=[
           "Framework :: Plone",
-          "Framework :: Plone 4.3",
+          "Framework :: Plone :: 4.3",
           "Programming Language :: Python",
       ],
       keywords='',
@@ -36,11 +36,10 @@ setup(name='seantis.dir.facility',
           'Plone>=4.3',
           'plone.namedfile>=2.0.1',
           'plone.app.dexterity',
-          'seantis.dir.base>=1.3',
+          'seantis.dir.base>=1.4',
           'seantis.reservation',
           'collective.js.underscore',
-          'collective.js.fullcalendar',
-          'plone.namedfile'
+          'collective.js.fullcalendar'
           # -*- Extra requirements: -*-
       ],
       extras_require=dict(zug=zug_require),
