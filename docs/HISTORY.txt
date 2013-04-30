@@ -1,6 +1,10 @@
 Changelog
 =========
 
+1.4.1
+-----
+- Fixes dexterity type icons
+
 1.4
 ---
 
