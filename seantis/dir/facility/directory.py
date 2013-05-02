@@ -36,7 +36,7 @@ class FacilityDirectory(directory.Directory):
 
 
 class ExtendedDirectoryViewlet(grok.Viewlet):
-    grok.context(IDirectory)
+    grok.context(IFacilityDirectory)
     grok.name('seantis.dir.facility.directory.detail')
     grok.require('zope2.View')
     grok.viewletmanager(IBelowContentTitle)

@@ -116,6 +116,7 @@ class View(core.View):
     implements(IOverview)
     grok.context(IFacilityDirectoryItem)
     template = grok.PageTemplateFile('templates/item.pt')
+    hide_search_viewlet = True
 
     @property
     def compare_link(self):
