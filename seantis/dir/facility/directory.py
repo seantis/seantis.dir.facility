@@ -65,7 +65,7 @@ class View(directory.View):
 
     def resource_map(self):
         rmap = {}
-        for item in self.items():
+        for item in utils.maybe_call(self.items):
             rmap[item.id] = [r.UID for r in utils.portal_type_in_context(
                 item, 'seantis.reservation.resource'
             )]
