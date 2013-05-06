@@ -17,7 +17,7 @@
             <div class="category" tal:condition="viewlet/show_keywords">
                 <h2 i18n:translate="">Category</h2>
                 <dl>
-                    <tal:block repeat="category context/categories">
+                    <tal:block repeat="category viewlet/categories">
                         <dt tal:content="python: category[1]"></dt>
                         <dd>
                             <div tal:repeat="value python: category[2]" tal:content="value">

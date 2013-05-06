@@ -17,8 +17,7 @@ from seantis.dir.base.interfaces import (
     IDirectoryItem,
     IDirectoryItemBase,
     IDirectoryPage,
-    IDirectoryItemBasics,
-    IDirectoryItemCategories
+    IDirectoryCategorized
 )
 
 from seantis.dir.facility import _
@@ -175,10 +174,14 @@ class DetailView(grok.Viewlet):
         if self.context.portal_type != 'seantis.dir.facility.item':
             return False
 
-        if not self.context.categories():
+        if not IDirectoryCategorized(self.context).categories():
             return False
 
         return True
+
+    @property
+    def categories(self):
+        return IDirectoryCategorized(self.context).categories()
 
     def render(self):
         if not self.show_viewlet:
@@ -212,8 +215,7 @@ class Mapviewlet(grok.Viewlet):
 
 class IFacilityFields(IFacilityDirectoryItem):
     """Provides the fields of Facility Directory Item to any Dexterity type"""
-    form.omitted(*IDirectoryItemBasics.names())
-    form.omitted(*IDirectoryItemCategories.names())
+    form.omitted(*IDirectoryItemBase.names())
 
 
 def default_value(data):
