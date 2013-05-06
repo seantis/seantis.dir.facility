@@ -16,7 +16,9 @@ from seantis.dir.base.interfaces import (
     IFieldMapExtender,
     IDirectoryItem,
     IDirectoryItemBase,
-    IDirectoryPage
+    IDirectoryPage,
+    IDirectoryItemBasics,
+    IDirectoryItemCategories
 )
 
 from seantis.dir.facility import _
@@ -210,7 +212,8 @@ class Mapviewlet(grok.Viewlet):
 
 class IFacilityFields(IFacilityDirectoryItem):
     """Provides the fields of Facility Directory Item to any Dexterity type"""
-    form.omitted(*IDirectoryItemBase.names())
+    form.omitted(*IDirectoryItemBasics.names())
+    form.omitted(*IDirectoryItemCategories.names())
 
 
 def default_value(data):
