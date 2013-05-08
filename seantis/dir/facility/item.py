@@ -22,6 +22,7 @@ from seantis.dir.base.interfaces import (
 
 from seantis.dir.facility import _
 from seantis.dir.facility.directory import IFacilityDirectory
+from seantis.dir.facility.utils import get_resources_in_context
 
 from seantis.reservation.overview import IOverview, OverviewletManager
 from seantis.reservation import utils
@@ -78,18 +79,7 @@ class IFacilityDirectoryItem(IDirectoryItem):
 
 
 class FacilityDirectoryItem(item.DirectoryItem):
-
-    def resources(self):
-        catalog = getToolByName(self, 'portal_catalog')
-        path = '/'.join(self.getPhysicalPath())
-
-        results = catalog(
-            path={'query': path, 'depth': 1},
-            portal_type='seantis.reservation.resource',
-            sort_on='sortable_title'
-        )
-
-        return [r.getObject() for r in results]
+    pass
 
 
 class ExtendedDirectoryItemFieldMap(grok.Adapter):
@@ -119,15 +109,20 @@ class View(core.View):
     template = grok.PageTemplateFile('templates/item.pt')
     hide_search_viewlet = True
 
+    def resources(self):
+        return get_resources_in_context(self.context)
+
     @property
     def compare_link(self):
-        resources = self.context.resources()
-        return utils.compare_link(resources)
+        return utils.compare_link(self.resources())
 
     @property
     def monthly_report_link(self):
-        resources = self.context.resources()
-        return utils.monthly_report_link(self.context, self.request, resources)
+        return utils.monthly_report_link(
+            self.context,
+            self.request,
+            self.resources()
+        )
 
     @property
     def is_itemview(self):

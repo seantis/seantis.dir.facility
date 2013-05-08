@@ -29,7 +29,7 @@
             <div tal:replace="structure provider:plone.abovecontentbody" />
 
             <div class="directoryChildren" tal:condition="resources" tal:define="
-                resources context/resources;
+                resources view/resources;
                 compare python: len(resources) > 1 and view.compare_link or None;
                 monthly_report python: len(resources) >= 1 and view.monthly_report_link or None;
                 ">
