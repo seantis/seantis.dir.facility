@@ -71,6 +71,15 @@
         profile="seantis.dir.facility:default">
     </genericsetup:upgradeStep>
 
+    <genericsetup:upgradeStep
+        title="Adds new DirectoryCategorized behavior"
+        description=""
+        source="1002"
+        destination="1003"
+        handler=".upgrades.upgrade_1002_to_1003"
+        profile="seantis.dir.facility:default">
+    </genericsetup:upgradeStep>
+
     <plone:behavior
         title="Facility Fields"
         description="Provides the fields of Facility Directory Item to any Dexterity type"

@@ -8,6 +8,11 @@ from StringIO import StringIO
 from plone.namedfile.file import NamedImage
 from seantis.reservation import utils as reservation_utils
 
+profilemap = {
+    'iZug Base Theme': 'izug_basetheme',
+    'Sunburst Theme': 'sunburst'
+}
+
 
 def upgrade_to_1000(context):
 
@@ -22,12 +27,7 @@ def upgrade_to_1000(context):
     skins = getToolByName(context, 'portal_skins')
     theme = skins.getDefaultSkin()
 
-    # find the right profile to use
-    profilemap = {
-        'iZug Base Theme': 'izug_basetheme',
-        'Sunburst Theme': 'sunburst'
-    }
-
+        # find the right profile to use
     if theme not in profilemap:
         log.info("Theme %s is not supported by seantis.dir.facility" % theme)
         profile = 'default'
@@ -80,3 +80,34 @@ def upgrade_1001_to_1002(context):
     setup.runImportStepFromProfile(
         'profile-seantis.dir.facility:default', 'typeinfo'
     )
+
+
+def upgrade_1002_to_1003(context):
+
+    setup = getToolByName(context, 'portal_setup')
+
+    # upgrade the css registry of the installed profiles
+    available_profiles = [
+        'profile-seantis.dir.facility:sunburst',
+        'profile-seantis.dir.facility:izug_basetheme'
+    ]
+
+    upgraded = 0
+
+    for profile in available_profiles:
+        installed = setup.getProfileImportDate(profile)
+
+        if installed:
+            setup.runImportStepFromProfile(profile, 'cssregistry')
+            upgraded += 1
+
+    # if no profile was found, try to upgrade by theme
+    if not upgraded:
+        skins = getToolByName(context, 'portal_skins')
+        theme = skins.getDefaultSkin()
+
+        profile = profilemap.get(theme, None)
+
+        if profile:
+            profile = 'profile-seantis.dir.facility:{}'.format(profile)
+            setup.runImportStepFromProfile(profile, 'cssregistry')
