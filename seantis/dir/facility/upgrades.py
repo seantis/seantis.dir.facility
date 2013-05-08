@@ -6,7 +6,9 @@ from zope.component.hooks import getSite
 
 from StringIO import StringIO
 from plone.namedfile.file import NamedImage
+
 from seantis.reservation import utils as reservation_utils
+from seantis.dir.facility.item import IFacilityDirectoryItem
 
 profilemap = {
     'iZug Base Theme': 'izug_basetheme',
@@ -76,10 +78,18 @@ def upgrade_1000_to_1001(context):
 
 def upgrade_1001_to_1002(context):
 
+    # adds a new behvaior
     setup = getToolByName(context, 'portal_setup')
     setup.runImportStepFromProfile(
         'profile-seantis.dir.facility:default', 'typeinfo'
     )
+
+    # which is why there needs to be some reindexing
+    catalog = getToolByName(context, 'portal_catalog')
+    items = catalog(object_provides=IFacilityDirectoryItem.__identifier__)
+
+    for item in items:
+        item.getObject().reindexObject()
 
 
 def upgrade_1002_to_1003(context):

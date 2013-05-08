@@ -46,7 +46,6 @@ div#landingPageText {
     margin: 5px auto 18px auto;
     padding: 10px 5px 15px 12px !important;
     border: 0.0919em solid #dedede !important;
-    width: 490px
 }
 
 .directoryResult a:hover * {
@@ -97,7 +96,7 @@ div#landingPageText {
 
 /* group selection styles */
 .groupSelection,
-.directoryResult:hover {
+#directoryResultList .directoryResult:hover {
     -webkit-box-shadow: 0 0 0 0 white !important;
     -moz-box-shadow: 0 0 0 0 white !important;
     box-shadow: 0 0 0 0 white !important;
