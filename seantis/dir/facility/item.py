@@ -4,14 +4,13 @@ from zope.schema import TextLine, Text
 from zope.interface import implements, Interface, alsoProvides
 
 from collective.dexteritytextindexer import searchable
-from Products.CMFCore.utils import getToolByName
 from plone.namedfile.field import NamedImage
 from plone.directives import form
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 from plone.app.layout.viewlets.interfaces import IAboveContentBody
 
-from seantis.dir.base import item, core
+from seantis.dir.base import item, core, const
 from seantis.dir.base.interfaces import (
     IFieldMapExtender,
     IDirectoryItem,
@@ -144,6 +143,13 @@ class DetailView(grok.Viewlet):
 
     @property
     def show_viewlet(self):
+
+        man = ItemDetailViewletManager(self.context, self.request, self)
+        man.update()
+
+        if man.viewlets:
+            return True
+
         attributes = [
             'image',
             'opening_hours',
@@ -151,7 +157,7 @@ class DetailView(grok.Viewlet):
             'contact',
             'infrastructure',
             'terms_of_use',
-            'notes'
+            'notes',
         ]
 
         for a in attributes:
@@ -200,6 +206,11 @@ class Mapviewlet(grok.Viewlet):
             return self._template.render(self)
         else:
             return u''
+
+
+class ItemDetailViewletManager(grok.ViewletManager):
+    grok.context(Interface)
+    grok.name('seantis.dir.facility.item.detailviewletmanager')
 
 
 # Provide the facility fields in a behavior which will then be activated for

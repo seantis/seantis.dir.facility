@@ -38,7 +38,7 @@ div#landingPageText {
 #directoryResultList {
     border-top: none;
     margin-top: 5px;
-    width: auto;   
+    width: 100%;   
 }
 
 /* facility item entry */

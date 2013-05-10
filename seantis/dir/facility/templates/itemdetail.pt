@@ -47,6 +47,8 @@
                 <h2 i18n:translate="">Notes</h2>
                 <tal:block replace="structure context/notes"></tal:block>
             </div>
+
+            <div tal:replace="structure provider:seantis.dir.facility.item.detailviewletmanager"/>
         </div>
 
         <div style="clear: both;"></div>

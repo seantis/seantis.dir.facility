@@ -30,6 +30,7 @@
 .directoryInfo > div {
     float: left;
     padding: 0 5px 0 0;
+    margin-right: 10px;
 }
 
 .directoryInfo > div li {
