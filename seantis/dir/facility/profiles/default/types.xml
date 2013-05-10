@@ -1,4 +1,5 @@
 <object name="portal_types">
     <object name="seantis.dir.facility.directory" meta_type="Dexterity FTI" />
     <object name="seantis.dir.facility.item" meta_type="Dexterity FTI" />
+    <object name="seantis.dir.facility.contact" meta_type="Dexterity FTI" />
 </object>

@@ -3,12 +3,12 @@
 
     <stylesheet
         id="++resource++seantis.dir.facility.css/sunburst/directory.css"
-        expression="python: object.restrictedTraverse('@@plone_interface_info').provides('seantis.dir.base.interfaces.IDirectoryRoot')"
+        expression="python: object.portal_type == 'seantis.dir.facility.contact' or object.restrictedTraverse('@@plone_interface_info').provides('seantis.dir.base.interfaces.IDirectoryRoot')"
         media="all" rel="stylesheet" rendering="link"/>
 
     <stylesheet 
         id="++resource++seantis.dir.facility.css/sunburst/item.css" 
-        expression="python: object.portal_type == 'seantis.dir.facility.item' or object.restrictedTraverse('@@plone_interface_info').provides('seantis.dir.facility.item.IFacilityFields')"
+        expression="python: object.portal_type == 'seantis.dir.facility.item' or object.portal_type == 'seantis.dir.facility.contact' or object.restrictedTraverse('@@plone_interface_info').provides('seantis.dir.facility.item.IFacilityFields')"
         media="all" rel="stylesheet" rendering="link"/>
     
 </object>

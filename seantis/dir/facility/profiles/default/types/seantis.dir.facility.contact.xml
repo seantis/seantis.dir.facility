@@ -1,26 +1,21 @@
 <?xml version="1.0"?>
-<object name="seantis.dir.facility.item" meta_type="Dexterity FTI"
+<object name="seantis.dir.facility.contact" meta_type="Dexterity FTI"
    i18n:domain="seantis.dir.facility" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  
  <!-- Basic metadata -->
- <property name="title" i18n:translate="">Facility Directory Item</property>
+ <property name="title" i18n:translate="">Facility Contact</property>
  <property name="description" i18n:translate=""></property>
- <property name="icon_expr">string:${portal_url}/file_icon.png</property>
+ <property name="icon_expr">string:${portal_url}/user.gif</property>
  <property name="allow_discussion">False</property>
  <property name="global_allow">False</property>
-<property name="filter_content_types">True</property>
-<property name="allowed_content_types">
-    <element value="seantis.reservation.resource" />
-    <element value="seantis.reservation.timeframe" />
-    <element value="seantis.reservation.emailtemplate" />
-    <element value="seantis.dir.facility.contact" />
-</property>
+ <property name="filter_content_types">True</property>
+ <property name="allowed_content_types" />
  
  <!-- schema interface -->
- <property name="schema">seantis.dir.facility.item.IFacilityDirectoryItem</property>
+ <property name="schema">seantis.dir.facility.contact.IContactPerson</property> 
  
  <!-- class used for content items -->
- <property name="klass">seantis.dir.facility.item.FacilityDirectoryItem</property>
+ <property name="klass">seantis.dir.facility.contact.ContactPerson</property>
  
  <!-- add permission -->
  <property name="add_permission">cmf.AddPortalContent</property>
@@ -29,12 +24,14 @@
  <property name="behaviors">
      <element value="plone.app.content.interfaces.INameFromTitle" />
      <element value="collective.dexteritytextindexer.behavior.IDexterityTextIndexer" />
-     <element value="seantis.dir.base.interfaces.IDirectoryCategorized" />
  </property>
  
  <!-- View information -->
  <property name="default_view">view</property>
  <property name="default_view_fallback">False</property>
+ <property name="view_methods">
+  <element value="view"/>
+ </property>
  
  <!-- Method aliases -->
  <alias from="(Default)" to="(dynamic view)"/>

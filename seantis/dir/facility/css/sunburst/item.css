@@ -156,3 +156,8 @@
     width: 38%; 
     margin-top: 13px;
 }
+
+/* hide facility information on contact view */
+.portaltype-seantis-dir-facility-contact .directoryResult {
+    display: none;   
+}

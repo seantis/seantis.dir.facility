@@ -4,7 +4,6 @@ from zope.schema import TextLine, Text
 from zope.interface import implements, Interface, alsoProvides
 
 from collective.dexteritytextindexer import searchable
-from Products.CMFCore.utils import getToolByName
 from plone.namedfile.field import NamedImage
 from plone.directives import form
 from plone.autoform.interfaces import IFormFieldProvider
@@ -200,6 +199,23 @@ class Mapviewlet(grok.Viewlet):
             return self._template.render(self)
         else:
             return u''
+
+
+class Contactsviewlet(grok.Viewlet):
+    grok.context(IFacilityDirectoryItem)
+    grok.name('seantis.dir.facility.contactsviewlet')
+    grok.require('zope2.View')
+    grok.viewletmanager(OverviewletManager)
+
+    grok.order(3)
+
+    template = grok.PageTemplateFile('templates/contacts.pt')
+
+    def contacts(self):
+        return [b.getObject() for b in utils.portal_type_in_context(
+            self.context,
+            'seantis.dir.facility.contact'
+        )]
 
 
 # Provide the facility fields in a behavior which will then be activated for

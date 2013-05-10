@@ -78,3 +78,20 @@
 .directoryItem .resourceTitle {
     text-decoration: underline;   
 }
+
+/* hide facility information on contact view */
+.portaltype-seantis-dir-facility-contact .directoryResult {
+    display: none;   
+}
+
+/* contact in facility item view */
+
+.facility-contact {
+    font-size: 11px;
+    margin-bottom: 10px;
+}
+
+.facility-contact-title {
+    font-weight: bold;
+    color: black !important;
+}

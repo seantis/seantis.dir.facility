@@ -1,0 +1,21 @@
+<div xmlns:tal="http://xml.zope.org/namespaces/tal"
+     xmlns:i18n="http://xml.zope.org/namespaces/i18n" 
+     i18n:domain="seantis.dir.facility">
+    
+    <div id="facility_contacts_viewlet" class="overviewlet">
+        <h2 i18n:translate="">Contacts</h2>
+        
+        <div>
+            <div class="facility-contact" tal:repeat="contact viewlet/contacts">
+                <a class="facility-contact-title" tal:attributes="href python: contact.absolute_url()" tal:content="contact/title"></a>
+                <div tal:condition="contact/function" class="facility-contact-function" tal:content="contact/function"></div>
+                <div tal:condition="contact/street" class="facility-contact-street" tal:content="contact/street"></div>
+                <div tal:condition="contact/town" class="facility-contact-town" tal:content="python: ' '.join((contact.zipcode, contact.town))"></div>
+                <div tal:condition="contact/phone" class="facility-contact-phone" tal:content="contact/phone"></div>
+                <div tal:condition="contact/fax" class="facility-contact-fax" tal:content="contact/fax"></div>
+                <a tal:condition="contact/email" class="facility-contact-email" tal:attributes="href string: mailto:${contact/email}" tal:content="contact/email"></a>
+            </div>
+        </div>
+
+    </div>
+</div>
