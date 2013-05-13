@@ -80,6 +80,15 @@
         profile="seantis.dir.facility:default">
     </genericsetup:upgradeStep>
 
+    <genericsetup:upgradeStep
+        title="Updates directory actions"
+        description=""
+        source="1003"
+        destination="1004"
+        handler=".upgrades.upgrade_1003_to_1004"
+        profile="seantis.dir.facility:default">
+    </genericsetup:upgradeStep>
+
     <plone:behavior
         title="Facility Fields"
         description="Provides the fields of Facility Directory Item to any Dexterity type"

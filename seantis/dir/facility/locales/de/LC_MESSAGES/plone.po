@@ -1,0 +1,6 @@
+msgid ""
+msgstr ""
+"Domain: plone"
+
+msgid "Exports"
+msgstr "Exporte"

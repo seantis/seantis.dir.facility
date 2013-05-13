@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-04-05 12:59+0000\n"
+"POT-Creation-Date: 2013-05-13 08:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,31 +37,32 @@ msgstr ""
 msgid "Facility Directory Item"
 msgstr ""
 
-#: ./item.py:73
+#: ./item.py:74
 msgid "Facility Information"
 msgstr ""
 
 #: ./directory.py:21
-#: ./item.py:33
+#: ./item.py:34
 msgid "Image"
 msgstr ""
 
-#: ./item.py:53
+#: ./item.py:54
 #: ./templates/itemdetail.pt:39
 msgid "Infrastructure"
 msgstr ""
 
-#: ./item.py:46
+#: ./item.py:47
 msgid "Location / Contact"
 msgstr ""
 
-#: ./item.py:67
+#: ./item.py:68
 #: ./templates/itemdetail.pt:47
 msgid "Notes"
 msgstr ""
 
-#: ./item.py:39
+#: ./item.py:40
 #: ./templates/directory.pt:37
+#: ./templates/itemdetail.pt:31
 msgid "Opening Hours"
 msgstr ""
 
@@ -69,7 +70,7 @@ msgstr ""
 msgid "Ressources"
 msgstr ""
 
-#: ./item.py:60
+#: ./item.py:61
 #: ./templates/itemdetail.pt:43
 msgid "Terms of Use"
 msgstr ""

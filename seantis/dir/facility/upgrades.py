@@ -121,3 +121,12 @@ def upgrade_1002_to_1003(context):
         if profile:
             profile = 'profile-seantis.dir.facility:{}'.format(profile)
             setup.runImportStepFromProfile(profile, 'cssregistry')
+
+
+def upgrade_1003_to_1004(context):
+
+    # update actions
+    setup = getToolByName(context, 'portal_setup')
+    setup.runImportStepFromProfile(
+        'profile-seantis.dir.facility:default', 'typeinfo'
+    )

@@ -53,7 +53,10 @@
   <permission value="Modify portal content"/>
   </action>
   <action title="Export" action_id="export" category="object" condition_expr=""
-    url_expr="string:${object_url}/export" visible="True">
+    url_expr="string:${object_url}/export" visible="False">
+  </action>
+  <action title="Exports" action_id="exports" category="object" condition_expr=""
+    url_expr="string:${object_url}/exports" visible="True">
   <permission value="Modify portal content"/>
   </action>
 </object>
