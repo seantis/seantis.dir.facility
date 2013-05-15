@@ -2,6 +2,7 @@ from five import grok
 
 from zope.schema import TextLine, Text
 from zope.interface import implements, Interface, alsoProvides
+from zope.component import queryAdapter
 
 from collective.dexteritytextindexer import searchable
 from plone.namedfile.field import NamedImage
@@ -10,7 +11,7 @@ from plone.autoform.interfaces import IFormFieldProvider
 from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 from plone.app.layout.viewlets.interfaces import IAboveContentBody
 
-from seantis.dir.base import item, core, const
+from seantis.dir.base import item, core
 from seantis.dir.base.interfaces import (
     IFieldMapExtender,
     IDirectoryItem,
@@ -78,7 +79,24 @@ class IFacilityDirectoryItem(IDirectoryItem):
 
 
 class FacilityDirectoryItem(item.DirectoryItem):
-    pass
+
+    def get_title(self):
+        """ Allows to override the title with an adapter. Really not well
+        designed, so this might vanish again in the future.
+
+        """
+
+        adapter = queryAdapter(self, IFacilityDirectoryItemTitle)
+        if adapter:
+            return adapter.get_title()
+        else:
+            return self.title
+
+
+class IFacilityDirectoryItemTitle(Interface):
+
+    def get_title(self):
+        """ Returns the title of the item. """
 
 
 class ExtendedDirectoryItemFieldMap(grok.Adapter):
