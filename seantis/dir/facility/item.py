@@ -2,7 +2,6 @@ from five import grok
 
 from zope.schema import TextLine, Text
 from zope.interface import implements, Interface, alsoProvides
-from zope.component import queryAdapter
 
 from collective.dexteritytextindexer import searchable
 from plone.namedfile.field import NamedImage
@@ -79,24 +78,7 @@ class IFacilityDirectoryItem(IDirectoryItem):
 
 
 class FacilityDirectoryItem(item.DirectoryItem):
-
-    def get_title(self):
-        """ Allows to override the title with an adapter. Really not well
-        designed, so this might vanish again in the future.
-
-        """
-
-        adapter = queryAdapter(self, IFacilityDirectoryItemTitle)
-        if adapter:
-            return adapter.get_title()
-        else:
-            return self.title
-
-
-class IFacilityDirectoryItemTitle(Interface):
-
-    def get_title(self):
-        """ Returns the title of the item. """
+    pass
 
 
 class ExtendedDirectoryItemFieldMap(grok.Adapter):

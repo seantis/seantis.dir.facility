@@ -24,7 +24,7 @@
                 <tal:block repeat="brain view/batch">
                 <a tal:define="item brain/getObject" tal:attributes="href item/absolute_url" >
                     <div class="directoryResult" tal:attributes="id item/id">
-                        <h2 tal:content="item/get_title" />
+                        <h2 tal:content="item/title" />
                         <div class="directoryImage" tal:condition="item/image">
                             <img tal:replace="structure item/@@images/image/thumb" />
                         </div>
