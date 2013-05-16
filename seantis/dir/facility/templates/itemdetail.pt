@@ -1,10 +1,13 @@
-<tal:block xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="seantis.dir.facility">
+<tal:block 
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n" 
+    i18n:domain="seantis.dir.facility">
     <div class="directoryResult" tal:condition="viewlet/show_viewlet">
         <div class="directoryImage" tal:condition="context/image">
             <img tal:replace="structure context/@@images/image/thumb" />
         </div>
 
-        <div class="directoryDescription" tal:condition="python: context.description or context.opening_hours">
+        <div class="directoryDescription" tal:condition="python: context.description">
             <div>
                 <p tal:content="context/description"/>
             </div>

@@ -29,8 +29,8 @@
                             <img tal:replace="structure item/@@images/image/thumb" />
                         </div>
                     
-                        <div class="directoryDescription">
-                            <div>
+                        <div class="directoryDescription" tal:condition="python: item.description or item.opening_hours">
+                            <div tal:condition="item/description">
                                 <p tal:content="item/description"/>
                             </div>
                             <div class="opening-hours" tal:condition="item/opening_hours">
