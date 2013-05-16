@@ -110,6 +110,12 @@ td.groupSelection {
     color: white;   
 }
 
+/* directory search style */
+#directorySearch {
+    border: none;
+    margin: 0;   
+}
+
 /* overview calendar styles */
 #seantis-overview-calendar {
     margin-bottom: 15px;   
