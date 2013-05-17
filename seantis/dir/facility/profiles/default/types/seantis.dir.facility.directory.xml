@@ -42,21 +42,22 @@
  <!-- Actions -->
  <action title="View" action_id="view" category="object" condition_expr=""
     url_expr="string:${object_url}" visible="True">
-  <permission value="View"/>
+    <permission value="View"/>
  </action>
  <action title="Edit" action_id="edit" category="object" condition_expr=""
     url_expr="string:${object_url}/edit" visible="True">
-  <permission value="Modify portal content"/>
+    <permission value="Modify portal content"/>
  </action>
  <action title="Import" action_id="import" category="object" condition_expr=""
     url_expr="string:${object_url}/import" visible="True">
   <permission value="Modify portal content"/>
-  </action>
-  <action title="Export" action_id="export" category="object" condition_expr=""
+ </action>
+ <action title="Export" action_id="export" category="object" condition_expr=""
     url_expr="string:${object_url}/export" visible="False">
-  </action>
-  <action title="Exports" action_id="exports" category="object" condition_expr=""
+    <permission value="Modify portal content"/>
+ </action>
+ <action title="Exports" action_id="exports" category="object" condition_expr=""
     url_expr="string:${object_url}/exports" visible="True">
-  <permission value="Modify portal content"/>
-  </action>
+    <permission value="Modify portal content"/>
+ </action>
 </object>
