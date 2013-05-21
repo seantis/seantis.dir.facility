@@ -34,9 +34,8 @@ setup(name='seantis.dir.facility',
       install_requires=[
           'setuptools',
           'Plone>=4.3',
-          'plone.namedfile>=2.0.1',
           'plone.app.dexterity',
-          'seantis.dir.base>=1.4',
+          'seantis.dir.base>=1.5',
           'seantis.reservation',
           'collective.js.underscore',
           'collective.js.fullcalendar'
