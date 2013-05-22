@@ -1,6 +1,13 @@
 Changelog
 =========
 
+1.5.1
+-----
+
+- Show direct Reservation Resource descendants of the Facility Directory
+  in the overview map. Before, only resources inside a Facility Item were
+  considered.
+
 1.5
 ---
 

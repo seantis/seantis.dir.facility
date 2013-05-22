@@ -66,8 +66,13 @@ class View(directory.View):
     def resource_map(self):
         rmap = {}
         for item in utils.maybe_call(self.items):
-            rmap[item.id] = [r.UID for r in utils.portal_type_in_context(
-                item, 'seantis.reservation.resource'
-            )]
+            # if the item itself is a resource it won't be found by
+            # portal_type_in_context since that method searches 'inside'
+            if item.portal_type == 'seantis.reservation.resource':
+                rmap[item.id] = [item.UID]
+            else:
+                rmap[item.id] = [r.UID for r in utils.portal_type_in_context(
+                    item, 'seantis.reservation.resource'
+                )]
 
         return rmap
