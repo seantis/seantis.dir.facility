@@ -41,6 +41,15 @@
     max-width: 480px;   
 }
 
+.directoryInfo .category dt {
+    margin: 0;
+}
+
+.directoryInfo .category dd {
+    margin-left: 0;
+    margin-bottom: 12px;
+}
+
 /* infoblock in seantis.reservation */
 .multicalendar .directoryResult {
     display: none;   

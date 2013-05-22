@@ -1,6 +1,11 @@
 Changelog
 =========
 
+1.5.2 (unreleased)
+-----
+
+- Improves izug basetheme style for facility directory infos
+
 1.5.1
 -----
 
