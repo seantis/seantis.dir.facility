@@ -144,6 +144,8 @@ class DetailView(grok.Viewlet):
     @property
     def show_viewlet(self):
 
+        # TODO => all details, even the default ones, should be defined
+        # through an item detail viewlet
         man = ItemDetailViewletManager(self.context, self.request, self)
         man.update()
 
@@ -172,13 +174,10 @@ class DetailView(grok.Viewlet):
 
     @property
     def show_keywords(self):
-        if self.context.portal_type != 'seantis.dir.facility.item':
+        try:
+            return bool(self.categories)
+        except TypeError:
             return False
-
-        if not IDirectoryCategorized(self.context).categories():
-            return False
-
-        return True
 
     @property
     def categories(self):

@@ -1,12 +1,14 @@
 Changelog
 =========
 
-1.5.1
+1.5.1 (unreleased)
 -----
 
 - Show direct Reservation Resource descendants of the Facility Directory
   in the overview map. Before, only resources inside a Facility Item were
   considered.
+- Show categories in item detail for any IDirectoryCategorized item, not
+  just facility items.
 
 1.5
 ---
