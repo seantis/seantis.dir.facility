@@ -8,6 +8,11 @@ zug_require = [
     'ftw.contentmenu'
 ]
 
+tests_require = [
+    'collective.testcaselayer',
+    'plone.app.testing',
+]
+
 teamraum_require = [
     'plonetheme.teamraum'
 ]
@@ -42,10 +47,14 @@ setup(name='seantis.dir.facility',
           'seantis.dir.base>=1.5',
           'seantis.reservation',
           'collective.js.underscore',
-          'collective.js.fullcalendar'
+          'collective.js.fullcalendar',
           # -*- Extra requirements: -*-
       ],
-      extras_require=dict(zug=zug_require, teamraum=teamraum_require),
+      extras_require=dict(
+          tests=tests_require,
+          zug=zug_require,
+          teamraum=teamraum_require
+      ),
       entry_points="""
       # -*- Entry points: -*-
 
