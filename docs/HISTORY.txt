@@ -2,6 +2,11 @@
 Changelog
 =========
 
+1.5.4 (unreleased)
+------------------
+
+- Limit the reach of directory.css
+
 1.5.3
 -----
 

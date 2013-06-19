@@ -3,7 +3,7 @@
 
     <stylesheet
         id="++resource++seantis.dir.facility.css/izug/directory.css"
-        expression="python: object.restrictedTraverse('@@plone_interface_info').provides('seantis.dir.base.interfaces.IDirectoryRoot')"
+        expression="python: object.restrictedTraverse('@@plone_interface_info').provides('seantis.dir.facility.directory.IFacilityDirectory')"
         media="all" rel="stylesheet" rendering="link"/>
 
     <stylesheet 
