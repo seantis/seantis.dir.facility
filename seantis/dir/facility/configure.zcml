@@ -43,6 +43,14 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
     />
 
+    <genericsetup:registerProfile name="teamraum"
+        title="Seantis Dir Facility - for plonetheme.teamraum"
+        description="Plonetheme Teaumraum Profile for Seantis Dir Facility"
+        directory="profiles/teamraum"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot" 
+        />
+
     <!-- Upgrades -->
     <genericsetup:upgradeStep
         title="Moves to separate profiles for sunburst and izug.basetheme"

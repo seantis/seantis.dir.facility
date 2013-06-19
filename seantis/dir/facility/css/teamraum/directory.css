@@ -1,0 +1,122 @@
+/*
+
+    plonetheme.teamraum for seantis.dir.facility
+
+*/
+
+/* directory search header */
+#directorySearch {
+    background-color: #efefef !important;
+    border-color: #ddd !important;
+    border-width: 0 1px 1px 1px !important;
+    margin-top: -12px !important;
+}
+
+/* directory results */
+.directoryResult {
+    border: solid #dddddd 1px;
+    border-width: 1px 1px 1px 1px;
+    -webkit-box-shadow: 1px 1px 2px 0px #efefef !important;
+    -moz-box-shadow: 1px 1px 2px 0px #efefef !important;
+    -o-box-shadow: 1px 1px 2px 0px #efefef !important;
+    box-shadow: 1px 1px 2px 0px #efefef !important;
+    padding: 16px 16px;
+    color: #444444;
+    margin-top: 5px;
+    margin-bottom: 18px;
+    border-radius: 2px;
+}
+
+.directoryResult:hover,
+.directoryResult.groupSelection {
+    border-color: #aaa !important;
+    -webkit-box-shadow: 1px 1px 2px 0px #ddd !important;
+    -moz-box-shadow: 1px 1px 2px 0px #ddd !important;
+    -o-box-shadow: 1px 1px 2px 0px #ddd !important;
+    box-shadow: 1px 1px 2px 0px #ddd !important;
+}
+
+.directoryResult a:hover * {
+    color: #3e5786 !important;
+}
+
+#directoryResultList {
+    margin-top: 17px;   
+}
+
+#directoryResultList a:hover {
+    border: none !important;
+    text-decoration: none !important;
+}
+
+.directoryResult h2 {
+    padding-top: 0px;
+    margin-top: -5px;
+    margin-bottom: 10px;
+}
+
+.directoryMarker {
+    right: 5px;
+}
+
+div#landingPageText {
+    float: none;
+    width: 100%;
+}
+
+#default-cgmap {
+    margin-top: 10px !important;
+    height: 300px !important;   
+}
+
+.directoryImage {
+    padding: 0;
+    margin: 0 25px 5px 0;
+    float: left;
+}
+
+.directoryDescription {
+    float: left;
+    width: 50%;      
+}
+
+.seantis-overview-event {
+    height: 40px;
+    margin-top: -18px;
+}
+
+.resourceTitle {
+    margin-left: 10px;
+    margin-top: 5px;
+    float:left;
+    font-size: 16px;
+}
+
+.resourceAvailability {
+    margin-left: 20px;
+    margin-top: 5px;
+    float:left;
+    font-size: 16px;
+}
+
+.resourceDescription {
+    float:left;
+    margin-top: 5px;
+    margin-left: 25px;
+}
+
+.opening-hours {
+    color: #333;   
+}
+
+.facilityInfo {
+    float: left;
+    width: 60%;
+    margin: 0;
+}
+
+.facilityOverview {
+    float: right; 
+    width: 38%;
+    margin-top:16px;
+}

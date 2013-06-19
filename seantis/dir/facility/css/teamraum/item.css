@@ -1,0 +1,172 @@
+/*
+
+    plonetheme.teamraum for seantis.dir.facility
+
+*/
+
+/* resource listing overview*/
+
+.facilityOverview .fc-widget-header.fc-mon,
+.facilityOverview .fc-widget-header.fc-tue,
+.facilityOverview .fc-widget-header.fc-wed,
+.facilityOverview .fc-widget-header.fc-thu,
+.facilityOverview .fc-widget-header.fc-fri {
+    background-color: #efefef;
+    border: none;
+}
+
+.facilityOverview .fc-widget-header.fc-sat,
+.facilityOverview .fc-widget-header.fc-sun {
+    background-color: #ddd !important;   
+    border: none;
+}
+
+
+/* resource listing */
+
+.resourceItem.groupSelection,
+.resource-listing-entry:hover {
+    -webkit-box-shadow: none !important;
+       -moz-box-shadow: none !important;
+            box-shadow: none !important;
+}
+
+.directoryImage {
+    padding: 0;
+    margin: 20px 25px 0 0;
+    float: left;
+}
+
+.directoryResult {
+    border: solid #e6e6e6 1px;
+    border-width: 1px;
+    padding: 0 20px 10px 20px;
+    color: #3e5786;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    -o-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.directoryResult:hover {
+    border-color: #e6e6e6 !important;
+    box-shadow: none !important;
+}
+
+.directoryChildren a:hover * {
+    color: #4c7f9d !important;   
+}
+
+.directoryDescription {
+    float: left;
+    width: 50%;    
+    margin-top: 20px;
+    color: #3e5786;
+}
+
+.opening-hours {
+    color: #454545;
+}
+
+#directorySearch {
+    display: none;   
+}
+
+.resourceIcon {
+    height: 32px;
+    width: 32px;
+    background-image: url(/++resource++seantis.reservation.images/logo-big.gif);
+    float: left;
+}
+
+.resourceItem {
+    margin: 10px 0;
+    padding: 8px 0 8px 8px;
+    border: 1px solid #ddd;
+    border-width: 1px;
+    -webkit-box-shadow: 1px 1px 2px 0px #efefef !important;
+    -moz-box-shadow: 1px 1px 2px 0px #efefef !important;
+    -o-box-shadow: 1px 1px 2px 0px #efefef !important;
+    box-shadow: 1px 1px 2px 0px #efefef !important;
+}
+
+.resourceTitle {
+    margin-left: 10px;
+    margin-top: 6px;
+    float:left;
+    font-size: 16px;
+}
+
+.resourceAvailability {
+    margin-left: 20px;
+    margin-top: 5px;
+    float:left;
+    font-size: 16px;
+}
+
+.resourceItem:hover,
+.resourceItem.groupSelection {
+    border-color: #aaa;
+    -webkit-box-shadow: 1px 1px 2px 0px #ddd !important;
+    -moz-box-shadow: 1px 1px 2px 0px #ddd !important;
+    -o-box-shadow: 1px 1px 2px 0px #ddd !important;
+    box-shadow: 1px 1px 2px 0px #ddd !important;
+}
+
+.resourceDescription {
+    float:left;
+    margin-top: 7px;
+    margin-left: 25px;
+}
+
+.directoryDescription div:first-child {
+    font-size: 1.4em;
+}
+
+.directoryInfo {
+    padding-top: 0;
+    color: #454545;
+}
+
+.directoryInfo b {
+    color: #3e5786;
+}
+
+.directoryInfo h2 {
+    font-size: 1.2em !important;
+    font-weight: normal;
+    margin: 10px 0 5px 0;
+}
+
+.directoryInfo > div {
+    float: left;
+    padding-right: 40px;
+    padding: 15px 15px 15px 0;
+}
+
+.directoryInfo > div li {
+    margin-left: -9px;
+}
+
+.directoryInfo > div > h2, .directoryInfo > div > p {
+    max-width: 450px;   
+}
+
+.directoryChildren {
+    margin-top: 20px;
+}
+
+.facilityInfo {
+    float: left; 
+    margin: 0;
+    margin-top: 8px;
+    width: 60%;
+}
+
+.facilityOverview {
+    float: right; 
+    width: 38%; 
+    margin-top: 13px;
+}

@@ -1,6 +1,11 @@
 Changelog
 =========
 
+1.5.3 (unreleased)
+-----
+
+- Adds basic support for plonetheme.teamraum
+
 1.5.2
 -----
 

@@ -1,11 +1,15 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.5.2'
+version = '1.5.3'
 
 zug_require = [
     'izug.basetheme',
     'ftw.contentmenu'
+]
+
+teamraum_require = [
+    'plonetheme.teamraum'
 ]
 
 README = open("README.rst").read()
@@ -41,7 +45,7 @@ setup(name='seantis.dir.facility',
           'collective.js.fullcalendar'
           # -*- Extra requirements: -*-
       ],
-      extras_require=dict(zug=zug_require),
+      extras_require=dict(zug=zug_require, teamraum=teamraum_require),
       entry_points="""
       # -*- Entry points: -*-
 
