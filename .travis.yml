@@ -15,7 +15,7 @@ before_script:
     - psql -c 'create database reservations;' -U postgres
     - echo 'testdsn = "postgresql+psycopg2://postgres@127.0.0.1:5432/reservations"' >src/seantis.reservation/seantis/reservation/test_database.py
 
-script: bin/coverage bin/test -s seantis.dir.facility
+script: bin/coverage run bin/test -s seantis.dir.facility
 
 after_success:
     - pip install coveralls
