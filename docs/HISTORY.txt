@@ -2,7 +2,7 @@
 Changelog
 =========
 
-1.5.5 (unreleased)
+1.5.5
 -----
 
 - Honor newlines in the item description when rendering
