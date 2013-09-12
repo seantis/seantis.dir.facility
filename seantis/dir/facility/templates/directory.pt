@@ -31,7 +31,7 @@
                     
                         <div class="directoryDescription" tal:condition="python: item.description or item.opening_hours">
                             <div tal:condition="item/description">
-                                <p tal:content="item/description"/>
+                                <p tal:content="structure python: item.description.replace('\n', '<br />')"/>
                             </div>
                             <div class="opening-hours" tal:condition="item/opening_hours">
                                 <span i18n:translate="">Opening Hours</span>: <span tal:content="item/opening_hours"></span>
