@@ -98,3 +98,20 @@ def upgrade_1003_to_1004(context):
     setup.runImportStepFromProfile(
         'profile-seantis.dir.facility:default', 'typeinfo'
     )
+
+
+def upgrade_1004_to_1005(context):
+
+    # add collective.geo.behaviour
+    setup = getToolByName(context, 'portal_setup')
+    setup.runAllImportStepsFromProfile(
+        'profile-collective.geo.behaviour:default'
+    )
+
+    add_behavior_to_item(
+        context, 'seantis.dir.facility', IFacilityDirectoryItem
+    )
+
+    # update css and js
+    getToolByName(context, 'portal_css').cookResources()
+    getToolByName(context, 'portal_javascripts').cookResources()

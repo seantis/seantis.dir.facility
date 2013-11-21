@@ -29,6 +29,7 @@
      <element value="plone.app.content.interfaces.INameFromTitle" />
      <element value="collective.dexteritytextindexer.behavior.IDexterityTextIndexer" />
      <element value="seantis.dir.base.interfaces.IDirectoryCategorized" />
+     <element value="collective.geo.behaviour.interfaces.ICoordinates" />
  </property>
  
  <!-- View information -->

@@ -97,6 +97,15 @@
         profile="seantis.dir.facility:default">
     </genericsetup:upgradeStep>
 
+    <genericsetup:upgradeStep
+        title="Upgrade to seantis.dir.base 1.7"
+        description=""
+        source="1004"
+        destination="1005"
+        handler=".upgrades.upgrade_1004_to_1005"
+        profile="seantis.dir.facility:default">
+    </genericsetup:upgradeStep>
+
     <plone:behavior
         title="Facility Fields"
         description="Provides the fields of Facility Directory Item to any Dexterity type"

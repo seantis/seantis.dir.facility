@@ -1,8 +1,9 @@
 <metadata>
-    <version>1004</version>
+    <version>1005</version>
     <dependencies>
         <dependency>profile-plone.app.dexterity:default</dependency>
         <dependency>profile-seantis.dir.base:default</dependency>
         <dependency>profile-seantis.reservation:default</dependency>
+        <dependency>profile-collective.geo.behaviour:default</dependency>
     </dependencies>
 </metadata>

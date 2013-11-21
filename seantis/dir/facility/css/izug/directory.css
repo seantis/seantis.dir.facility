@@ -13,6 +13,10 @@
     padding-right: 1em;
 }
 
+#document-action-kml_download {
+    display: none;
+}
+
 #content #landingPageText #landingPageImage {
     float: left;
     margin-left: -5px;
