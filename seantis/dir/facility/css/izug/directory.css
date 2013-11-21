@@ -9,6 +9,10 @@
     margin-bottom: 20px;   
 }
 
+#landingPageImage {
+    padding-right: 1em;
+}
+
 #content #landingPageText #landingPageImage {
     float: left;
     margin-left: -5px;
