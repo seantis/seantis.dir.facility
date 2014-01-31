@@ -9,6 +9,7 @@ from plone.directives import form
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 from plone.app.layout.viewlets.interfaces import IAboveContentBody
+from plone.app.layout.globals.interfaces import IViewView
 
 from seantis.dir.base import item, core
 from seantis.dir.base.interfaces import (
@@ -151,6 +152,10 @@ class DetailView(grok.Viewlet):
 
         if man.viewlets:
             return True
+
+        # Only show on default view
+        if not IViewView.providedBy(self.view):
+            return False
 
         attributes = [
             'image',

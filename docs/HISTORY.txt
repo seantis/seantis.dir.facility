@@ -2,6 +2,12 @@
 Changelog
 =========
 
+1.7.1 (unreleased)
+------------------
+
+- Hide facility information viewlet on all but the default views.
+  [href]
+
 1.7
 ---
 
