@@ -153,6 +153,9 @@ class DetailView(grok.Viewlet):
         if man.viewlets:
             return True
 
+        if hasattr(self.view, 'show_facility_viewlet'):
+            return self.view.show_facility_viewlet
+
         # Only show on default view
         if not IViewView.providedBy(self.view):
             return False

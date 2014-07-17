@@ -2,6 +2,12 @@
 Changelog
 =========
 
+1.7.2 (unreleased)
+------------------
+
+- Add a switch to manually enable the facility information viewlet on a view.
+  [href]
+
 1.7.1 (2014-02-05)
 ------------------
 
