@@ -11,7 +11,8 @@ zug_require = [
 tests_require = [
     'collective.testcaselayer',
     'plone.app.testing',
-    'Products.PloneTestCase'
+    'Products.PloneTestCase',
+    'testing.postgresql',
 ]
 
 teamraum_require = [

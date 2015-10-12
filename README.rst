@@ -8,14 +8,23 @@ Build Status
 
 .. image:: https://secure.travis-ci.org/seantis/seantis.dir.facility.png
    :target: https://travis-ci.org/seantis/seantis.dir.facility
-   :alt: Build Status
+
+
+Coverage
+--------
+
+.. image:: https://coveralls.io/repos/seantis/seantis.dir.facility/badge.png?branch=master
+  :target: https://coveralls.io/r/seantis/seantis.dir.facility?branch=master
+  :alt: Project Coverage
+
 
 Latest PyPI Release
 -------------------
 
-.. image:: https://pypip.in/v/seantis.dir.facility/badge.png
+.. image:: https://img.shields.io/pypi/v/seantis.dir.facility.svg
     :target: https://crate.io/packages/seantis.dir.facility
-    :alt: Latest PyPI Release
+    :alt: Latest PyPI version
+
 
 Links
 =====
