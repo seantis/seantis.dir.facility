@@ -1,151 +1,206 @@
-/* @group seantis.dir.facility */
-
-/* @group facility directory columns */
-.facilityInfo {
+/* @group facility */
+.portaltype-seantis-dir-facility-directory,
+.portaltype-seantis-dir-facility-item {
+  .facilitySearch {
+    @include boxsizing(border-box);
     float: left;
-    width: 60%;
-    @include boxsizing(border-box);
-}
+    margin: 0 1rem 0 0;
+    width: 17%;
+  }
 
-.facilityOverview {
+  .facilityContent {
+    @include boxsizing(border-box);
+    float: left;
+    width: 50%;
+  }
+
+  .facilityOverview {
+    @include boxsizing(border-box);
     float: right;
-    width: 40%;
-    @include boxsizing(border-box);
-}
+    width: 30%;
+  }
 
-@media screen and (max-width: $screen-tablet-landscape) {
-    .facilityInfo, .facilityOverview {
-        float: none;
-        width: 100%;
+  @media screen and (max-width: $screen-tablet-landscape) {
+    .facilitySearch,
+    .facilityContent,
+    .facilityOverview {
+      float: none;
+      width: 100%;
     }
+  }
 }
 
-.portaltype-seantis-dir-facility-directory #directoryResultList {
-    width: 100%;
-    padding-right: 1em;
+.portaltype-seantis-dir-facility-item {
+  .facilityContent {
+    width: 67%;
+    @media screen and (max-width: $screen-tablet-landscape) {
+      width: 100%;
+    }
+  }
 }
-/* @end */
 
-/* @group facility overview */
+/* @group facility viewlets */
 .facilityOverview {
-    background-color: $lightgray;
-    padding: 1.5em;
+  margin-top: 1em;
 
-    #directoryResultMap {
-        width: 100%;
-        margin-bottom: 1em;
-    }
+  #seantis-overview-calendar {
+    margin-bottom: 1em;
+  }
 
-    h2 {
-        font-weight: normal;
-    }
+  #directoryResultMap {
+    margin-bottom: 1em;
+    width: 100%;
+  }
+
 }
 /* @end */
+
+
 
 /* @group facility results */
 .portaltype-seantis-dir-facility-directory,
 .portaltype-seantis-dir-facility-item {
 
-    .directoryResult {
-        padding: 1em;
+  .facilitySearch {
+    margin-top: 1em;
+
+    h2 {
+      @include gradient($navigation-gradient-from, $navigation-gradient-to);
+      border: 1px solid $lightgray2;
+      border-width: 1px 0;
+      font-size: 1em;
+      font-weight: normal;
+      margin-top: 0;
+      padding: .5em 1em;
     }
 
-    #directoryResultList a:hover * {
+    input {
+      @include boxsizing(border-box);
+      margin: 0 0 1em;
+      width: 100%;
+    }
+  }
+
+  #landingPageIntro {
+    margin-bottom: 2em;
+
+    h2,
+    div {
+      padding-left: 0;
+    }
+  }
+
+  .directoryResult,
+  .directoryChildren .resourceItem {
+    border-top: 1px solid $lightgray2;
+    padding: 1em .7em;
+
+    h2 {
+      margin-top: 0;
+    }
+  }
+
+  #directoryResultList,
+  .directoryChildren {
+    width: 100%;
+
+    a:hover {
+      text-decoration: none;
+
+      * {
         background-color: $lightgray;
+      }
     }
+  }
 
-    #directoryResultList a:hover .directoryDescription {
-        color: $text-color;
-    }
+  todo:
+  .directoryMarker {
+      top: 1em;
+      right: 1em;
+  }
 
-    .directoryResult h2 {
-        margin-top: 0;
-    }
+  .directoryImage {
+    float: left;
+    margin: 0 25px 5px 0;
+    padding: 0;
+  }
 
-    .directoryMarker {
-        top: 1em;
-        right: 1em;
-    }
+  .directoryDescription {
+    float: left;
+    width: 70%;
+  }
 
-    .directoryImage {
-        padding: 0;
-        margin: 0 25px 5px 0;
-        float: left;
-    }
+  .resourceDescription {
+    color: $text-color;
+  }
 
-    .directoryDescription {
-        float: left;
-        width: 70%;
-    }
+  .directoryChildren p {
+    margin-bottom: 1.2em;
+  }
+  .directoryChildren .resourceDescription {
+    display: inline-block;
+  }
 
-    .resourceDescription {
-        color: $darkgray;
-        max-width: 400px;
-        margin-bottom: 1em;
-    }
-    .directoryChildren h2 {
-        margin-top: 1em;
-    }
-    .directoryChildren p {
-        margin-bottom: 1.2em;
-    }
-    .directoryChildren .resourceTitle {
-        font-size: 1.1em;
-        font-weight: bold;
-    }
-    .directoryChildren .resourceDescription {
-        display: inline-block;
-    }
-    .directoryChildren .resourceDescription:hover {
-        text-decoration: none;
-    }
-
-    /* not nice, but seantis.reservation currently needs this */
-    .directoryResult.groupSelection,
-    .resourceItem.groupSelection {
-        @include boxshadow(none !important);
-        background-color: $lightgray !important;
-    }
-
-}
-.portaltype-seantis-dir-facility-item {
-    .directoryResult {
-        padding-bottom: 0;
-    }
-
-    .directoryChildren {
-        margin-left: 1em;
-    }
+  /* not nice, but seantis.reservation currently needs this */
+  .directoryResult.groupSelection,
+  .resourceItem.groupSelection {
+    @include boxshadow(none !important);
+    background-color: $lightgray !important;
+  }
 }
 /* @end */
 
 /* @group facility info viewlet */
 .multicalendar .directoryResult {
-    display: none;
+  display: none;
 }
 
 .singlecalendar,
 .reservation-search {
-    .directoryResult {
-        padding: 1em;
-        margin-bottom: $body-line-height;
-        background-color: $lightgray;
+  .directoryResult {
+    @include boxsizing(border-box);
 
-        h2 {
-            font-weight: normal;
-        }
+    float: left;
+    width: 66%;
 
-        .directoryImage,
-        .directoryInfo > div {
-            float: left;
-            margin: 0 2em 1em 0;
-            max-width: 50%;
-        }
+    .directoryInfo {
+      clear: both;
     }
 
-    .formTabs {
-        margin-bottom: 1em;
+    .directoryImage,
+    .directoryInfo > div {
+      float: left;
+      margin: 0 2em 1em 0;
+      max-width: 33%;
     }
+
+  }
+
+  .contact {
+    @include boxsizing(border-box);
+    float: right;
+    padding-left: 1.4em;
+    background-color: $lightgray;
+    width: 30%;
+  }
+
+  @media screen and (max-width: $screen-tablet-landscape) {
+    .directoryResult,
+    .contact,
+    .directoryInfo > div {
+      float: none !important;
+      width: 100%;
+    }
+  }
+
+  .formTabs {
+    margin-bottom: 1em;
+  }
+
+  .legend {
+    background-color: white;
+  }
+
 }
 /* @group */
 

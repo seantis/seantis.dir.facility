@@ -1,20 +1,24 @@
-<tal:block 
+<tal:block
     xmlns:tal="http://xml.zope.org/namespaces/tal"
-    xmlns:i18n="http://xml.zope.org/namespaces/i18n" 
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
     i18n:domain="seantis.dir.facility">
-    <div class="directoryResult" tal:condition="viewlet/show_viewlet">
-        <div class="directoryImage" tal:condition="context/image">
-            <img tal:replace="structure context/@@images/image/thumb" />
-        </div>
 
-        <div class="directoryDescription" tal:condition="python: context.description">
-            <div>
-                <p tal:content="context/description"/>
+
+
+    <div class="directoryResult" tal:condition="viewlet/show_viewlet">
+        <div>
+            <div class="directoryImage" tal:condition="context/image">
+                <img tal:replace="structure context/@@images/image/thumb" />
+            </div>
+
+            <div class="directoryDescription" tal:condition="python: context.description">
+                <div>
+                    <p tal:content="context/description"/>
+                </div>
             </div>
         </div>
 
-
-        <div style="clear: both;" tal:condition="python: context.description or context.opening_hours"></div>
+        <!-- <div style="clear: both;" tal:condition="python: context.description or context.opening_hours"></div> -->
 
         <div class="directoryInfo">
             <div class="category" tal:condition="viewlet/show_keywords">
@@ -34,10 +38,6 @@
                 <h2 i18n:translate="">Opening Hours</h2>
                 <p tal:content="context/opening_hours"></p>
             </div>
-            <div class="contact" tal:condition="context/contact">
-                <h2 i18n:translate="">Contact</h2>
-                <tal:block replace="structure context/contact"></tal:block>
-            </div>
             <div class="infrastructure" tal:condition="context/infrastructure">
                 <h2 i18n:translate="">Infrastructure</h2>
                 <tal:block replace="structure context/infrastructure"></tal:block>
@@ -55,6 +55,11 @@
         </div>
 
         <div style="clear: both;"></div>
+    </div>
+
+    <div class="contact" tal:condition="context/contact">
+        <h2 i18n:translate="">Contact</h2>
+        <tal:block replace="structure context/contact"></tal:block>
     </div>
 
     <div style="clear: both;"></div>

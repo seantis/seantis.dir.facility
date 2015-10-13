@@ -12,44 +12,43 @@
 </metal:block>
 
 <metal:main fill-slot="main">
-    <tal:main-macro metal:define-macro="main" tal:define="
-        resetlink python: context.absolute_url() + '?reset=true';
-    ">
+    <tal:main-macro metal:define-macro="main" tal:define="resetlink python: context.absolute_url() + '?reset=true';">
 
-        <div tal:replace="structure provider:plone.abovecontenttitle" />
-        
-        <a tal:attributes="href resetlink">
-            <h1 class="documentFirstHeading" tal:content="context/title" />
-        </a>
+        <!-- todo: searchbox? -->
 
-        <div tal:replace="structure provider:plone.belowcontenttitle" />
+        <div class="facilityContent">
+            <div tal:replace="structure provider:plone.abovecontenttitle" />
 
-        <div class="directoryItem facilityInfo">
+            <a tal:attributes="href resetlink">
+                <h1 class="documentFirstHeading" tal:content="context/title" />
+            </a>
 
-            <div tal:replace="structure provider:plone.abovecontentbody" />
+            <div tal:replace="structure provider:plone.belowcontenttitle" />
 
-            <div class="directoryChildren" tal:condition="resources" tal:define="
-                resources view/resources;
-                compare python: len(resources) > 1 and view.compare_link or None;
-                monthly_report python: len(resources) >= 1 and view.monthly_report_link or None;
-                ">
-                
-                <h2 i18n:translate="">Ressources</h2>
-                <p i18n:translate="">Click on a resource to get to the reservation view.</p>
+            <div class="directoryItem facilityInfo">
 
-                <a tal:attributes="href resource/absolute_url" tal:repeat="resource resources">
-                    <div class="resourceItem" tal:define="
-                        title resource/title;
-                        description resource/description;
-                    " tal:attributes="id resource/string_uuid">
-                        <div class="resourceIcon"></div>
-                        <div class="resourceTitle" tal:content="title"></div>
-                        <div class="resourceDescription" tal:content="description"></div>
+                <div tal:replace="structure provider:plone.abovecontentbody" />
 
-                        <div style="clear:both;"></div>
+                <div class="directoryChildren" tal:condition="resources" tal:define="
+                    resources view/resources;
+                    compare python: len(resources) > 1 and view.compare_link or None;
+                    monthly_report python: len(resources) >= 1 and view.monthly_report_link or None;
+                    ">
 
-                    </div>
-                </a>
+                    <a tal:attributes="href resource/absolute_url" tal:repeat="resource resources">
+                        <div class="resourceItem" tal:define="
+                            title resource/title;
+                            description resource/description;
+                        " tal:attributes="id resource/string_uuid">
+                            <div class="resourceIcon"></div>
+                            <h2 class="resourceTitle" tal:content="title" />
+                            <div class="resourceDescription" tal:content="description"></div>
+
+                            <div style="clear:both;"></div>
+
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -60,7 +59,7 @@
         <div style="clear: both;"></div>
 
         <div tal:replace="structure provider:plone.belowcontentbody" />
-    
+
     </tal:main-macro>
 </metal:main>
 

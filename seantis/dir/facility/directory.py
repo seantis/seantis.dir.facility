@@ -53,6 +53,8 @@ class View(directory.View):
 
     itemsperpage = 5
 
+    hide_search_viewlet = True
+
     @property
     def compare_link(self):
         resources = self.context.resources()
