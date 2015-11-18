@@ -179,7 +179,8 @@
   .contact {
     @include boxsizing(border-box);
     float: right;
-    padding-left: 1.4em;
+    padding: 1em;
+    margin-bottom: 1em;
     background-color: $lightgray;
     width: 30%;
   }
@@ -187,9 +188,10 @@
   @media screen and (max-width: $screen-tablet-landscape) {
     .directoryResult,
     .contact,
-    .directoryInfo > div {
+    .directoryResult .directoryInfo > div {
       float: none !important;
       width: 100%;
+      max-width: 100%;
     }
   }
 
