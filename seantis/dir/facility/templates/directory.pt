@@ -14,24 +14,32 @@
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main">
 
-        <div class="facilitySearch">
-            <h2 i18n:translate="">Search</h2>
-            <form>
-                <input type="text" name="searchtext" tal:attributes="value view/used_searchtext"/>
-                <input type="hidden" class="context" name="search" value="search"/>
-            </form>
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
+        <a tal:attributes="href python: context.absolute_url() + '?reset=true'">
+          <h1 class="documentFirstHeading" tal:content="context/title" />
+        </a>
+        <div tal:replace="structure provider:plone.belowcontenttitle" />
+        <div tal:replace="structure provider:plone.abovecontentbody" />
+
+        <div id="directorySearch">
+            <div class="seantis-directory-search-box">
+                <form method="GET">
+                    <div class="LSBox">
+                        <input type="text" id="searchtext" name="searchtext" tal:attributes="value view/used_searchtext" />
+                        <input type="hidden" name="search" value="search" />
+                    </div>
+                    <a tal:condition="view/used_searchtext" tal:attributes="href python: context.absolute_url() + '?reset=true'" class="reset"/>
+                </form>
+            </div>
+            <div class="visualClear" />
         </div>
 
         <div class="facilityContent">
-            <div tal:replace="structure provider:plone.abovecontenttitle" />
-            <a tal:attributes="href python: context.absolute_url() + '?reset=true'">
-              <h1 class="documentFirstHeading" tal:content="context/title" />
-            </a>
-            <div tal:replace="structure provider:plone.belowcontenttitle" />
-            <div tal:replace="structure provider:plone.abovecontentbody" />
-
             <div id="directoryInfo" class="facilityInfo">
                 <div id="directoryResultList">
+                    <div tal:condition="not: view/batch">
+                        <div class="noresults resultinfo" i18n:translate="">No results</div>
+                    </div>
                     <tal:block repeat="brain view/batch">
                         <a tal:define="item brain/getObject" tal:attributes="href item/absolute_url" >
                             <div class="directoryResult" tal:attributes="id item/id">

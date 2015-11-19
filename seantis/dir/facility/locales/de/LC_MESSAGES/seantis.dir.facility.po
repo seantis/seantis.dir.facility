@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-05-13 08:53+0000\n"
+"POT-Creation-Date: 2015-11-19 11:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,15 +14,11 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ./templates/itemdetail.pt:18
+#: ./templates/itemdetail.pt:21
 msgid "Category"
 msgstr "Kategorie"
 
-#: ./templates/item.pt:38
-msgid "Click on a resource to get to the reservation view."
-msgstr "Klicken Sie auf eine Ressource um zur Reservation zu gelangen."
-
-#: ./templates/itemdetail.pt:35
+#: ./templates/itemdetail.pt:57
 msgid "Contact"
 msgstr "Kontakt"
 
@@ -34,45 +30,40 @@ msgstr "Standort-Verzeichnis"
 msgid "Facility Directory Item"
 msgstr "Standort-Verzeichnis Eintrag"
 
-#: ./item.py:74
+#: ./item.py:75
 msgid "Facility Information"
 msgstr "Standort-Informationen"
 
 #: ./directory.py:21
-#: ./item.py:34
+#: ./item.py:35
 msgid "Image"
 msgstr "Bild"
 
-#: ./item.py:54
-#: ./templates/itemdetail.pt:39
+#: ./item.py:55
+#: ./templates/itemdetail.pt:38
 msgid "Infrastructure"
 msgstr "Ausstattung"
 
-#: ./item.py:47
+#: ./item.py:48
 msgid "Location / Contact"
 msgstr "Standort / Kontakt"
 
-#: ./item.py:68
-#: ./templates/itemdetail.pt:47
+#: ./templates/directory.pt:41
+msgid "No results"
+msgstr "Keine Resultate"
+
+#: ./item.py:69
+#: ./templates/itemdetail.pt:46
 msgid "Notes"
 msgstr "Bemerkungen"
 
-#: ./item.py:40
-#: ./templates/directory.pt:37
-#: ./templates/itemdetail.pt:31
+#: ./item.py:41
+#: ./templates/directory.pt:56
+#: ./templates/itemdetail.pt:34
 msgid "Opening Hours"
 msgstr "Öffnungszeiten"
 
-#: ./templates/item.pt:37
-msgid "Ressources"
-msgstr "Ressourcen"
-
-#: ./item.py:61
-#: ./templates/itemdetail.pt:43
+#: ./item.py:62
+#: ./templates/itemdetail.pt:42
 msgid "Terms of Use"
 msgstr "Nutzungsbedingungen"
-
-#: ./templates/directory.pt:44
-msgid "more..."
-msgstr "mehr..."
-

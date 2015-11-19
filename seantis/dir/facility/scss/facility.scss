@@ -1,27 +1,20 @@
 /* @group facility */
 .portaltype-seantis-dir-facility-directory,
 .portaltype-seantis-dir-facility-item {
-  .facilitySearch {
-    @include boxsizing(border-box);
-    float: left;
-    margin: 0 1rem 0 0;
-    width: 17%;
-  }
 
   .facilityContent {
     @include boxsizing(border-box);
     float: left;
-    width: 50%;
+    width: 60%;
   }
 
   .facilityOverview {
     @include boxsizing(border-box);
     float: right;
-    width: 30%;
+    width: 35%;
   }
 
   @media screen and (max-width: $screen-tablet-landscape) {
-    .facilitySearch,
     .facilityContent,
     .facilityOverview {
       float: none;
@@ -61,29 +54,7 @@
 .portaltype-seantis-dir-facility-directory,
 .portaltype-seantis-dir-facility-item {
 
-  .facilitySearch {
-    margin-top: 1em;
-
-    h2 {
-      @include gradient($navigation-gradient-from, $navigation-gradient-to);
-      border: 1px solid $lightgray2;
-      border-width: 1px 0;
-      font-size: 1em;
-      font-weight: normal;
-      margin-top: 0;
-      padding: .5em 1em;
-    }
-
-    input {
-      @include boxsizing(border-box);
-      margin: 0 0 1em;
-      width: 100%;
-    }
-  }
-
   #landingPageIntro {
-    margin-bottom: 2em;
-
     h2,
     div {
       padding-left: 0;
@@ -113,7 +84,6 @@
     }
   }
 
-  todo:
   .directoryMarker {
       top: 1em;
       right: 1em;

@@ -3,8 +3,6 @@
     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
     i18n:domain="seantis.dir.facility">
 
-
-
     <div class="directoryResult" tal:condition="viewlet/show_viewlet">
         <div>
             <div class="directoryImage" tal:condition="context/image">
@@ -17,8 +15,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- <div style="clear: both;" tal:condition="python: context.description or context.opening_hours"></div> -->
 
         <div class="directoryInfo">
             <div class="category" tal:condition="viewlet/show_keywords">
