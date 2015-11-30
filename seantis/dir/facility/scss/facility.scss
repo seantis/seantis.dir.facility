@@ -85,8 +85,8 @@
   }
 
   .directoryMarker {
-      top: 1em;
       right: 1em;
+      top: 1em;
   }
 
   .directoryImage {
@@ -100,6 +100,14 @@
     width: 70%;
   }
 
+  @media screen and (max-width: $screen-mobile) {
+    .directoryImage,
+    .directoryDescription {
+      float: none;
+      width: 100&
+    }
+  }
+
   .resourceDescription {
     color: $text-color;
   }
@@ -107,6 +115,7 @@
   .directoryChildren p {
     margin-bottom: 1.2em;
   }
+
   .directoryChildren .resourceDescription {
     display: inline-block;
   }
