@@ -14,8 +14,6 @@
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main" tal:define="resetlink python: context.absolute_url() + '?reset=true';">
 
-        <!-- todo: searchbox? -->
-
         <div class="facilityContent">
             <div tal:replace="structure provider:plone.abovecontenttitle" />
 
