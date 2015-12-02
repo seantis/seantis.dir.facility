@@ -52,13 +52,12 @@
         </div>
 
         <div style="clear: both;"></div>
-
-        <div class="contact" tal:condition="context/contact">
-            <h2 i18n:translate="">Contact</h2>
-            <tal:block replace="structure context/contact"></tal:block>
-        </div>
     </div>
 
+    <div class="contact" tal:condition="context/contact">
+        <h2 i18n:translate="">Contact</h2>
+        <tal:block replace="structure context/contact"></tal:block>
+    </div>
 
     <div style="clear: both;"></div>
 </tal:block>
