@@ -2,7 +2,7 @@
 Changelog
 =========
 
-1.8.1 (unreleased)
+1.8.1 (2015-12-10)
 ------------------
 
 - Use the search viewlet from seantis.dir.base.
