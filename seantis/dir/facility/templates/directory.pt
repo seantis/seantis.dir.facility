@@ -21,19 +21,6 @@
         <div tal:replace="structure provider:plone.belowcontenttitle" />
         <div tal:replace="structure provider:plone.abovecontentbody" />
 
-        <div id="directorySearch">
-            <div class="seantis-directory-search-box">
-                <form method="GET">
-                    <div class="LSBox">
-                        <input type="text" id="searchtext" name="searchtext" tal:attributes="value view/used_searchtext" />
-                        <input type="hidden" name="search" value="search" />
-                    </div>
-                    <a tal:condition="view/used_searchtext" tal:attributes="href python: context.absolute_url() + '?reset=true'" class="reset"/>
-                </form>
-            </div>
-            <div class="visualClear" />
-        </div>
-
         <div class="facilityContent">
             <div id="directoryInfo" class="facilityInfo">
                 <div id="directoryResultList">

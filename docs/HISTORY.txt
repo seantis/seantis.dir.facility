@@ -5,7 +5,8 @@ Changelog
 1.8.1 (unreleased)
 ------------------
 
-Nothing yet.
+- Use the search viewlet from seantis.dir.base.
+  [msom]
 
 1.8 (2015-12-02)
 ----------------
