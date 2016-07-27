@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.7.2'
+version = '1.7.3'
 
 zug_require = [
     'izug.basetheme',
@@ -11,6 +11,8 @@ zug_require = [
 tests_require = [
     'collective.testcaselayer',
     'plone.app.testing',
+    'Products.PloneTestCase',
+    'testing.postgresql',
 ]
 
 teamraum_require = [
